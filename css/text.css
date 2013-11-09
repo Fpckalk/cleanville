@@ -1,0 +1,16 @@
+body {
+	font-family: sans-serif;
+	color: #222222;
+}
+h1 {
+	font-size: 2em;
+	margin: 0;
+}
+h2 {
+	font-size: 1.8em;
+	margin: 0 0 1em 0;
+}
+h3 {
+	font-size: 1.6em;
+	margin: 0;
+}

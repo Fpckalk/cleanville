@@ -1,0 +1,64 @@
+/*=== GENERAL ===*/
+.window {
+	padding: 35px 15px;
+	display: table;
+	margin: 0 auto;
+	border: 1px solid #ddd;
+}
+/*=== HEADER ===*/
+header {
+	display: inline-block;
+	padding: 15px 25px;
+	width: 100%;
+	position: relative;
+}
+header h1 {
+	text-align: center;
+}
+header > a[role=back] {
+	display: none;
+	float: left;
+}
+header nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+	header nav li {
+		float: left;
+	}
+/*=== ARTICLE ===*/
+article {
+	position: relative;
+	display: none;
+}
+article.active {
+	display: block;
+}
+/*=== FORM ===*/
+form input {
+	display: block;
+	margin: 0;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+	form input:first-of-type {
+		border-radius: 5px 5px 0 0;
+	}
+	form input:last-of-type {
+		border-radius: 0 0 5px 5px;
+		border-top: 0;
+	}
+/*=== MISC ===*/
+/* Dashboard Menu */
+article .window nav li {
+	display: block;
+	float: left;
+	margin-right: 35px;
+}
+	article .window nav li:last-child {
+		margin-right: 0;
+	}
+	article .window nav li img {
+		display: block;
+	}
