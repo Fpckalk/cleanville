@@ -4,7 +4,16 @@
 	display: table;
 	margin: 0 auto;
 	border: 1px solid #ddd;
+	border-radius: 3px;
 }
+.fa {
+	color: #333333;
+}
+	.fa:hover {
+		color: #555555;
+	}
+
+
 /*=== HEADER ===*/
 header {
 	display: inline-block;
@@ -27,6 +36,16 @@ header nav {
 	header nav li {
 		float: left;
 	}
+
+/* Icons */
+nav[role=main] li {
+	margin: 15px 40px 0 0;
+}
+	nav[role=main] li:last-of-type {
+		margin-right: 25px;
+	}
+
+
 /*=== ARTICLE ===*/
 article {
 	position: relative;
@@ -35,6 +54,8 @@ article {
 article.active {
 	display: block;
 }
+
+
 /*=== FORM ===*/
 form input {
 	display: block;
@@ -49,9 +70,11 @@ form input {
 		border-radius: 0 0 5px 5px;
 		border-top: 0;
 	}
+
+
 /*=== MISC ===*/
 /* Dashboard Menu */
-article .window nav li {
+article[data-route=dashboard] .window nav li {
 	display: block;
 	float: left;
 	margin-right: 35px;
@@ -62,3 +85,12 @@ article .window nav li {
 	article .window nav li img {
 		display: block;
 	}
+
+article[data-route=dashboard] .window {
+	max-width: 80%;
+}
+
+/* Login window */
+article[data-route=login] .window {
+	max-width: 30%;
+}

@@ -12,6 +12,7 @@ var APP = APP || {};
 
 		init: function() {
 			APP.router.init();
+			APP.controller.enable();
 		}
 
 	};
@@ -31,6 +32,10 @@ var APP = APP || {};
 
 	                '/login': function() {
 	                	APP.page.login();
+	                },
+
+	                '/schoondorp': function() {
+	                	APP.page.schoondorp();
 	                },
 
 	                '*': function() {
@@ -74,6 +79,10 @@ var APP = APP || {};
     	},
 
     	login: function() {
+    		APP.router.change();
+    	},
+
+    	schoondorp: function() {
     		APP.router.change();
     	}
 
