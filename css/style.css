@@ -50,6 +50,9 @@ nav[role=main] li {
 article {
 	position: relative;
 	display: none;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
 }
 article.active {
 	display: block;
@@ -71,6 +74,25 @@ form input {
 		border-top: 0;
 	}
 
+/*=== GAME ===*/
+/* Summary */
+article[data-route=schoondorp] .sidebar {
+	position: absolute;
+	right: -215px;
+	height: 600px;
+}
+	article[data-route=schoondorp] .sidebar .content {
+		overflow: auto;
+		width: 215px;
+		height: 100%;
+		float: left;
+	}
+	article[data-route=schoondorp] .sidebar .pullout {
+		width: 20px;
+		height: 100%;
+		background-color: #222;
+		float: left;
+	}
 
 /*=== MISC ===*/
 /* Dashboard Menu */

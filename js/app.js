@@ -13,6 +13,11 @@ var APP = APP || {};
 		init: function() {
 			APP.router.init();
 			APP.controller.enable();
+		},
+
+		enable: function() {
+			var el = $('article[data-route=schoondorp] .sidebar .pullout')[0];
+			Hammer(el).on('drag', function() { APP.sidebar.pull(event); });
 		}
 
 	};
@@ -87,6 +92,18 @@ var APP = APP || {};
     	}
 
     };
+
+
+    APP.sidebar = {
+
+    	pull: function(e) {
+    		console.log(e);
+    		var distance = e.gesture.deltaX;
+    		$('.sidebar').css("right", distance);
+    	}
+
+    }
+
 
     $(document).ready(function() {
     	APP.controller.init();
