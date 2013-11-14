@@ -81,6 +81,9 @@ article[data-route=schoondorp] .sidebar {
 	right: -215px;
 	height: 600px;
 }
+	article[data-route=schoondorp] .sidebar.animated {
+		transition: .2s;
+	}
 	article[data-route=schoondorp] .sidebar .content {
 		overflow: auto;
 		width: 215px;

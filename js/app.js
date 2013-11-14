@@ -16,8 +16,9 @@ var APP = APP || {};
 		},
 
 		enable: function() {
-			var el = $('article[data-route=schoondorp] .sidebar .pullout')[0];
-			Hammer(el).on('drag', function() { APP.sidebar.pull(event); });
+			var sidebar = $('article[data-route=schoondorp] .sidebar .pullout')[0];
+			Hammer(sidebar).on('drag', function() { APP.sidebar.drag(event); });
+			Hammer(sidebar).on('dragend', function() { APP.sidebar.dragEnd(event); });
 		}
 
 	};
@@ -96,10 +97,31 @@ var APP = APP || {};
 
     APP.sidebar = {
 
-    	pull: function(e) {
-    		console.log(e);
-    		var distance = e.gesture.deltaX;
-    		$('.sidebar').css("right", distance);
+    	drag: function(e) {
+    		var sidebarWidth = $('.sidebar .content').width(),
+    			distance = e.gesture.deltaX + sidebarWidth;
+
+    		$('.sidebar').removeClass("animated");
+    		console.log(distance);
+    		if(e.gesture.direction === "right") {
+    			distance -= sidebarWidth;
+    		}
+
+    		if( distance > 0 && distance < sidebarWidth ) {
+				$('.sidebar').css("right", -distance);
+    		}
+    	},
+
+    	dragEnd: function(e) {
+    		var	sidebarWidth = $('.sidebar .content').width(),
+    			distance = e.gesture.deltaX + sidebarWidth;
+
+			$('.sidebar').addClass("animated");
+    		if(distance < 80) {
+    			$('.sidebar').css("right", 0);
+    		} else {
+    			$('.sidebar').css("right", -sidebarWidth)
+    		}
     	}
 
     }
