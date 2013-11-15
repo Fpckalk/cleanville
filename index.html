@@ -92,7 +92,33 @@
 	</article>
 
 	<article data-route="usage">
-		
+		<nav>
+			<ul>
+				<li><a href="#">Overzicht</a></li>
+				<li><a href="#">Water</a></li>
+				<li><a href="#">Energie</a></li>
+				<li><a href="#">Voedsel</a></li>
+				<li><a href="#">Afval</a></li>
+			</ul>
+		</nav>
+		<section data-bind="overzicht">
+			<div class="goal">
+				<span>50 euro besparen</span>
+			</div>
+			<figure class="graph">
+				<img src="http://lorempixel.com/400/200" alt="placeholder">
+				<input type="range" min="jaar" max="dag">
+			</figure>
+			<aside class="tip">
+				<h1>Tip</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, sint, voluptatibus, mollitia ratione voluptate ipsam dignissimos quasi deserunt aliquam unde nobis quaerat veritatis cupiditate vitae et cum ullam obcaecati corporis.</p>
+				<a href="#">Bekijk meer tips</a>
+			</aside>
+		</section>
+		<section data-bind="water"></section>
+		<section data-bind="energie"></section>
+		<section data-bind="voedsel"></section>
+		<section data-bind="afval"></section>
 	</article>
 
 	<!-- Libs -->

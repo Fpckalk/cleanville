@@ -100,6 +100,12 @@ article[data-route=schoondorp] .sidebar {
 		float: left;
 	}
 
+/*=== USAGE ===*/
+/* Local nav */
+article[data-route=usage] nav {
+	float: left;
+}
+
 /*=== MISC ===*/
 /* Dashboard Menu */
 article[data-route=dashboard] .window nav li {
