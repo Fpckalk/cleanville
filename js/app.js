@@ -44,6 +44,10 @@ var APP = APP || {};
 	                	APP.page.schoondorp();
 	                },
 
+	                '/usage': function() {
+	                	APP.page.usage();
+	                },
+
 	                '*': function() {
 	                    APP.page.dashboard();
 	                }
@@ -90,6 +94,10 @@ var APP = APP || {};
 
     	schoondorp: function() {
     		APP.router.change();
+    	},
+
+    	usage: function() {
+    		APP.router.change();
     	}
 
     };
@@ -109,6 +117,7 @@ var APP = APP || {};
 
     		if( distance > 0 && distance < sidebarWidth ) {
 				$('.sidebar').css("right", -distance);
+				console.log($('.sidebar').css("right"));
     		}
     	},
 
