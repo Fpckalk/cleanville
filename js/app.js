@@ -48,6 +48,10 @@ var APP = APP || {};
 	                	APP.page.usage();
 	                },
 
+	                '/explanation': function() {
+	                	APP.page.explanation();
+	                },
+
 	                '*': function() {
 	                    APP.page.dashboard();
 	                }
@@ -97,6 +101,10 @@ var APP = APP || {};
     	},
 
     	usage: function() {
+    		APP.router.change();
+    	},
+
+    	explanation: function() {
     		APP.router.change();
     	}
 
