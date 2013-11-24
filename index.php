@@ -1,11 +1,11 @@
 <?php include_once('inc/header.php') ?>
 
-	<article data-route="dashboard">
+	<article class="dashboard">
 		<div class="window">
 			<nav>
 				<ul>
 					<li>
-						<a href="login.php">
+						<a href="schoondorp.php">
 							<img src="http://lorempixel.com/105/105" alt="">
 							<span>Schoondorp</span>
 						</a>
@@ -13,13 +13,19 @@
 					<li>
 						<a href="stats.php">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Dataverbruik</span>
+							<span>Data usage</span>
+						</a>
+					</li>
+					<li>
+						<a href="messages.php">
+							<img src="http://lorempixel.com/105/105" alt="">
+							<span>Messages</span>
 						</a>
 					</li>
 					<li>
 						<a href="#">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Berichten</span>
+							<span>Profile</span>
 						</a>
 					</li>
 					<li>
@@ -31,7 +37,19 @@
 					<li>
 						<a href="explanation.php">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Uitleg/Demo</span>
+							<span>Explanation</span>
+						</a>
+					</li>
+					<li>
+						<a href="settings.php#/general">
+							<img src="http://lorempixel.com/105/105" alt="">
+							<span>Settings</span>
+						</a>
+					</li>
+					<li>
+						<a href="sensors.php">
+							<img src="http://lorempixel.com/105/105" alt="">
+							<span>Sensors</span>
 						</a>
 					</li>
 				</ul>

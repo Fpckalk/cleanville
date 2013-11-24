@@ -1,6 +1,6 @@
 <?php include_once('inc/header.php') ?>
 
-	<article data-route="usage">
+	<article>
 		<nav>
 			<ul>
 				<li><a href="#">Overzicht</a></li>

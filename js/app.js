@@ -30,33 +30,29 @@ var APP = APP || {};
 	    // and add functions to the links called.
 	    // Thus you can 'switch' pages without using another request.
 	    init: function() {
-	            routie({
+	        routie({
 
-	                '/dashboard': function() {
-	                	APP.page.dashboard();
-	                },
+	        	'/general': function() {
+	        		APP.settings.general();
+	        	},
 
-	                '/login': function() {
-	                	APP.page.login();
-	                },
+	        	'/notifications': function() {
+	        		APP.settings.notifications();
+	        	},
 
-	                '/schoondorp': function() {
-	                	APP.page.schoondorp();
-	                },
+	        	'/linkedmedia': function() {
+	        		APP.settings.linkedmedia();
+	        	},
 
-	                '/usage': function() {
-	                	APP.page.usage();
-	                },
+	        	'/contact': function() {
+	        		APP.settings.contact();
+	        	},
 
-	                '/explanation': function() {
-	                	APP.page.explanation();
-	                },
+	            '*': function() {
+	            	
+	            }
 
-	                '*': function() {
-	                    APP.page.dashboard();
-	                }
-
-	            });
+	        });
 	    },
 
 	    // Checks whether the current 'page' should be active
@@ -65,6 +61,8 @@ var APP = APP || {};
 	        var route = window.location.hash.slice(2),
                 articles = $('article[data-route]'),
                 article = $('[data-route=' + route + ']')[0];
+
+            console.log(article);
 
 	        // Show active article, hide all other
 	        if (article) {
@@ -78,7 +76,7 @@ var APP = APP || {};
 			if (!route) {
 				articles[0].classList.add('active');
 			} else {
-				$('header > a[role=back]').show();
+
 			}
 
 		}
@@ -86,25 +84,21 @@ var APP = APP || {};
 	};
 
 
-    APP.page = {
+    APP.settings = {
 
-    	dashboard: function() {
+    	general: function() {
     		APP.router.change();
     	},
 
-    	login: function() {
+    	notifications: function() {
     		APP.router.change();
     	},
 
-    	schoondorp: function() {
+    	linkedmedia: function() {
     		APP.router.change();
     	},
 
-    	usage: function() {
-    		APP.router.change();
-    	},
-
-    	explanation: function() {
+    	contact: function() {
     		APP.router.change();
     	}
 

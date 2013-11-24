@@ -1,6 +1,6 @@
 <?php include_once('inc/header.php') ?>
 
-	<article data-route="explanation">
+	<article>
 		<video src=""></video>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, voluptatem, optio, assumenda facere esse distinctio officia tempore corrupti commodi reprehenderit dolorum dicta quidem earum sint sapiente iusto enim culpa cumque.</p>
 		

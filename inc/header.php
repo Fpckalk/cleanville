@@ -1,3 +1,24 @@
+<?php
+	session_start();
+
+	// Assigning login value to Session
+	if(isset($_GET['login'])) {
+		$_SESSION['login'] = $_GET['login'];
+	}
+
+	// Check if logged in or on login page to prevent loop
+	// If not user will be redirected to login
+	$page = explode("/", $_SERVER['REQUEST_URI']);
+	$page = end($page);
+
+	if(isset($_SESSION['login'])) {
+		
+	} else if ($page == "login.php") {
+		
+	} else {
+		header("Location: ./login.php");
+	}
+?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -9,7 +30,9 @@
 <body>
 
 	<header>
-		<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
+		<?php if($page): ?>
+			<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
+		<?php endif; ?>
 		<h1 data-bind="title">Dashboard</h1>
 		<nav role="main">
 			<ul>
