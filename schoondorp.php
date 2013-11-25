@@ -17,7 +17,12 @@
 				</ul>
 			</div>
 		</aside>
-		<div class="game"></div>
+		<div class="game">
+			<div id="bg"></div>
+			<div class="element house">
+				<img src="http://placehold.it/120x120&text=House1" alt="">
+			</div>
+		</div>
 	</article>
 
 <?php include_once('inc/footer.php') ?>

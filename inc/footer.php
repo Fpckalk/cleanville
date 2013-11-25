@@ -6,6 +6,7 @@
 	<script src="lib/backbone-min.js"></script>
 
 	<!-- Main application -->
+	<script src="js/game.js"></script>
 	<script src="js/app.js"></script>
 
 </body>

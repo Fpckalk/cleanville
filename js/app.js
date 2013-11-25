@@ -12,16 +12,36 @@ var APP = APP || {};
 
 		init: function() {
 			APP.router.init();
+			APP.layout.hacks();
+			GAME.controller.init();
 			APP.controller.enable();
 		},
 
 		enable: function() {
-			var sidebar = $('article[data-route=schoondorp] .sidebar .pullout')[0];
+			var sidebar = $('article .sidebar .pullout')[0];
 			Hammer(sidebar).on('drag', function() { APP.sidebar.drag(event); });
 			Hammer(sidebar).on('dragend', function() { APP.sidebar.dragEnd(event); });
 		}
 
 	};
+
+	APP.layout = {
+
+		hacks: function() {
+			var a = document.getElementsByTagName("a");
+			for(var i=0;i<a.length;i++) {
+			    if(!a[i].onclick && a[i].getAttribute("target") != "_blank") {
+			        a[i].onclick=function() {
+		                window.location=this.getAttribute("href");
+		                return false; 
+			        }
+			    }
+			}
+			document.ontouchmove = function(e) {e.preventDefault()};
+			$('.sidebar .content').ontouchmove = function(e) {e.stopPropagation()};
+		}
+
+	}
 
 
 	APP.router = {
