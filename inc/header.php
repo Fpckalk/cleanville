@@ -9,7 +9,7 @@
 	// Check if logged in or on login page to prevent loop
 	// If not user will be redirected to login
 	$page = explode("/", $_SERVER['REQUEST_URI']);
-	$page = end($page);
+	$page = explode("?", end($page))[0];
 
 	if(isset($_SESSION['login'])) {
 		
@@ -30,7 +30,7 @@
 <body>
 
 	<header>
-		<?php if($page): ?>
+		<?php if($page && $page != 'index.php'): ?>
 			<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
 		<?php endif; ?>
 		<h1 data-bind="title">Dashboard</h1>
