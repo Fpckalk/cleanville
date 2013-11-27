@@ -8,12 +8,17 @@ var GAME = GAME || {};
 	GAME.controller = {
 
 		init: function() {
-			console.log('Game on');
 			GAME.sprite.houseLevel();
-		}, 
+			this.enable();
+		},
 
+		enable: function() {
+			var field = $('article #game');
+			Hammer(field[0]).on('pinchin', function() { GAME.gestures.overviewVillages(event); });
+			Hammer(field[0]).on('pinchout', function() { GAME.gestures.localVillage(event); });
+		}
 
-	}
+	};
 
 
 	GAME.sprite = {
@@ -34,6 +39,25 @@ var GAME = GAME || {};
 			});			
 		}
 
-	}
+	};
+
+
+	GAME.gestures = {
+
+		overviewVillages: function(e) {
+			if($('#game #local').hasClass('visible')) {
+				$('#game #local').removeClass('visible');
+				$('#game #overview').addClass('visible');
+			}
+		},
+
+		localVillage: function(e) {
+			if($('#game #overview').hasClass('visible')) {
+				$('#game #overview').removeClass('visible');
+				$('#game #local').addClass('visible');
+			}
+		}
+
+	};
 
 })();

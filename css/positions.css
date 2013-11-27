@@ -1,0 +1,17 @@
+/* Local Elements */
+.element {
+	position: absolute;
+}
+
+.house {
+	z-index: 1;
+	top: 5%;
+	left: 40%;
+}
+
+/* Overview Elements */
+.village {
+	z-index: 1;
+	top: 5%;
+	left: 40%;
+}

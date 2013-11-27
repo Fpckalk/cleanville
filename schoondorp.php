@@ -17,11 +17,22 @@
 				</ul>
 			</div>
 		</aside>
-		<div class="game">
-			<div id="bg"></div>
-			<div class="element house">
-				<img src="http://placehold.it/120x120&text=House1" alt="">
+		<div id="game" class="game local">
+
+			<div id="local" class="visible">
+				<div class="bg"></div>
+				<div class="element house">
+					<img src="http://placehold.it/120x120&text=House1" alt="">
+				</div>
 			</div>
+
+			<div id="overview">
+				<div class="bg"></div>
+				<div class="element village">
+					<img src="http://placehold.it/100x100&text=My+House" alt="">
+				</div>
+			</div>
+			
 		</div>
 	</article>
 
