@@ -68,6 +68,26 @@ var APP = APP || {};
 	        		APP.settings.contact();
 	        	},
 
+	        	'/summary': function() {
+	        		APP.stats.general();
+	        	},
+
+	        	'/water': function() {
+	        		APP.stats.water();
+	        	},
+
+	        	'/energy': function() {
+	        		APP.stats.energy();
+	        	},
+
+	        	'/food': function() {
+	        		APP.stats.food();
+	        	},
+
+	        	'/waste': function() {
+	        		APP.stats.waste();
+	        	},
+
 	            '*': function() {
 	            	
 	            }
@@ -123,6 +143,30 @@ var APP = APP || {};
     	}
 
     };
+
+    APP.stats = {
+
+    	general: function() {
+    		APP.router.change();
+    	},
+
+    	water: function() {
+    		APP.router.change();
+    	},
+
+    	energy: function() {
+    		APP.router.change();
+    	},
+
+    	food: function() {
+    		APP.router.change();
+    	},
+
+    	waste: function() {
+    		APP.router.change();
+    	}
+
+    }
 
 
     APP.sidebar = {

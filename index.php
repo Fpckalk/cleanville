@@ -11,7 +11,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="stats.php">
+						<a href="stats.php#/summary">
 							<img src="http://lorempixel.com/105/105" alt="">
 							<span>Data usage</span>
 						</a>
