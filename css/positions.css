@@ -2,11 +2,31 @@
 .element {
 	position: absolute;
 }
+.info {
+	display: none;
+	z-index: 50;
+}
+	.info.show {
+		display: block;
+		position: absolute;
+	}
 
 .house {
 	z-index: 1;
-	top: 5%;
+	top: 10%;
 	left: 40%;
+}
+
+.windmill {
+	z-index: 2;
+	top: 1%;
+	left: 57%;
+}
+
+.river {
+	z-index: 3;
+	top: 60%;
+	left: 0;
 }
 
 /* Overview Elements */

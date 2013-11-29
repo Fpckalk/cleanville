@@ -1,5 +1,8 @@
 var GAME = GAME || {};
 
+//==== TO DO ====//
+// - Element tap popup
+
 'use strict';
 
 (function() {
@@ -13,15 +16,31 @@ var GAME = GAME || {};
 		},
 
 		enable: function() {
-			var field = $('article #game');
-			Hammer(field[0]).on('pinchin', function() { GAME.gestures.overviewVillages(event); });
-			Hammer(field[0]).on('pinchout', function() { GAME.gestures.localVillage(event); });
+			var field = $('article #game'),
+				elTap = $('.fa-circle'),
+				body = $('.bg');
+
+			Hammer(field[0]).on('swipeup', function() { GAME.gestures.overviewVillages(event); });
+			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
+
+			elTap.on('click', function() { GAME.sprite.showInfo(event); });
+			body.on('click', function() { GAME.sprite.hideInfo(event); });
 		}
 
 	};
 
 
 	GAME.sprite = {
+
+		showInfo: function(e) {
+			console.log(e.target); //Works!
+			this.hideInfo();
+			$('.info').addClass('show');
+		},
+
+		hideInfo: function(e) {
+			$('.info').removeClass('show');
+		},
 
 		houseLevel: function() {
 			levels = {

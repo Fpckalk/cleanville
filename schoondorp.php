@@ -21,8 +21,22 @@
 
 			<div id="local" class="visible">
 				<div class="bg"></div>
+				<div class="info">
+					<h3>Energy usage</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, enim, tenetur iste magnam totam eveniet labore quas dolor animi culpa veritatis veniam corporis rerum quasi sed illum omnis nesciunt deleniti!</p>
+				</div>
+
 				<div class="element house">
 					<img src="http://placehold.it/120x120&text=House1" alt="">
+					<i class="fa fa-circle"></i>
+				</div>
+
+				<div class="element river">
+					<img src="http://placehold.it/600x120&text=River1" alt="">
+				</div>
+
+				<div class="element windmill">
+					<img src="http://placehold.it/120x200&text=Windmill1" alt="">
 				</div>
 			</div>
 
