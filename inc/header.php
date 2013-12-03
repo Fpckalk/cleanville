@@ -36,14 +36,15 @@
 <body>
 
 	<header>
-		<?php if($page && $page != 'index.php'): ?>
+		<?php if($page && $page != 'index.php' && $page != 'login.php'): ?>
 			<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
 		<?php endif; ?>
 		<h1 data-bind="title">Dashboard</h1>
-		<nav role="main">
-			<ul>
-				<li><a href="#"><i class="fa fa-cog fa-2x"></i></a></li>
-				<li><a href="#"><i class="fa fa-user fa-2x"></i></a></li>
-			</ul>
-		</nav>
+		<?php if($page == 'profile.php'): ?>
+			<nav role="main">
+				<ul>
+					<li><a href="#/edit"><i class="fa fa-edit fa-2x"></i></a></li>
+				</ul>
+			</nav>
+		<?php endif; ?>
 	</header>

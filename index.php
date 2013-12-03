@@ -23,7 +23,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="profile.php#/profile">
 							<img src="http://lorempixel.com/105/105" alt="">
 							<span>Profile</span>
 						</a>

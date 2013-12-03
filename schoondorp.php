@@ -42,6 +42,12 @@
 
 			<div id="overview">
 				<div class="bg"></div>
+				<div class="info">
+					<div class="family">
+						<h3>Family Kalk</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, dolorum, illum dicta expedita perferendis voluptatum quisquam mollitia sunt ipsa molestiae error dolores veniam voluptates dignissimos quas cum sint aspernatur blanditiis.</p>
+					</div>
+				</div>
 				<div class="element village">
 					<img src="http://placehold.it/100x100&text=My+House" alt="">
 				</div>

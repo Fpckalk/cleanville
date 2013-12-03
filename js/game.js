@@ -1,7 +1,7 @@
 var GAME = GAME || {};
 
 //==== TO DO ====//
-// - Element tap popup
+//
 
 'use strict';
 
@@ -18,12 +18,14 @@ var GAME = GAME || {};
 		enable: function() {
 			var field = $('article #game'),
 				elTap = $('.fa-circle'),
+				famTap = $('#overview img'),
 				body = $('.bg');
 
 			Hammer(field[0]).on('swipeup', function() { GAME.gestures.overviewVillages(event); });
 			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event); });
+			famTap.on('click', function() { GAME.sprite.showInfo(event); });
 			body.on('click', function() { GAME.sprite.hideInfo(event); });
 		}
 
@@ -33,7 +35,7 @@ var GAME = GAME || {};
 	GAME.sprite = {
 
 		showInfo: function(e) {
-			console.log(e.target); //Works!
+			console.log(e.target);
 			this.hideInfo();
 			$('.info').addClass('show');
 		},
@@ -67,6 +69,7 @@ var GAME = GAME || {};
 			if($('#game #local').hasClass('visible')) {
 				$('#game #local').removeClass('visible');
 				$('#game #overview').addClass('visible');
+				GAME.sprite.hideInfo();
 			}
 		},
 
@@ -74,6 +77,7 @@ var GAME = GAME || {};
 			if($('#game #overview').hasClass('visible')) {
 				$('#game #overview').removeClass('visible');
 				$('#game #local').addClass('visible');
+				GAME.sprite.hideInfo();
 			}
 		}
 

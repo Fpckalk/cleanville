@@ -16,8 +16,7 @@
 				<span>50 euro besparen</span>
 			</div>
 			<figure class="graph">
-				<img src="http://lorempixel.com/500/300" alt="placeholder">
-				<input type="range" min="jaar" max="dag">
+				
 			</figure>
 			<aside class="tip">
 				<h1>Tip</h1>
@@ -33,8 +32,7 @@
 				<span>50 euro besparen</span>
 			</div>
 			<figure class="graph">
-				<img src="http://lorempixel.com/500/300" alt="placeholder">
-				<input type="range" min="jaar" max="dag">
+				
 			</figure>
 			<aside class="tip">
 				<h1>Tip</h1>
@@ -50,8 +48,7 @@
 				<span>50 euro besparen</span>
 			</div>
 			<figure class="graph">
-				<img src="http://lorempixel.com/500/300" alt="placeholder">
-				<input type="range" min="jaar" max="dag">
+				
 			</figure>
 			<aside class="tip">
 				<h1>Tip</h1>
@@ -67,8 +64,7 @@
 				<span>50 euro besparen</span>
 			</div>
 			<figure class="graph">
-				<img src="http://lorempixel.com/500/300" alt="placeholder">
-				<input type="range" min="jaar" max="dag">
+				
 			</figure>
 			<aside class="tip">
 				<h1>Tip</h1>
@@ -84,8 +80,7 @@
 				<span>50 euro besparen</span>
 			</div>
 			<figure class="graph">
-				<img src="http://lorempixel.com/500/300" alt="placeholder">
-				<input type="range" min="jaar" max="dag">
+				
 			</figure>
 			<aside class="tip">
 				<h1>Tip</h1>

@@ -43,6 +43,56 @@ var APP = APP || {};
 
 	}
 
+	APP.dataviz = {
+
+		draw: function() {
+
+			// Remove any previous graphs
+			d3.select(".graph svg")
+				.remove();
+
+			var route = window.location.hash.slice(2);
+
+			var margin = {top: 20, right: 20, bottom: 30, left: 40},
+				width = 500 - margin.left - margin.right,
+				height = 300 - margin.top - margin.bottom;
+			
+			var svg = d3.select("article[data-route=" + route + "] .graph")
+				.append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			var yScale = d3.scale.linear()
+				.domain([0, 10])
+				.range([height, 0]);
+
+			var xScale = d3.scale.linear()
+				.domain([0, 10])
+				.range([0, width]);
+
+			var yAxis = d3.svg.axis()
+				.scale(yScale)
+				.orient("left");
+
+			var xAxis = d3.svg.axis()
+				.scale(xScale)
+				.orient("bottom");
+
+			svg.append("g")
+				.attr("class", "y axis")
+				.call(yAxis);
+
+			svg.append("g")
+				.attr("class", "x axis")
+				.attr("transform", "translate(0," + height + ")")
+				.call(xAxis);
+
+		}
+
+	}
+
 
 	APP.router = {
 
@@ -86,6 +136,14 @@ var APP = APP || {};
 
 	        	'/waste': function() {
 	        		APP.stats.waste();
+	        	},
+
+	        	'/profile': function() {
+	        		APP.profile.profile();
+	        	},
+
+	        	'/edit': function() {
+	        		APP.profile.edit();
 	        	},
 
 	            '*': function() {
@@ -148,21 +206,38 @@ var APP = APP || {};
 
     	general: function() {
     		APP.router.change();
+    		APP.dataviz.draw();
     	},
 
     	water: function() {
     		APP.router.change();
+    		APP.dataviz.draw();
     	},
 
     	energy: function() {
     		APP.router.change();
+    		APP.dataviz.draw();
     	},
 
     	food: function() {
     		APP.router.change();
+    		APP.dataviz.draw();
     	},
 
     	waste: function() {
+    		APP.router.change();
+    		APP.dataviz.draw();
+    	}
+
+    };
+
+    APP.profile = {
+
+    	profile: function() {
+    		APP.router.change();
+    	},
+
+    	edit: function() {
     		APP.router.change();
     	}
 
