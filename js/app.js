@@ -51,6 +51,8 @@ var APP = APP || {};
 			d3.select(".graph svg")
 				.remove();
 
+			var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 			var route = window.location.hash.slice(2);
 
 			var margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -88,6 +90,21 @@ var APP = APP || {};
 				.attr("class", "x axis")
 				.attr("transform", "translate(0," + height + ")")
 				.call(xAxis);
+
+			svg.selectAll("rect")
+				.data(data)
+				.enter()
+				.append("rect")
+				.attr("width", 10)
+				.attr("height", function(d) {
+					return d * 10;
+				})
+				.attr("y", function(d) {
+					return height - (d * 10);
+				})
+				.attr("x", function(d) {
+					return xScale(d);
+				});
 
 		}
 
