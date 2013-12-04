@@ -45,13 +45,13 @@ var APP = APP || {};
 
 	APP.dataviz = {
 
-		draw: function() {
+		draw: function(dataset) {
 
 			// Remove any previous graphs
 			d3.select(".graph svg")
 				.remove();
 
-			var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+			var data = dataset;
 
 			var route = window.location.hash.slice(2);
 
@@ -222,28 +222,33 @@ var APP = APP || {};
     APP.stats = {
 
     	general: function() {
+    		var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     		APP.router.change();
-    		APP.dataviz.draw();
+    		APP.dataviz.draw(data);
     	},
 
     	water: function() {
+    		var data = [5, 7, 2, 4, 4, 5, 8, 9, 10, 6];
     		APP.router.change();
-    		APP.dataviz.draw();
+    		APP.dataviz.draw(data);
     	},
 
     	energy: function() {
+    		var data = [2, 9, 6, 7, 4, 1, 8, 10, 9, 3];
     		APP.router.change();
-    		APP.dataviz.draw();
+    		APP.dataviz.draw(data);
     	},
 
     	food: function() {
+    		var data = [4, 4, 6, 8, 8, 7, 5, 2, 3, 2];
     		APP.router.change();
-    		APP.dataviz.draw();
+    		APP.dataviz.draw(data);
     	},
 
     	waste: function() {
+    		var data = [9, 8, 7, 6, 5, 6, 6, 7, 7, 6];
     		APP.router.change();
-    		APP.dataviz.draw();
+    		APP.dataviz.draw(data);
     	}
 
     };
