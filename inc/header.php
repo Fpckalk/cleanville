@@ -1,26 +1,22 @@
 <?php
-	session_start();
 
-	error_reporting(E_ALL);
+	include_once("inc/functions.php");
 
-	// Assigning login value to Session
-	if(isset($_GET['login'])) {
-		$_SESSION['login'] = $_GET['login'];
+	$user = new User();
+	$page = new Page();
+
+	$current_page = $page->get_page();
+
+	if(!$user->get_session('user')) {
+		$page->redirect_login();
 	}
 
-	// Check if logged in or on login page to prevent loop
-	// If not user will be redirected to login
-	$page = explode("/", $_SERVER['REQUEST_URI']);
-	$page = explode("?", end($page));
-	$page = $page[0];
-
-	if(isset($_SESSION['login'])) {
-		
-	} else if ($page == "login.php") {
-		
-	} else if (!$page || $page == 'index.php'){
-		header("Location: ./login.php");
+	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['user']) && isset($_POST['pass'])) {
+		$username = $_POST['user'];
+		$pass = $_POST['pass'];
+		$user->login($username, $pass);
 	}
+
 ?>
 <html>
 <head>
@@ -36,11 +32,11 @@
 <body>
 
 	<header>
-		<?php if($page && $page != 'index.php' && $page != 'login.php'): ?>
+		<?php if($current_page && $current_page != 'index.php' && $current_page != 'login.php'): ?>
 			<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
 		<?php endif; ?>
 		<h1 data-bind="title">Dashboard</h1>
-		<?php if($page == 'profile.php'): ?>
+		<?php if($current_page == 'profile.php'): ?>
 			<nav role="main">
 				<ul>
 					<li><a href="#/edit"><i class="fa fa-edit fa-2x"></i></a></li>
