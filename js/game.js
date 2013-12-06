@@ -1,7 +1,7 @@
 var GAME = GAME || {};
 
 //==== TO DO ====//
-//
+// - Pretty up pinch animation
 
 'use strict';
 
