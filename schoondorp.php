@@ -26,18 +26,23 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, enim, tenetur iste magnam totam eveniet labore quas dolor animi culpa veritatis veniam corporis rerum quasi sed illum omnis nesciunt deleniti!</p>
 				</div>
 
-				<div class="element house">
-					<img src="http://placehold.it/120x120&text=House1" alt="">
+				<div class="element energy">
+					<img src="" alt="">
 					<i class="fa fa-circle"></i>
 				</div>
 
 				<div class="element river">
-					<img src="http://placehold.it/600x120&text=River1" alt="">
+					<img src="" alt="">
 				</div>
 
-				<div class="element windmill">
-					<img src="http://placehold.it/120x200&text=Windmill1" alt="">
+				<div class="element trash">
+					<img src="" alt="">
 				</div>
+
+				<div class="element food">
+					<img src="" alt="">
+				</div>
+
 			</div>
 
 			<div id="overview">
