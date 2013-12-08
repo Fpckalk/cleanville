@@ -14,6 +14,19 @@
 		<section>
 			<div class="goal">
 				<span>50 euro besparen</span>
+				<i class="fa fa-edit edit-goal"></i></a>
+			</div>
+			<div class="popup">
+				<h2>Change your goal</h2>
+				<form>
+					<label>Save:</label>
+					<input type="numeric" placeholder="50">
+					<label>Start goal at</label>
+					<input type="date">
+					<label>End goal at</label>
+					<input type="date">
+					<button>Set new goal</button>
+				</form>
 			</div>
 			<figure class="graph">
 				

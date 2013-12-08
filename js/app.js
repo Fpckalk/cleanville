@@ -13,14 +13,15 @@ var APP = APP || {};
 		init: function() {
 			APP.router.init();
 			APP.layout.hacks();
-			GAME.controller.init();
 			APP.controller.enable();
 		},
 
 		enable: function() {
-			var sidebar = $('article .sidebar .pullout')[0];
-			Hammer(sidebar).on('drag', function() { APP.sidebar.drag(event); });
-			Hammer(sidebar).on('dragend', function() { APP.sidebar.dragEnd(event); });
+			var editGoal = $('.edit-goal');
+			var goalForm = $('.popup form');
+
+			editGoal.on('click', function() { APP.layout.popup(event) });
+			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
 		}
 
 	};
@@ -39,6 +40,23 @@ var APP = APP || {};
 			}
 			document.ontouchmove = function(e) {e.preventDefault()};
 			$('.sidebar .content').ontouchmove = function(e) {e.stopPropagation()};
+		},
+
+		popup: function(e) {
+			var popup = $(e.target).parent().next('.popup')[0];
+			$(popup).show();
+		},
+
+		submitGoal: function(e) {
+			$.post(
+				'./inc/goal.php',
+				{param1: 'value1'},
+				function(data, textStatus, xhr) {
+					console.log(data);
+				}
+			);
+
+			return false;			
 		}
 
 	}
@@ -177,8 +195,6 @@ var APP = APP || {};
                 articles = $('article[data-route]'),
                 article = $('[data-route=' + route + ']')[0];
 
-            console.log(article);
-
 	        // Show active article, hide all other
 	        if (article) {
                 for (var i=0; i < articles.length; i++){
@@ -264,40 +280,6 @@ var APP = APP || {};
     	}
 
     }
-
-
-    APP.sidebar = {
-
-    	drag: function(e) {
-    		var sidebarWidth = $('.sidebar .content').width(),
-    			distance = e.gesture.deltaX + sidebarWidth;
-
-    		$('.sidebar').removeClass("animated");
-    		console.log(distance);
-    		if(e.gesture.direction === "right") {
-    			distance -= sidebarWidth;
-    		}
-
-    		if( distance > 0 && distance < sidebarWidth ) {
-				$('.sidebar').css("right", -distance);
-				console.log($('.sidebar').css("right"));
-    		}
-    	},
-
-    	dragEnd: function(e) {
-    		var	sidebarWidth = $('.sidebar .content').width(),
-    			distance = e.gesture.deltaX + sidebarWidth;
-
-			$('.sidebar').addClass("animated");
-    		if(distance < 80) {
-    			$('.sidebar').css("right", 0);
-    		} else {
-    			$('.sidebar').css("right", -sidebarWidth)
-    		}
-    	}
-
-    }
-
 
     $(document).ready(function() {
     	APP.controller.init();

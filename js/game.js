@@ -17,10 +17,14 @@ var GAME = GAME || {};
 
 		enable: function() {
 			var field = $('article #game'),
+				sidebar = $('article .sidebar .pullout')
 				elTap = $('.fa-circle'),
 				famTap = $('#overview img'),
-				body = $('.bg');
+				body = $('.bg'),
+				art = $('article');
 
+			Hammer(sidebar[0]).on('drag', function() { GAME.gestures.dragSidebar(event); });
+			Hammer(sidebar[0]).on('dragend', function() { GAME.gestures.dragEndSidebar(event); });
 			Hammer(field[0]).on('swipeup', function() { GAME.gestures.overviewVillages(event); });
 			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
 
@@ -97,6 +101,34 @@ var GAME = GAME || {};
 
 	GAME.gestures = {
 
+    	dragSidebar: function(e) {
+    		var sidebarWidth = $('.sidebar .content').width(),
+    			distance = e.gesture.deltaX + sidebarWidth;
+
+    		$('.sidebar').removeClass("animated");
+    		console.log(distance);
+    		if(e.gesture.direction === "right") {
+    			distance -= sidebarWidth;
+    		}
+
+    		if( distance > 0 && distance < sidebarWidth ) {
+				$('.sidebar').css("right", -distance);
+				console.log($('.sidebar').css("right"));
+    		}
+    	},
+
+    	dragEndSidebar: function(e) {
+    		var	sidebarWidth = $('.sidebar .content').width(),
+    			distance = e.gesture.deltaX + sidebarWidth;
+
+			$('.sidebar').addClass("animated");
+    		if(distance < 80) {
+    			$('.sidebar').css("right", 0);
+    		} else {
+    			$('.sidebar').css("right", -sidebarWidth)
+    		}
+    	},
+
 		overviewVillages: function(e) {
 			if($('#game #local').hasClass('visible')) {
 				$('#game #local').removeClass('visible');
@@ -114,5 +146,7 @@ var GAME = GAME || {};
 		}
 
 	};
+
+	GAME.controller.init();
 
 })();

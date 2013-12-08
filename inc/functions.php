@@ -1,6 +1,6 @@
 <?php
 
-	include_once("inc/settings.php");
+	include_once("/inc/settings.php");
 	
 	/**
 	* User
@@ -27,6 +27,11 @@
 			} else {
 				header("Location: ./login.php");
 			}
+		}
+
+		public function logout()
+		{
+			$_SESSION['user'] = null;
 		}
 
 		public function get_session($item)
