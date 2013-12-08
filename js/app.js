@@ -19,9 +19,11 @@ var APP = APP || {};
 		enable: function() {
 			var editGoal = $('.edit-goal');
 			var goalForm = $('.popup form');
+			var popupCross = $('.popup .fa-times');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
+			popupCross.on('click', function() { APP.layout.hidePopup(); });
 		}
 
 	};
@@ -47,14 +49,29 @@ var APP = APP || {};
 			$(popup).show();
 		},
 
+		hidePopup: function(e) {
+			$('.popup').hide();
+		},
+
 		submitGoal: function(e) {
+			var self = e.target,
+				goal = $(self).find('.goal')[0],
+				start = $(self).find('.starting-date')[0],
+				end = $(self).find('.ending-date')[0],
+				type = window.location.hash.slice(2);
+
 			$.post(
-				'./inc/goal.php',
-				{param1: 'value1'},
-				function(data, textStatus, xhr) {
-					console.log(data);
-				}
-			);
+				'./inc/goal.php', {
+					goal: $(goal).val(),
+					start: $(start).val(),
+					end: $(end).val(),
+					type: type
+				})
+				.done(function() {
+					// Don't judge me...
+					$(self).parent().prev('.goal').find('span').text($(goal).val());
+					APP.layout.hidePopup();
+				});
 
 			return false;			
 		}

@@ -23,22 +23,45 @@
 
 			if($rows == 1) {
 				$_SESSION['user'] = true;
+				$_SESSION['familyID'] = $user_data[0];
 				header("Location: ./index.php");
 			} else {
 				header("Location: ./login.php");
 			}
 		}
 
-		public function logout()
+		function logout()
 		{
 			$_SESSION['user'] = null;
 		}
 
-		public function get_session($item)
+		function get_session($item)
 		{
 			if(isset($_SESSION[$item])) {
 				return true;
 			}
+		}
+
+		function id()
+		{
+			return $_SESSION['familyID'];
+		}
+
+		// Just a number stored in the database
+		// It's just arbitrary right now
+		// There's no way yet to get the official number
+		function current($sensor, $family)
+		{
+			$result = mysql_query("SELECT current from milestones where families_ID = '$family'");
+			$current = mysql_result($result, 0);
+			return $current;
+		}
+
+		function goal($sensor)
+		{
+			$result = mysql_query("SELECT milestone FROM milestones WHERE families_ID = {$_SESSION['familyID']}");
+			$goal = mysql_result($result, 0);
+			return $goal;
 		}
 	}
 
