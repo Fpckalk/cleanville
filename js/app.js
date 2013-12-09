@@ -74,6 +74,10 @@ var APP = APP || {};
 				});
 
 			return false;			
+		},
+
+		getCurrent: function(e) {
+			$('rect').attr("width", current);
 		}
 
 	}
@@ -258,30 +262,35 @@ var APP = APP || {};
     		var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     		APP.router.change();
     		APP.dataviz.draw(data);
+    		APP.layout.getCurrent();
     	},
 
     	water: function() {
     		var data = [5, 7, 2, 4, 4, 5, 8, 9, 10, 6];
     		APP.router.change();
     		APP.dataviz.draw(data);
+    		APP.layout.getCurrent();
     	},
 
     	energy: function() {
     		var data = [2, 9, 6, 7, 4, 1, 8, 10, 9, 3];
     		APP.router.change();
     		APP.dataviz.draw(data);
+    		APP.layout.getCurrent();
     	},
 
     	food: function() {
     		var data = [4, 4, 6, 8, 8, 7, 5, 2, 3, 2];
     		APP.router.change();
     		APP.dataviz.draw(data);
+    		APP.layout.getCurrent();
     	},
 
     	waste: function() {
     		var data = [9, 8, 7, 6, 5, 6, 6, 7, 7, 6];
     		APP.router.change();
     		APP.dataviz.draw(data);
+    		APP.layout.getCurrent();
     	}
 
     };

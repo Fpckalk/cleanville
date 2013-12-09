@@ -1,4 +1,12 @@
 <?php include_once('inc/header.php') ?>
+<?php 
+	// Set variables to be used by Javascript
+	$current = $user->current('general', $user->id());
+?>
+<script>
+	current = "<?php echo $current ?>";
+	console.log(current);
+</script>
 	
 	<nav role="aside">
 		<ul>
