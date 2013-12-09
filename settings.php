@@ -6,7 +6,7 @@
 			<li><a href="#/notifications">Notifications</a></li>
 			<li><a href="#/linkedmedia">Linked Media</a></li>
 			<li><a href="#/contact">Contact</a></li>
-			<li><a href="#">Logout</a></li>
+			<li><a href="./login.php?logout=1">Logout</a></li>
 		</ul>
 	</nav>
 

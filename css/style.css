@@ -138,11 +138,14 @@ article .sidebar {
 	position: absolute;
 }
 
+<<<<<<< HEAD
 .game #local.visible, .game #overview.visible {
 	display: block;
 }
 
 
+=======
+>>>>>>> origin
 
 /*=== USAGE ===*/
 /* Local nav */
@@ -162,6 +165,13 @@ article[data-route=usage] section figure {
 		width: 100%;
 		display: block;
 	}
+
+.popup {
+	display: none;
+	position: absolute;
+	z-index: 100;
+	background: white;
+}
 
 /*=== MISC ===*/
 /* Dashboard Menu */
@@ -184,4 +194,10 @@ article.dashboard .window {
 /* Login window */
 article.login .window {
 	max-width: 30%;
+}
+
+
+/* The big overwrite */
+.visible {
+	display: block;
 }

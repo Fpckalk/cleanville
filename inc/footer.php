@@ -7,7 +7,9 @@
 	<script src="lib/backbone-min.js"></script>
 
 	<!-- Main application -->
+	<?php if($current_page == 'schoondorp.php') { ?>
 	<script src="js/game.js"></script>
+	<?php } ?>
 	<script src="js/app.js"></script>
 
 </body>

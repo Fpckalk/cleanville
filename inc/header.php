@@ -17,6 +17,10 @@
 		$user->login($username, $pass);
 	}
 
+	if(isset($_GET['logout'])) {
+		$user->logout();
+	}
+
 ?>
 <html>
 <head>
