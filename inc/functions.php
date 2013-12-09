@@ -16,6 +16,7 @@
 		function login($user, $pass)
 		{
 			$pass = md5($pass);
+			$user = strtolower($user);
 			$result = mysql_query("SELECT ID from families WHERE mail = '$user' AND password = '$pass'");
 
 			$user_data = mysql_fetch_array($result);

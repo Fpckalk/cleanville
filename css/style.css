@@ -3,6 +3,12 @@
 body {
 	background: url('../img/bg.jpg');
 }
+div[role="main"] {
+	padding: 55px 60px;
+}
+nav[role="aside"] {
+	float: left;
+}
 .window {
 	padding: 40px 50px;
 	display: table;
@@ -12,12 +18,31 @@ body {
 				inset 0 -2px 1px -1px rgba(0,0,0,.20);
 	border-radius: 5px;
 }
+	.window.small {
+		padding: 20px 30px;
+		margin-top: 25px;
+		float: left;
+	}
+		.window.small:first-of-type {
+			margin: 0;
+		}
+	.window.w1 {
+		width: 33.333%;
+	}
+	.window.w2 {
+		width: 66.667%;
+	}
+	.window.w3 {
+		width: 100%;
+	}
 .fa {
 	color: #333333;
 }
 	.fa:hover {
 		color: #555555;
 	}
+
+
 
 
 /*=== HEADER ===*/
@@ -58,15 +83,15 @@ nav[role=main] li {
 /*=== ARTICLE ===*/
 article {
 	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: 93%;
+	overflow: visible;
+	display: table;
+	/* Fixes dimensions issue */
 }
 article[data-route] {
 	display: none;
 }
 article.active {
-	display: block;
+	display: table;
 }
 
 
@@ -215,11 +240,9 @@ article.dashboard .window {
 
 /* Login window */
 article.login {
-	padding-top: 50%;
-}
-article.login .window {
+	padding-top: 15%;
 	width: 40%;
-	margin-top: -35%;
+	margin: 0 auto;
 }
 
 article.login form input {
@@ -229,6 +252,22 @@ article.login form input {
 		width: 100%;
 	}
 
+
+/* Progress */
+figure.progress {
+	width: 100%;
+	height: 40px;
+	background-color: #e3e5e8;
+	border: 2px solid #b1b1b1;
+	border-radius: 5px;
+}
+figure.progress .current {
+	height: 40px;
+	margin: -2px 0 0 -2px;
+	border: 2px solid #844f1c;
+	border-radius: 5px;
+	background: url('../img/progress.jpg') 0 0 repeat-x;
+}
 
 /* The big overwrite */
 .visible {

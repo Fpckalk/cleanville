@@ -77,7 +77,8 @@ var APP = APP || {};
 		},
 
 		getCurrent: function(e) {
-			$('rect').attr("width", current);
+			var currentWidth = (current / goal) * 100;
+			$('figure.progress .current').width(currentWidth + "%");
 		}
 
 	}
