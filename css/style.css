@@ -116,7 +116,9 @@ article .sidebar {
 	position: relative;
 }
 .game #local {
-	display: none;
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 .game #local .bg {
 	background-color: green;

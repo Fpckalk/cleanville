@@ -17,7 +17,7 @@ var GAME = GAME || {};
 
 		enable: function() {
 			var field = $('article #game'),
-				sidebar = $('article .sidebar .pullout')
+				sidebar = $('article .sidebar .pullout'),
 				elTap = $('.fa-circle'),
 				famTap = $('#overview img'),
 				body = $('.bg'),
@@ -130,19 +130,15 @@ var GAME = GAME || {};
     	},
 
 		overviewVillages: function(e) {
-			if($('#game #local').hasClass('visible')) {
-				$('#game #local').removeClass('visible');
-				$('#game #overview').addClass('visible');
-				GAME.sprite.hideInfo();
-			}
+			$('#game #local').hide();
+			$('#game #overview').show();
+			GAME.sprite.hideInfo();
 		},
 
 		localVillage: function(e) {
-			if($('#game #overview').hasClass('visible')) {
-				$('#game #overview').removeClass('visible');
-				$('#game #local').addClass('visible');
-				GAME.sprite.hideInfo();
-			}
+			$('#game #local').show();
+			$('#game #overview').hide();
+			GAME.sprite.hideInfo();
 		}
 
 	};

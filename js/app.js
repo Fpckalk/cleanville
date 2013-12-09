@@ -61,7 +61,7 @@ var APP = APP || {};
 				type = window.location.hash.slice(2);
 
 			$.post(
-				'./inc/goal.php', {
+				'./inc/actions/goal.php', {
 					goal: $(goal).val(),
 					start: $(start).val(),
 					end: $(end).val(),
