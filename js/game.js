@@ -25,7 +25,8 @@ var GAME = GAME || {};
 
 			Hammer(sidebar[0]).on('drag', function() { GAME.gestures.dragSidebar(event); });
 			Hammer(sidebar[0]).on('dragend', function() { GAME.gestures.dragEndSidebar(event); });
-			Hammer(field[0]).on('swipeup', function() { GAME.gestures.overviewVillages(event); });
+
+			Hammer(field[0]).on('tap', function() { GAME.gestures.overviewVillages(event); });
 			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event); });
@@ -136,6 +137,8 @@ var GAME = GAME || {};
 		},
 
 		localVillage: function(e) {
+			console.log(e);
+			e.preventDefault();
 			$('#game #local').show();
 			$('#game #overview').hide();
 			GAME.sprite.hideInfo();
