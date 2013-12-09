@@ -7,13 +7,13 @@
 					<li>
 						<a href="schoondorp.php">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Schoondorp</span>
+							<span>Play Schoondorp</span>
 						</a>
 					</li>
 					<li>
 						<a href="stats.php#/summary">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Data usage</span>
+							<span>Data Usage</span>
 						</a>
 					</li>
 					<li>
@@ -31,7 +31,7 @@
 					<li>
 						<a href="#">
 							<img src="http://lorempixel.com/105/105" alt="">
-							<span>Newspaper</span>
+							<span>Magazine</span>
 						</a>
 					</li>
 					<li>

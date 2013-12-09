@@ -1,10 +1,16 @@
+
 /*=== GENERAL ===*/
+body {
+	background: url('../img/bg.jpg');
+}
 .window {
-	padding: 35px 15px;
+	padding: 40px 50px;
 	display: table;
 	margin: 0 auto;
-	border: 1px solid #ddd;
-	border-radius: 3px;
+	background-color: #eeeeee;
+	box-shadow: 0 5px 10px rgba(0,0,0,.35),
+				inset 0 -2px 1px -1px rgba(0,0,0,.20);
+	border-radius: 5px;
 }
 .fa {
 	color: #333333;
@@ -20,10 +26,13 @@ header {
 	padding: 15px 25px;
 	width: 100%;
 	position: relative;
-/*	height: 7%;*/
+	background-color: #eeeeee;
+	height: 7%;
+	box-shadow: 0 0 5px rgba(0,0,0,.45);
 }
 header h1 {
 	text-align: center;
+	color: #de6923;
 }
 header > a[role=back] {
 	float: left;
@@ -64,17 +73,33 @@ article.active {
 /*=== FORM ===*/
 form input {
 	display: block;
-	margin: 0;
-	border: 1px solid #ddd;
+	margin-top: 10px;
+	border: 2px solid #b1b1b1;
 	padding: 10px;
+	height: 45px;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px rgba(255,255,255,.6);
+	background-color: #e3e5e8;
 }
-	form input:first-of-type {
-		border-radius: 5px 5px 0 0;
+	form input:first-child {
+		margin: 0;
 	}
-	form input:last-of-type {
-		border-radius: 0 0 5px 5px;
-		border-top: 0;
+	form input::-webkit-input-placeholder {
+		color: 888888;
+		font-weight: bold;
 	}
+
+form button {
+	height: 45px;
+	background-color: de6923;
+	border: 2px solid 9b4e20;
+	border-radius: 5px;
+	width: 200px;
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.2),
+				inset -1px -1px 1px -1px rgba(0,0,0,.2);
+	color: #ffffff;
+	font-weight: bold;
+}
 
 /*=== GAME ===*/
 /* Summary */
@@ -140,14 +165,9 @@ article .sidebar {
 	position: absolute;
 }
 
-<<<<<<< HEAD
 .game #local.visible, .game #overview.visible {
 	display: block;
 }
-
-
-=======
->>>>>>> origin
 
 /*=== USAGE ===*/
 /* Local nav */
@@ -194,9 +214,20 @@ article.dashboard .window {
 }
 
 /* Login window */
-article.login .window {
-	max-width: 30%;
+article.login {
+	padding-top: 50%;
 }
+article.login .window {
+	width: 40%;
+	margin-top: -35%;
+}
+
+article.login form input {
+	
+}
+	article.login form input {
+		width: 100%;
+	}
 
 
 /* The big overwrite */
