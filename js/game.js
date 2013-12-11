@@ -60,7 +60,7 @@ var GAME = GAME || {};
 			$.each(levels, function(level, val) {
 				if(current > val) {
 					var level = level + 1; // So it gets the right level
-					$('.' + item + ' img').attr('src', './img/' + item + '-' + level + '.png');
+					$('.' + item + ' img').attr('src', './img/game/' + item + '-' + level + '.png');
 				}
 			})
 		},

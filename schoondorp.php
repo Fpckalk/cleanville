@@ -1,6 +1,6 @@
 <?php include_once('inc/header.php') ?>
 
-	<article>
+	<article id="schoondorp">
 		<aside class="sidebar">
 			<div class="pullout"></div>
 			<div class="content">
