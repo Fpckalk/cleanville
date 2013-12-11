@@ -16,6 +16,13 @@ h3 {
 	margin: 0;
 }
 
+p {
+	font-size: 0.875em;
+	margin: 1em 0;
+	color: #888888;
+	line-height: 1.6em;
+}
+
 a {
 	text-decoration: none;
 }

@@ -4,8 +4,22 @@ body {
 	background: url('../img/bg.jpg');
 }
 div[role="main"] {
-	padding: 55px 60px;
+	padding: 55px 30px;
 }
+button {
+	width: 100%;
+	height: 45px;
+	background-color: de6923;
+	border: 1px solid 9b4e20;
+	border-radius: 5px;
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.2),
+				inset -1px -1px 1px -1px rgba(0,0,0,.2);
+	color: #ffffff;
+	font-weight: bold;
+}
+	button:hover {
+		background-color: #d26423;
+	}
 nav[role="aside"] {
 	float: left;
 	width: 175px;
@@ -24,9 +38,17 @@ nav[role="aside"] {
 		display: block;
 		border: 2px solid #9b4e20;
 		border-top: none;
+		background: #e5842b;
+		color: #ffffff;
 	}
 		nav[role="aside"] li:first-of-type a {
 			border-top: 2px solid #9b4e20;
+		}
+		nav[role="aside"] li a img {
+			width: 41px;
+			height: 48px;
+			display: block;
+			margin: 0 auto;
 		}
 .window {
 	padding: 40px 50px;
@@ -45,11 +67,17 @@ nav[role="aside"] {
 		.window.small:first-of-type {
 			margin: 0;
 		}
+		.window.small h1 {
+			font-size: 1.4em;
+			color: #de6923;
+		}
 	.window.w1 {
 		width: 33.333%;
+		float: right;
+		/* A bit odd. Margin disappears on page change. Float right should do the trick */
 	}
 	.window.w2 {
-		width: 66.667%;
+		width: 62.667%;
 	}
 	.window.w3 {
 		width: 100%;
@@ -60,7 +88,6 @@ nav[role="aside"] {
 	.fa:hover {
 		color: #555555;
 	}
-
 
 
 
@@ -135,15 +162,7 @@ form input {
 	}
 
 form button {
-	height: 45px;
-	background-color: de6923;
-	border: 2px solid 9b4e20;
-	border-radius: 5px;
 	width: 200px;
-	box-shadow: inset 1px 1px 1px rgba(255,255,255,.2),
-				inset -1px -1px 1px -1px rgba(0,0,0,.2);
-	color: #ffffff;
-	font-weight: bold;
 }
 
 

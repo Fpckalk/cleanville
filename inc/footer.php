@@ -6,7 +6,7 @@
 
 	<!-- Main application -->
 	<?php if($current_page == 'schoondorp.php') { ?>
-	<script src="js/game.js"></script>
+		<script src="js/game.js"></script>
 	<?php } ?>
 	<script src="js/app.js"></script>
 

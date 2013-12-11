@@ -96,7 +96,7 @@ var APP = APP || {};
 			var route = window.location.hash.slice(2);
 
 			var margin = {top: 20, right: 20, bottom: 30, left: 40},
-				width = 500 - margin.left - margin.right,
+				width = 400 - margin.left - margin.right,
 				height = 300 - margin.top - margin.bottom;
 			
 			var svg = d3.select("article[data-route=" + route + "] .graph")
