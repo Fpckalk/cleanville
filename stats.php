@@ -13,25 +13,25 @@
 	
 		<nav role="aside">
 			<ul>
-				<li><a href="#/summary">
+				<li><a href="#/summary" class="active">
 						<img src="img/icons/general.png" alt="">
-						General
+						<span>General</span>
 				</a></li>
 				<li><a href="#/water">
 						<img src="img/icons/water.png" alt="">
-						Water
+						<span>Water</span>
 					</a></li>
 				<li><a href="#/energy">
 						<img src="img/icons/energy.png" alt="">
-						Energy
+						<span>Energy</span>
 					</a></li>
 				<li><a href="#/food">
 						<img src="img/icons/food.png" alt="">
-						Food
+						<span>Food</span>
 					</a></li>
 				<li><a href="#/waste">
 						<img src="img/icons/waste.png" alt="">
-						Waste
+						<span>Waste</span>
 					</a></li>
 			</ul>
 		</nav>
