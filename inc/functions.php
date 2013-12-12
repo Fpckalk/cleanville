@@ -91,7 +91,7 @@
 
 			$page = $this->get_page();
 
-			if(!$page || $page != 'login.php') {
+			if(!$page || $page != 'login.php' && $page != 'forgot.php') {
 				header("Location: ./login.php");
 			}
 

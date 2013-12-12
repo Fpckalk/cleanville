@@ -4,10 +4,10 @@
 	
 		<nav role="aside">
 			<ul>
-				<li><a href="#/general">General</a></li>
-				<li><a href="#/notifications">Notifications</a></li>
-				<li><a href="#/linkedmedia">Linked Media</a></li>
-				<li><a href="#/contact">Contact</a></li>
+				<li><a data-nav="general" href="#/general">General</a></li>
+				<li><a data-nav="notifications" href="#/notifications">Notifications</a></li>
+				<li><a data-nav="linkedmedia" href="#/linkedmedia">Linked Media</a></li>
+				<li><a data-nav="contact" href="#/contact">Contact</a></li>
 				<li><a href="./login.php?logout=1">Logout</a></li>
 			</ul>
 		</nav>

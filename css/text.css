@@ -1,6 +1,5 @@
 body {
 	font-family: 'Montserrat', sans-serif;
-	/*font-family: sans-serif;*/
 	color: #222222;
 }
 h1 {
@@ -25,4 +24,6 @@ p {
 
 a {
 	text-decoration: none;
+	color: #1199ee;
+	font-weight: bold;
 }
