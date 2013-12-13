@@ -5,6 +5,15 @@ body {
 div[role="main"] {
 	padding: 55px 30px;
 }
+.darken {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.4);
+	z-index: 1;
+	top: 0;
+	display: none;
+}
 button {
 	width: 100%;
 	height: 45px;
@@ -150,7 +159,7 @@ article {
 	position: relative;
 	overflow: visible;
 	margin: 0 auto;
-	display: table;
+	display: block;
 	/* Fixes dimensions issue */
 }
 article[data-route] {
@@ -179,6 +188,21 @@ form input {
 		color: 888888;
 		font-weight: bold;
 	}
+
+form input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #de6923;
+    height: 30px;
+    width: 100%;
+    padding: 0;
+}
+form input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color: #f7941d;
+    height: 45px;
+    width: 35px;
+    border-radius: 5px;
+}
 
 form button {
 	width: 200px;
@@ -220,6 +244,14 @@ article[data-route=usage] section figure {
 	position: absolute;
 	z-index: 100;
 	background: white;
+	padding: 30px;
+	background-color: #eeeeee;
+	border-radius: 5px;
+	width: 420px;
+	left: 50%;
+	top: 50%;
+	margin-left: -210px;
+	margin-top: -210px;
 }
 
 /*=== MISC ===*/

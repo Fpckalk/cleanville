@@ -9,7 +9,24 @@
 		goal = "<?php echo $goal ?>";
 </script>
 
+	<div class="darken"></div>
+
 	<div role="main">
+		
+		<div class="popup">
+			<h2>Change your goal</h2>
+			<i class="fa fa-times"></i>
+			<form>
+				<label>Save:</label>
+				<input class="goal" type="range" min="0" max="100" step="1">
+				<label>Start goal at</label>
+				<input class="starting-date" type="date">
+				<label>End goal at</label>
+				<input class="ending-date" type="date">
+				<button>Set new goal</button>
+			</form>
+		</div>
+
 	
 		<nav role="aside">
 			<ul>
@@ -45,19 +62,6 @@
 						<figure class="progress">
 							<div class="current"></div>
 						</figure>
-					</div>
-					<div class="popup">
-						<h2>Change your goal</h2>
-						<i class="fa fa-times"></i>
-						<form>
-							<label>Save:</label>
-							<input class="goal" type="numeric" placeholder="50">
-							<label>Start goal at</label>
-							<input class="starting-date" type="date">
-							<label>End goal at</label>
-							<input class="ending-date" type="date">
-							<button>Set new goal</button>
-						</form>
 					</div>
 				</div>
 				

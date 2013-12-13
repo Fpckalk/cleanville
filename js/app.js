@@ -17,13 +17,15 @@ var APP = APP || {};
 		},
 
 		enable: function() {
-			var editGoal = $('.edit-goal');
-			var goalForm = $('.popup form');
-			var popupCross = $('.popup .fa-times');
+			var	editGoal = $('.edit-goal'),
+				goalForm = $('.popup form'),
+				popupCross = $('.popup .fa-times'),
+				darken = $('.darken');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
 			popupCross.on('click', function() { APP.layout.hidePopup(); });
+			darken.on('click', function() { APP.layout.hidePopup(); });
 		}
 
 	};
@@ -40,17 +42,20 @@ var APP = APP || {};
 			        }
 			    }
 			}
-			document.ontouchmove = function(e) {e.preventDefault()};
+
+			// document.ontouchmove = function(e) {return false};
+			// $('article').ontouch = function(e) {e.stopPropagation()};
 			$('.sidebar .content').ontouchmove = function(e) {e.stopPropagation()};
 		},
 
 		popup: function(e) {
-			var popup = $(e.target).parent().next('.popup')[0];
-			$(popup).show();
+			$('.popup').show();
+			$('.darken').show();
 		},
 
 		hidePopup: function(e) {
 			$('.popup').hide();
+			$('.darken').hide();
 		},
 
 		submitGoal: function(e) {
