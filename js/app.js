@@ -215,18 +215,27 @@ var APP = APP || {};
 
 	        var route = window.location.hash.slice(2),
                 articles = $('article[data-route]'),
-                article = $('[data-route=' + route + ']')[0],
-                navItems = $('a[data-nav]'),
-                navItem = $('[data-nav=' + route + ']')[0];
+                article = $('[data-route=' + route + ']')[0];
+
+                if(route != 'profile' && route != 'edit') {
+	                var	navItems = $('a[data-nav]'),
+	                	navItem = $('[data-nav=' + route + ']')[0];
+                }
 
 	        // Show active article, hide all other
 	        if (article) {
                 for (var i=0; i < articles.length; i++){
                         articles[i].classList.remove('active');
-                        navItems[i].classList.remove('active');
+
+                        if(route != 'profile' && route != 'edit') {
+                        	navItems[i].classList.remove('active');
+                        }
                 }
                 article.classList.add('active');
-                navItem.classList.add('active');
+
+                if(route != 'profile' && route != 'edit') {
+                	navItem.classList.add('active');
+                }
 			}
 
 			// Default route
