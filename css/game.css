@@ -43,6 +43,7 @@ article .sidebar {
 	top: 3%;
 	border-radius: 5px;
 	box-shadow: 0 0 8px 0 rgba(0,0,0,.4);
+	transition: .2s;
 }
 	article .sidebar.out {
 		right: 0;
@@ -71,6 +72,7 @@ article .sidebar {
 		article .sidebar #pullout i {
 			display: table-cell;
 			vertical-align: middle;
+			transition: .2s;
 		}
 		article .sidebar #pullout i.out {
 			-webkit-transform: rotate(180deg);
