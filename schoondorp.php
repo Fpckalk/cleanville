@@ -1,22 +1,26 @@
 <?php include_once('inc/header.php') ?>
-
+	
 	<article id="schoondorp">
+
 		<aside class="sidebar">
-			<div class="pullout"></div>
+			<div id="pullout">
+				<i class="fa fa-chevron-left fa-2x"></i>
+			</div>
 			<div class="content">
-				<h1>Overzicht</h1>
+				<h1>Your overview</h1>
 				<ul>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Water</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Elektriciteit</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Afval</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Energie</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Water</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Elektriciteit</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Afval</span></li>
-					<li><a href="#"><img src="http://lorempixel.com/100/100" alt="placeholder"></a><span>Energie</span></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
 				</ul>
+
+				<h1>Goals</h1>
+				<p>These goals are currently running</p>
+				<a href="stats.php#/summary">General</a>
 			</div>
 		</aside>
+
 		<div id="game" class="game local">
 
 			<div id="local" class="visible">
@@ -27,20 +31,20 @@
 				</div>
 
 				<div class="element energy">
-					<img src="" alt="">
+					<img src="img/game/energy-<?php echo $game->get_level('energy'); ?>.png" alt="">
 					<i class="fa fa-circle"></i>
 				</div>
 
 				<div class="element river">
-					<img src="" alt="">
+					<img src="img/game/river-<?php echo $game->get_level('water'); ?>.png" alt="">
 				</div>
 
 				<div class="element trash">
-					<img src="" alt="">
+					<img src="img/game/trash-<?php echo $game->get_level('trash'); ?>.png" alt="">
 				</div>
 
 				<div class="element food">
-					<img src="" alt="">
+					<img src="img/game/food-<?php echo $game->get_level('food'); ?>.png" alt="">
 				</div>
 
 			</div>

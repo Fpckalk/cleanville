@@ -98,4 +98,45 @@
 		}
 	}
 
+	/**
+	* Game
+	*/
+	class Game
+	{
+		
+		function __construct()
+		{
+			
+		}
+
+		function get_value($el)
+		{
+			$values = array(
+				'energy' => 210,
+				'water' => 67,
+				'trash' => 120,
+				'food' => 240
+				);
+
+			return $values[$el];
+		}
+
+		function get_level($el)
+		{
+			$value = $this->get_value($el);
+			$breakpoints = array(100, 200, 300);
+			$i = 0;
+
+			foreach ($breakpoints as $bp) {
+				if($value > $bp && $value < $breakpoints[2] ) {
+					$i++;
+				} else if($value > $breakpoints[2]) {
+					return 3;
+				} else {
+					return $i + 1;
+				}
+			}
+		}
+	}
+
 ?>

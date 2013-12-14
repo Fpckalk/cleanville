@@ -11,25 +11,23 @@ var GAME = GAME || {};
 	GAME.controller = {
 
 		init: function() {
-			GAME.sprite.init();
+			// GAME.sprite.init();
 			this.enable();
 		},
 
 		enable: function() {
 			var field = $('article #game'),
-				sidebar = $('article .sidebar .pullout'),
+				sidebar = $('article .sidebar #pullout i'),
 				elTap = $('.fa-circle'),
 				famTap = $('#overview img'),
 				body = $('.bg'),
 				art = $('article');
 
-			Hammer(sidebar[0]).on('drag', function() { GAME.gestures.dragSidebar(event); });
-			Hammer(sidebar[0]).on('dragend', function() { GAME.gestures.dragEndSidebar(event); });
-
 			Hammer(field[0]).on('tap', function() { GAME.gestures.overviewVillages(event); });
 			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event); });
+			sidebar.on('click', function() { GAME.gestures.sidebar(event); });
 			famTap.on('click', function() { GAME.sprite.showInfo(event); });
 			body.on('click', function() { GAME.sprite.hideInfo(event); });
 		}
@@ -56,6 +54,7 @@ var GAME = GAME || {};
 			$('.info').removeClass('show');
 		},
 
+		// Make this in PHP instead!!!!
 		checkLevel: function(levels, current, item) {
 			$.each(levels, function(level, val) {
 				if(current > val) {
@@ -102,32 +101,9 @@ var GAME = GAME || {};
 
 	GAME.gestures = {
 
-    	dragSidebar: function(e) {
-    		var sidebarWidth = $('.sidebar .content').width(),
-    			distance = e.gesture.deltaX + sidebarWidth;
-
-    		$('.sidebar').removeClass("animated");
-    		console.log(distance);
-    		if(e.gesture.direction === "right") {
-    			distance -= sidebarWidth;
-    		}
-
-    		if( distance > 0 && distance < sidebarWidth ) {
-				$('.sidebar').css("right", -distance);
-				console.log($('.sidebar').css("right"));
-    		}
-    	},
-
-    	dragEndSidebar: function(e) {
-    		var	sidebarWidth = $('.sidebar .content').width(),
-    			distance = e.gesture.deltaX + sidebarWidth;
-
-			$('.sidebar').addClass("animated");
-    		if(distance < 80) {
-    			$('.sidebar').css("right", 0);
-    		} else {
-    			$('.sidebar').css("right", -sidebarWidth)
-    		}
+    	sidebar: function(e) {
+    		$('.sidebar').toggleClass('out');
+    		$(e.target).toggleClass('out');
     	},
 
 		overviewVillages: function(e) {

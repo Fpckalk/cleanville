@@ -4,6 +4,7 @@
 
 	$user = new User();
 	$page = new Page();
+	$game = new Game();
 
 	$current_page = $page->get_page();
 

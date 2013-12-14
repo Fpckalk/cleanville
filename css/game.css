@@ -34,19 +34,24 @@ article#schoondorp {
 article .sidebar {
 	position: relative;
 	float: right;
-	right: -215px;
+	right: -250px;
 	height: 100%;
 	z-index: 100;
+	background-color: #f0f0f0;
+	padding: 30px 0;
+	height: 94%;
+	top: 3%;
+	border-radius: 5px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,.4);
 }
-	article.sidebar.animated {
-		transition: .2s;
+	article .sidebar.out {
+		right: 0;
 	}
 	article .sidebar .content {
 		overflow: auto;
 		width: 215px;
 		height: 100%;
 		float: left;
-		background-color: #f0f0f0;
 
 		/* This bugger is to prevent the JS from misbehaving */
 		-webkit-user-select: none;
@@ -55,12 +60,21 @@ article .sidebar {
 		-o-user-select: none;
 		user-select: none;
 	}
-	article .sidebar .pullout {
-		width: 20px;
-		height: 100%;
-		background-color: #222222;
+	article .sidebar #pullout {
 		float: left;
+		padding: 0 12px;
+		margin-right: 30px;
+		border-right: 1px solid #b1b1b1;
+		height: 100%;
+		display: table;
 	}
+		article .sidebar #pullout i {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		article .sidebar #pullout i.out {
+			-webkit-transform: rotate(180deg);
+		}
 
 /* Background */
 .game {
