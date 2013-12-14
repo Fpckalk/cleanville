@@ -9,9 +9,38 @@ article#schoondorp {
 	position: absolute;
 }
 .element img {
-	width: 100%;
-	height: 100%;
+	
 }
+
+.element.energy {
+	top: 111px;
+	left: 334px;
+}
+	.element.energy img {
+		width: 486px;
+	}
+.element.river {
+	bottom: -3px;
+}
+	.element.river img {
+		width: 100%;
+	}
+
+.element.trash {
+	top: 363px;
+	left: 309px;
+}
+	.element.trash img {
+		width: 168px;
+	}
+
+.element.food {
+	top: 384px;
+	left: 533px	
+}
+	.element.food img {
+		width: 334px;
+	}
 
 .info {
 	display: none;
@@ -90,7 +119,8 @@ article .sidebar {
 	height: 100%;
 }
 .game #local .bg {
-	background-color: green;
+	background: url('../img/game/bg.jpg');
+	background-size: 100% 101%;
 	width: 100%;
 	height: 100%;
 	position: absolute;
