@@ -52,11 +52,37 @@ article#schoondorp {
 	}
 
 /* Overview Elements */
-.village {
-	z-index: 1;
+.profile {
 	top: 5%;
 	left: 40%;
 }
+	.profile .window {
+		float: none;
+		position: relative;
+	}
+	.profile img {
+		width: 100px;
+	}
+
+	.profile-info {
+
+	}
+
+	.profile-info .mail {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.profile-info .toggle-progress {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	.profile-info .progress {
+		display: none;
+	}
 
 /*=== GAME ===*/
 /* Summary */
@@ -133,7 +159,7 @@ article .sidebar {
 	position: absolute;
 }
 .game #overview .bg {
-	background-color: darkgreen;
+	background: url('../img/game/bg-out.jpg') 0 0;
 	width: 100%;
 	height: 100%;
 	position: absolute;

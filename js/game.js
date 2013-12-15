@@ -19,17 +19,21 @@ var GAME = GAME || {};
 			var field = $('article #game'),
 				sidebar = $('article .sidebar #pullout i'),
 				elTap = $('.fa-circle'),
-				famTap = $('#overview img'),
 				body = $('.bg'),
-				art = $('article');
+				art = $('article'),
+				tp = $('.toggle-progress'),
+				mail = $('.mail'),
+				mailSubmit = $('#mailuser');
 
-			Hammer(field[0]).on('tap', function() { GAME.gestures.overviewVillages(event); });
-			Hammer(field[0]).on('swipedown', function() { GAME.gestures.localVillage(event); });
+			Hammer(field[0]).on('tap', function() { GAME.village.overviewVillages(event); });
+			Hammer(field[0]).on('swipedown', function() { GAME.village.localVillage(event); });
 
-			elTap.on('click', function() { GAME.sprite.showInfo(event); });
-			sidebar.on('click', function() { GAME.gestures.sidebar(event); });
-			famTap.on('click', function() { GAME.sprite.showInfo(event); });
-			body.on('click', function() { GAME.sprite.hideInfo(event); });
+			elTap.on('click', function() { GAME.sprite.showInfo(event) });
+			sidebar.on('click', function() { GAME.village.sidebar(event) });
+			body.on('click', function() { GAME.sprite.hideInfo(event) });
+			tp.on('click', function() { GAME.profile.showProgress(event) });
+			mail.on('click', function() { APP.layout.popup(event) });
+			mailSubmit.on('submit', function() { GAME.profile.mailUser(event) });
 		}
 
 	};
@@ -54,7 +58,7 @@ var GAME = GAME || {};
 			$('.info').removeClass('show');
 		},
 
-		// Make this in PHP instead!!!!
+		// Made this in PHP instead
 		checkLevel: function(levels, current, item) {
 			$.each(levels, function(level, val) {
 				if(current > val) {
@@ -98,8 +102,37 @@ var GAME = GAME || {};
 
 	};
 
+	GAME.profile = {
 
-	GAME.gestures = {
+		showProgress: function(e) {
+			var p = $(e.target).next('.progress');
+			$(p).toggle();
+		},
+
+		mailUser: function(e) {
+			e.preventDefault();
+
+			var self = e.target,
+				subj = $(self).find('.subject')[0],
+				msg = $(self).find('.message')[0];
+
+			$.post(
+				'./inc/actions/mail.php', {
+					subject: $(subj).val(),
+					message: $(msg).val()
+				})
+				.done(function() {
+					console.log('done');
+					APP.layout.hidePopup();
+				});
+
+			return false;
+		}
+
+	}
+
+
+	GAME.village = {
 
     	sidebar: function(e) {
     		$('.sidebar').toggleClass('out');
@@ -124,4 +157,4 @@ var GAME = GAME || {};
 
 	GAME.controller.init();
 
-})();
+})();;

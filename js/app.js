@@ -18,7 +18,7 @@ var APP = APP || {};
 
 		enable: function() {
 			var	editGoal = $('.edit-goal'),
-				goalForm = $('.popup form'),
+				goalForm = $('.popup #goalform'),
 				popupCross = $('.popup .fa-times'),
 				darken = $('.darken');
 
@@ -59,6 +59,8 @@ var APP = APP || {};
 		},
 
 		submitGoal: function(e) {
+			e.preventDefault();
+
 			var self = e.target,
 				goal = $(self).find('.goal')[0],
 				start = $(self).find('.starting-date')[0],

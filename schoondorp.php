@@ -2,6 +2,8 @@
 	
 	<article id="schoondorp">
 
+		<div class="darken"></div>
+
 		<aside class="sidebar">
 			<div id="pullout">
 				<i class="fa fa-chevron-left fa-2x"></i>
@@ -50,15 +52,35 @@
 			</div>
 
 			<div id="overview">
-				<div class="bg"></div>
-				<div class="info">
-					<div class="family">
-						<h3>Family Kalk</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, dolorum, illum dicta expedita perferendis voluptatum quisquam mollitia sunt ipsa molestiae error dolores veniam voluptates dignissimos quas cum sint aspernatur blanditiis.</p>
-					</div>
+				
+				<div class="popup">
+					<h2>Write a message</h2>
+					<i class="fa fa-times"></i>
+					<form id="mailuser">
+						<input type="text" class="subject" name="subject" placeholder="Subject">
+						<textarea name="message" class="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
+						<button>Send</button>
+					</form>
 				</div>
-				<div class="element village">
-					<img src="http://placehold.it/100x100&text=My+House" alt="">
+
+				<div class="bg"></div>
+				<div class="element profile">
+					<img src="img/profile.png" />
+					<div class="window small">
+						<div class="profile-info">
+							<h1>Some Family</h1>
+							<i class="mail fa fa-envelope"></i>
+							<i class="toggle-progress fa fa-chevron-down"></i>
+							<div class="progress">
+								<ul>
+									<li>Water</li>
+									<li>Energy</li>
+									<li>Food</li>
+									<li>Trash</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			

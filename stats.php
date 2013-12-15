@@ -16,7 +16,7 @@
 		<div class="popup">
 			<h2>Change your goal</h2>
 			<i class="fa fa-times"></i>
-			<form>
+			<form id="goalform">
 				<label>Save:</label>
 				<input class="goal" type="range" min="0" max="100" step="1">
 				<label>Start goal at</label>

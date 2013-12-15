@@ -171,7 +171,7 @@ article.active {
 
 
 /*=== FORM ===*/
-form input {
+form input, textarea {
 	display: block;
 	margin-top: 10px;
 	border: 2px solid #b1b1b1;
@@ -180,7 +180,12 @@ form input {
 	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(255,255,255,.6);
 	background-color: #e3e5e8;
+	font-family: 'Arial';
+	font-weight: bold;
 }
+	textarea {
+		height: auto;
+	}
 	form input:first-child {
 		margin: 0;
 	}

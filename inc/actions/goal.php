@@ -1,6 +1,6 @@
 <?php
 	
-	include_once("settings.php");
+	include_once("../settings.php");
 
 	$db = new DB_Class();
 
