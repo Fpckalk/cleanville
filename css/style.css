@@ -181,15 +181,15 @@ form input, textarea {
 	box-shadow: 0 1px 1px rgba(255,255,255,.6);
 	background-color: #e3e5e8;
 	font-family: 'Arial';
-	font-weight: bold;
 }
 	textarea {
 		height: auto;
+		width: 100%;
 	}
 	form input:first-child {
 		margin: 0;
 	}
-	form input::-webkit-input-placeholder {
+	form input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		color: 888888;
 		font-weight: bold;
 	}
@@ -258,6 +258,11 @@ article[data-route=usage] section figure {
 	margin-left: -210px;
 	margin-top: -210px;
 }
+	.popup .fa-times {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
 
 /*=== MISC ===*/
 /* Dashboard Menu */
