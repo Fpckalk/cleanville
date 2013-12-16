@@ -55,7 +55,7 @@
 				
 				<div class="popup">
 					<h2>Write a message</h2>
-					<i class="fa fa-times"></i>
+					<i class="fa fa-2x fa-times"></i>
 					<form id="mailuser">
 						<input type="text" class="subject" name="subject" placeholder="Subject">
 						<textarea name="message" class="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>

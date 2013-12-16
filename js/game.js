@@ -25,8 +25,8 @@ var GAME = GAME || {};
 				mail = $('.mail'),
 				mailSubmit = $('#mailuser');
 
-			Hammer(field[0]).on('tap', function() { GAME.village.overviewVillages(event); });
-			Hammer(field[0]).on('swipedown', function() { GAME.village.localVillage(event); });
+			Hammer(field[0]).on('pinchin', function() { GAME.village.overviewVillages(event); });
+			Hammer(field[0]).on('pinchout', function() { GAME.village.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event) });
 			sidebar.on('click', function() { GAME.village.sidebar(event) });
