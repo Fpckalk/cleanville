@@ -40,7 +40,7 @@
 		<?php if($current_page && $current_page != 'index.php' && $current_page != 'login.php'): ?>
 			<a href="./" role="back"><i class="fa fa-chevron-left fa-2x"></i></a>
 		<?php endif; ?>
-		<h1 data-bind="title">Schoondorp</h1>
+		<h1><?php echo $page->title(); ?></h1>
 		<?php if($current_page == 'profile.php'): ?>
 			<nav role="main">
 				<ul>

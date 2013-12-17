@@ -11,7 +11,7 @@
 						<a href="forgot.php">Forgot your password?</a>
 						<button>Log in</button>
 					</form>
-					<a href="">Create an account</a>
+					<a href="register.php">Create an account</a>
 				</section>
 			</div>
 		</article>

@@ -48,6 +48,15 @@
 			return $_SESSION['familyID'];
 		}
 
+		function q($target)
+		{
+			$id = $this->id();
+			$result = mysql_query("SELECT * FROM families WHERE ID = '$id'");
+			$data = mysql_fetch_array($result);
+
+			return $data[$target];
+		}
+
 		// Just a number stored in the database
 		// It's just arbitrary right now
 		// There's no way yet to get the official number
@@ -71,11 +80,6 @@
 	*/
 	class Page
 	{
-		
-		public function __construct()
-		{
-			// Base code here
-		}
 
 		function get_page() {
 			// Check if logged in or on login page to prevent loop
@@ -87,11 +91,33 @@
 			return $page;
 		}
 
+		function title() {
+			$page = $this->get_page();
+			$page = explode(".", $page);
+			$page = $page[0];
+
+			$titles = array(
+				'explanation' => 'Explanation',
+				'forgot' => 'Forgot Password',
+				'index' => 'Dashboard',
+				'' => 'Dashboard',
+				'login' => 'Schoondorp',
+				'profile' => 'Profile',
+				'register' => 'Register',
+				'schoondorp' => 'Schoondorp',
+				'sensors' => 'Sensors',
+				'settings' => 'Settings',
+				'stats' => 'Data Usage'
+				);
+
+			return $titles[$page];
+		}
+
 		function redirect_login() {
 
 			$page = $this->get_page();
 
-			if(!$page || $page != 'login.php' && $page != 'forgot.php') {
+			if(!$page || $page != 'login.php' && $page != 'forgot.php' && $page != 'register.php') {
 				header("Location: ./login.php");
 			}
 
@@ -103,19 +129,14 @@
 	*/
 	class Game
 	{
-		
-		function __construct()
-		{
-			
-		}
 
 		function get_value($el)
 		{
 			$values = array(
 				'energy' => 210,
 				'water' => 67,
-				'trash' => 120,
-				'food' => 240
+				'food' => 240,
+				'trash' => 120
 				);
 
 			return $values[$el];
@@ -137,6 +158,7 @@
 				}
 			}
 		}
+		
 	}
 
 ?>

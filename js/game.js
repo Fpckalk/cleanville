@@ -18,15 +18,16 @@ var GAME = GAME || {};
 		enable: function() {
 			var field = $('article #game'),
 				sidebar = $('article .sidebar #pullout i'),
-				elTap = $('.fa-circle'),
+				elTap = $('.circle'),
 				body = $('.bg'),
 				art = $('article'),
 				tp = $('.toggle-progress'),
 				mail = $('.mail'),
-				mailSubmit = $('#mailuser');
+				mailSubmit = $('#mailuser'),
+				infoToggle = $('.info .how i');
 
-			Hammer(field[0]).on('pinchin', function() { GAME.village.overviewVillages(event); });
-			Hammer(field[0]).on('pinchout', function() { GAME.village.localVillage(event); });
+			Hammer(field[0]).on('swipeup', function() { GAME.village.overviewVillages(event); });
+			Hammer(field[0]).on('swipedown', function() { GAME.village.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event) });
 			sidebar.on('click', function() { GAME.village.sidebar(event) });
@@ -34,6 +35,26 @@ var GAME = GAME || {};
 			tp.on('click', function() { GAME.profile.showProgress(event) });
 			mail.on('click', function() { APP.layout.popup(event) });
 			mailSubmit.on('submit', function() { GAME.profile.mailUser(event) });
+			infoToggle.on('click', function() { GAME.sprite.how(event) });
+
+
+			// Metabolic Chars
+			setTimeout( "GAME.sprite.metabolic()", 3000 );
+			$('#chars img').on('click', function(event) {
+				var self = event.target;
+				$(self).height(40);
+				$(self).width(60);
+				$(self).animate({
+					height: '40px',
+					width: '60px'
+					}, 300, function() {
+					$(self).css({
+						height: '100%',
+						width: 'auto'
+					});
+				});
+			});
+
 		}
 
 	};
@@ -49,13 +70,27 @@ var GAME = GAME || {};
 		},
 
 		showInfo: function(e) {
-			console.log(e.target);
+			var self = ($(e.target).hasClass('circle')) ? e.target : $(e.target).parent('.circle'),
+				info = $(self).next('.info');
+
+			event.stopPropagation();
+
 			this.hideInfo();
-			$('.info').addClass('show');
+			$(info).addClass('show');
+			APP.layout.getCurrent();
 		},
 
 		hideInfo: function(e) {
 			$('.info').removeClass('show');
+		},
+
+		how: function(e) {
+			$(e.target).next('p').toggle();
+			$(e.target).toggleClass('out');
+		},
+
+		metabolic: function() {
+			$('#chars').show();
 		},
 
 		// Made this in PHP instead
@@ -106,6 +141,7 @@ var GAME = GAME || {};
 
 		showProgress: function(e) {
 			var p = $(e.target).next('.progress');
+			$(e.target).toggleClass('out');
 			$(p).toggle();
 		},
 
@@ -135,6 +171,7 @@ var GAME = GAME || {};
 	GAME.village = {
 
     	sidebar: function(e) {
+    		APP.layout.getCurrent();
     		$('.sidebar').toggleClass('out');
     		$(e.target).toggleClass('out');
     	},

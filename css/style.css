@@ -1,6 +1,7 @@
 /*=== GENERAL ===*/
 body {
 	background: url('../img/bg.jpg');
+	background-size: cover;
 }
 div[role="main"] {
 	padding: 55px 30px;
@@ -17,8 +18,8 @@ div[role="main"] {
 button {
 	width: 100%;
 	height: 45px;
-	background-color: de6923;
-	border: 1px solid 9b4e20;
+	background-color: #de6923;
+	border: 1px solid #9b4e20;
 	border-radius: 5px;
 	box-shadow: inset 1px 1px 1px rgba(255,255,255,.2),
 				inset -1px -1px 1px -1px rgba(0,0,0,.2);
@@ -27,6 +28,13 @@ button {
 	margin: 0 auto;
 	display: block;
 }
+	button.grey {
+		background-color: #bfbfbf;
+		border: 1px solid #8f8f8f;
+	}
+	button.grey:hover {
+		background-color: #bababa;
+	}
 	button:hover {
 		background-color: #d26423;
 	}
@@ -51,12 +59,15 @@ nav[role="aside"] {
 		display: block;
 		border: 2px solid #9b4e20;
 		border-top: none;
-		background: #e5842b;
+		background: url('../img/side-bg.jpg') 0 0 no-repeat #e5842b;
 		color: #ffffff;
 		box-shadow: inset 0 2px 1px -1px rgba(255,255,255,.20);
 	}
 		nav[role="aside"] li:first-of-type a {
 			border-top: 2px solid #9b4e20;
+		}
+		nav[role="aside"] li a.active {
+			background: url('../img/side-active-bg.jpg') 0 0 no-repeat;
 		}
 		nav[role="aside"] li a.active::after {
 			content: " ";
@@ -110,17 +121,20 @@ nav[role="aside"] {
 	.window.w3 {
 		width: 100%;
 	}
+
+/* ICONS */
 .fa {
-	color: #333333;
+	color: #da6822;
+	transition: .2s;
 }
-	.fa:hover {
-		color: #555555;
-	}
+i.out {
+	-webkit-transform: rotate(180deg);
+}
 
 
 
 /*=== HEADER ===*/
-header {
+body > header {
 	display: inline-block;
 	padding: 15px 25px;
 	width: 100%;
@@ -129,19 +143,20 @@ header {
 	height: 7%;
 	box-shadow: 0 0 5px rgba(0,0,0,.45);
 }
-header h1 {
+body > header h1 {
 	text-align: center;
+	font-size: 2em;
 	color: #de6923;
 }
-header > a[role=back] {
+body > header > a[role=back] {
 	float: left;
 }
-header nav {
+body > header nav {
 	position: absolute;
 	right: 0;
 	top: 0;
 }
-	header nav li {
+	body > header nav li {
 		float: left;
 	}
 
@@ -164,6 +179,9 @@ article {
 }
 article[data-route] {
 	display: none;
+}
+article.dashboard {
+	margin-top: 25%;
 }
 article.active {
 	display: table;
@@ -264,6 +282,36 @@ article[data-route=usage] section figure {
 		right: 10px;
 	}
 
+/*=== PROFILE ===*/
+.avatar {
+	height: 115px;
+	width: 115px;
+	display: block;
+	margin: 0 auto 30px;
+	border-radius: 50%;
+	border: 1px solid #8f8f8f;
+	overflow: hidden;
+}
+article[data-route="profile"], article[data-route="edit"] {
+	width: 55%;
+}
+article[data-route="profile"] .table-wrapper {
+	padding-top: 30px;
+	border-top: 1px solid #b1b1b1;
+}
+article[data-route="profile"] tr td {
+	padding: 10px 0;
+	line-height: 1.5em;
+}
+article[data-route="profile"] tr td:first-child {
+	padding-right: 35px;
+	color: #555555;
+}
+article[data-route="profile"] tr td:first-child i {
+	font-size: 1.5em;
+	margin-right: 10px;
+}
+
 /*=== MISC ===*/
 /* Dashboard Menu */
 article.dashboard .window {
@@ -335,7 +383,8 @@ figure.progress {
 figure.progress .current {
 	height: 40px;
 	margin: -2px 0 0 -2px;
-	border: 2px solid #844f1c;
+	border: 1px solid #844f1c;
 	border-radius: 5px;
 	background: url('../img/progress.jpg') 0 0 repeat-x;
+	background-size: cover;
 }
