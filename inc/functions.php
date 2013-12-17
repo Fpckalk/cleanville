@@ -1,6 +1,8 @@
 <?php
 
 	include_once("inc/settings.php");
+
+	// Change Data->values for a different village
 	
 	/**
 	* User
@@ -51,28 +53,65 @@
 		function q($target)
 		{
 			$id = $this->id();
-			$result = mysql_query("SELECT * FROM families WHERE ID = '$id'");
+			$result = mysql_query("SELECT $target FROM families WHERE ID = '$id'");
 			$data = mysql_fetch_array($result);
 
 			return $data[$target];
 		}
 
+
+	}
+
+	/**
+	* Data
+	*/
+	class Data
+	{
+		
+		function values($el)
+		{
+			$values = array(
+				'energy' => 110,
+				'water' => 67,
+				'food' => 140,
+				'trash' => 20
+				);
+
+			return $values[$el];
+		}
+	}
+
+	/**
+	* Goal
+	*/
+	class Goal extends Data
+	{
+
 		// Just a number stored in the database
 		// It's just arbitrary right now
 		// There's no way yet to get the official number
-		function current($sensor, $family)
+		function current($type)
 		{
-			$result = mysql_query("SELECT current from milestones where families_ID = '$family'");
-			$current = mysql_result($result, 0);
-			return $current;
+			$result = mysql_query("SELECT current FROM milestones WHERE families_ID = {$_SESSION['familyID']} AND type = '$type'");
+			$data = mysql_fetch_array($result);
+
+			return $data['current'];
 		}
 
-		function goal($sensor)
+		function final_goal($type)
 		{
-			$result = mysql_query("SELECT milestone FROM milestones WHERE families_ID = {$_SESSION['familyID']}");
-			$goal = mysql_result($result, 0);
-			return $goal;
+			$result = mysql_query("SELECT milestone FROM milestones WHERE families_ID = {$_SESSION['familyID']} AND type = '$type'");
+			$data = mysql_fetch_array($result);
+
+			return $data['milestone'];
 		}
+
+		function percentage($current, $goal) {
+			$percent = ($current / $goal ) * 100;
+			$percent = ceil($percent) . "%";
+			return $percent;
+		}
+		
 	}
 
 	/**
@@ -127,24 +166,12 @@
 	/**
 	* Game
 	*/
-	class Game
+	class Game extends Data
 	{
-
-		function get_value($el)
-		{
-			$values = array(
-				'energy' => 210,
-				'water' => 67,
-				'food' => 240,
-				'trash' => 120
-				);
-
-			return $values[$el];
-		}
 
 		function get_level($el)
 		{
-			$value = $this->get_value($el);
+			$value = $this->values($el);
 			$breakpoints = array(100, 200, 300);
 			$i = 0;
 
@@ -156,6 +183,16 @@
 				} else {
 					return $i + 1;
 				}
+			}
+		}
+
+		function get_next_level($el) {
+			$cur = $this->get_level($el);
+			if ($cur < 3) {
+				$cur += 1;
+				return $cur;
+			} else {
+				return $cur;
 			}
 		}
 		

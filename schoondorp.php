@@ -2,17 +2,17 @@
 
 <?php 
 	// Set variables to be used by Javascript
-	$current = $user->current('general', $user->id());
-	$goal = $user->goal('general');
+	$current = $goal->current('summary');
+	$endgoal = $goal->final_goal('summary');
 ?>
 <script>
 	var current = "<?php echo $current ?>",
-		goal = "<?php echo $goal ?>";
+		goal = "<?php echo $endgoal ?>";
 </script>
 
 	<article id="schoondorp">
 
-		<div class="darken"></div>
+		<div class="cancel"></div>
 
 		<aside class="sidebar">
 			<div id="pullout">
@@ -23,29 +23,42 @@
 				<ul>
 					<li class="energy">
 						<img src="img/game/icons/energy.png" alt="">
-						<span>8</span><span>kWh</span>
+						<span><?php echo $data->values('energy'); ?></span><span>kWh</span>
 					</li>
 					<li class="water">
 						<img src="img/game/icons/water.png" alt="">
-						<span>48</span><span>liter</span>
+						<span><?php echo $data->values('water'); ?></span><span>liter</span>
 					</li>
 					<li class="food">
 						<img src="img/game/icons/food.png" alt="">
-						<span>9</span><span>pieces</span>
+						<span><?php echo $data->values('food'); ?></span><span>pieces</span>
 					</li>
 					<li class="waste">
 						<img src="img/game/icons/waste.png" alt="">
-						<span>2</span><span>kg</span>
+						<span><?php echo $data->values('trash'); ?></span><span>kg</span>
 					</li>
 				</ul>
 
 				<h1>Goals</h1>
 				<p>These goals are currently running</p>
-				<a href="stats.php#/summary">
+				<figure class="full-progress-bar">
+					<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+					<span>0%</span>
+					<span>100%</span>
 					<figure class="progress">
 						<div class="current"></div>
 					</figure>
-				</a>
+					<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
+				</figure>
+				<figure class="full-progress-bar">
+					<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+					<span>0%</span>
+					<span>100%</span>
+					<figure class="progress">
+						<div class="current"></div>
+					</figure>
+					<span>Save <?php echo $goal->final_goal('water'); ?> liters of water</span>
+				</figure>
 			</div>
 		</aside>
 
@@ -67,26 +80,40 @@
 					<div class="circle">
 						<div></div>
 					</div>
+
 					<div class="info window small">
 						<header>
-							<h1>Water usage</h1>
-							<div class="level">
+							<h1>Energy usage</h1>
+							<div class="level level-<?php echo $game->get_level('energy'); ?>">
 								Level
 								<span>1</span>
 								<span>2</span>
 								<span>3</span>
 							</div>
 						</header>
+						<div class="numbers">
+							<figure class="total">
+								<span>Total</span>
+								<span><?php echo $data->values('energy'); ?></span>
+							</figure>
+						</div>
 						<div class="level">
-							<div class="progress">
-								<h2>Your river progress</h2>
-								<figure class="progress">
-									<div class="current"></div>
+							<div>
+								<h2>Your house progress</h2>
+
+								<figure class="full-progress-bar">
+									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+									<span>0%</span>
+									<span>100%</span>
+									<figure class="progress">
+										<div class="current"></div>
+									</figure>
 								</figure>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
-								<img src="http://placehold.it/130x130" alt="">
+								<span>Level <?php echo $game->get_next_level('energy'); ?></span>
+								<img src="img/game/lvl-icons/energy-<?php echo $game->get_next_level('energy'); ?>.jpg" alt="">
 							</div>
 						</div>
 						<div class="how">
@@ -94,6 +121,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
 						</div>
 					</div>
+
 				</div>
 
 				<div class="element river">
@@ -101,26 +129,40 @@
 					<div class="circle">
 						<div></div>
 					</div>
+
 					<div class="info window small">
 						<header>
 							<h1>Water usage</h1>
-							<div class="level">
+							<div class="level level-<?php echo $game->get_level('water'); ?>">
 								Level
 								<span>1</span>
 								<span>2</span>
 								<span>3</span>
 							</div>
 						</header>
+						<div class="numbers">
+							<figure class="total">
+								<span>Total</span>
+								<span><?php echo $data->values('water'); ?></span>
+							</figure>
+						</div>
 						<div class="level">
-							<div class="progress">
+							<div>
 								<h2>Your river progress</h2>
-								<figure class="progress">
-									<div class="current"></div>
+
+								<figure class="full-progress-bar">
+									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+									<span>0%</span>
+									<span>100%</span>
+									<figure class="progress">
+										<div class="current"></div>
+									</figure>
 								</figure>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
-								<img src="http://placehold.it/130x130" alt="">
+								<span>Level <?php echo $game->get_next_level('water'); ?></span>
+								<img src="img/game/lvl-icons/river-<?php echo $game->get_next_level('water'); ?>.jpg" alt="">
 							</div>
 						</div>
 						<div class="how">
@@ -128,6 +170,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
 						</div>
 					</div>
+
 				</div>
 
 				<div class="element trash">
@@ -135,26 +178,40 @@
 					<div class="circle">
 						<div></div>
 					</div>
+
 					<div class="info window small">
 						<header>
-							<h1>Water usage</h1>
-							<div class="level">
+							<h1>Trash</h1>
+							<div class="level level-<?php echo $game->get_level('trash'); ?>">
 								Level
 								<span>1</span>
 								<span>2</span>
 								<span>3</span>
 							</div>
 						</header>
+						<div class="numbers">
+							<figure class="total">
+								<span>Total</span>
+								<span><?php echo $data->values('trash'); ?></span>
+							</figure>
+						</div>
 						<div class="level">
-							<div class="progress">
-								<h2>Your river progress</h2>
-								<figure class="progress">
-									<div class="current"></div>
+							<div>
+								<h2>Your trash progress</h2>
+
+								<figure class="full-progress-bar">
+									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+									<span>0%</span>
+									<span>100%</span>
+									<figure class="progress">
+										<div class="current"></div>
+									</figure>
 								</figure>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
-								<img src="http://placehold.it/130x130" alt="">
+								<span>Level <?php echo $game->get_next_level('trash'); ?></span>
+								<img src="img/game/lvl-icons/trash-<?php echo $game->get_next_level('trash'); ?>.jpg" alt="">
 							</div>
 						</div>
 						<div class="how">
@@ -162,6 +219,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
 						</div>
 					</div>
+
 				</div>
 
 				<div class="element food">
@@ -169,26 +227,40 @@
 					<div class="circle">
 						<div></div>
 					</div>
+
 					<div class="info window small">
 						<header>
-							<h1>Water usage</h1>
-							<div class="level">
+							<h1>Food usage</h1>
+							<div class="level level-<?php echo $game->get_level('food'); ?>">
 								Level
 								<span>1</span>
 								<span>2</span>
 								<span>3</span>
 							</div>
 						</header>
+						<div class="numbers">
+							<figure class="total">
+								<span>Total</span>
+								<span><?php echo $data->values('food'); ?></span>
+							</figure>
+						</div>
 						<div class="level">
-							<div class="progress">
-								<h2>Your river progress</h2>
-								<figure class="progress">
-									<div class="current"></div>
+							<div>
+								<h2>Your food progress</h2>
+
+								<figure class="full-progress-bar">
+									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+									<span>0%</span>
+									<span>100%</span>
+									<figure class="progress">
+										<div class="current"></div>
+									</figure>
 								</figure>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
-								<img src="http://placehold.it/130x130" alt="">
+								<span>Level <?php echo $game->get_next_level('food'); ?></span>
+								<img src="img/game/lvl-icons/food-<?php echo $game->get_next_level('food'); ?>.jpg" alt="">
 							</div>
 						</div>
 						<div class="how">
@@ -196,6 +268,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
 						</div>
 					</div>
+
 				</div>
 
 			</div>

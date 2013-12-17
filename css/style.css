@@ -6,15 +6,17 @@ body {
 div[role="main"] {
 	padding: 55px 30px;
 }
-.darken {
+.cancel {
 	position: fixed;
 	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,.4);
+	height: 100%;	
 	z-index: 1;
 	top: 0;
 	display: none;
 }
+	.cancel.darken {
+		background-color: rgba(0,0,0,.4);
+	}
 button {
 	width: 100%;
 	height: 45px;
@@ -373,12 +375,42 @@ article.login form input {
 
 
 /* Progress */
+figure.full-progress-bar {
+	padding-top: 10px;
+	position: relative;
+}
+figure.full-progress-bar + figure.full-progress-bar {
+	margin-top: 10px;
+}
+figure.full-progress-bar span {
+	display: block;
+	font-size: .8em;
+}
+	figure.full-progress-bar span.progress-percentage {
+		position: absolute;
+		color: #ffffff;
+		padding: 0 10px;
+		margin-top: -10px;
+		height: 25px;
+		line-height: 25px;
+		background-color: #de6923;
+		box-shadow: inset 1px 1px 1px rgba(255,255,255,.2);
+		border: 1px solid #874d1d;
+		border-radius: 3px;
+	}
+	figure.full-progress-bar span:nth-child(2) {
+		float: left;
+	}
+	figure.full-progress-bar span:nth-child(3) {
+		float: right;
+	}
 figure.progress {
 	width: 100%;
 	height: 40px;
 	background-color: #e3e5e8;
 	border: 2px solid #b1b1b1;
 	border-radius: 5px;
+	margin-top: 20px;
 }
 figure.progress .current {
 	height: 40px;

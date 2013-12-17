@@ -3,6 +3,8 @@
 	include_once("inc/functions.php");
 
 	$user = new User();
+	$data = new Data();
+	$goal = new Goal();
 	$page = new Page();
 	$game = new Game();
 
@@ -26,7 +28,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Cleanville</title>
+	<title>Schoondorp</title>
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">

@@ -39,7 +39,7 @@ var GAME = GAME || {};
 
 
 			// Metabolic Chars
-			setTimeout( "GAME.sprite.metabolic()", 3000 );
+			setTimeout( "GAME.sprite.metabolic()", 8000 );
 			$('#chars img').on('click', function(event) {
 				var self = event.target;
 				$(self).height(40);
@@ -77,6 +77,7 @@ var GAME = GAME || {};
 
 			this.hideInfo();
 			$(info).addClass('show');
+			APP.layout.cancel(false);
 			APP.layout.getCurrent();
 		},
 
@@ -91,6 +92,7 @@ var GAME = GAME || {};
 
 		metabolic: function() {
 			$('#chars').show();
+			// Apparently only showing the characters triggers the animation
 		},
 
 		// Made this in PHP instead

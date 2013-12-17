@@ -20,12 +20,12 @@ var APP = APP || {};
 			var	editGoal = $('.edit-goal'),
 				goalForm = $('.popup #goalform'),
 				popupCross = $('.popup .fa-times'),
-				darken = $('.darken');
+				cancel = $('.cancel');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
 			popupCross.on('click', function() { APP.layout.hidePopup(); });
-			darken.on('click', function() { APP.layout.hidePopup(); });
+			cancel.on('click', function() { APP.layout.hidePopup(); });
 		}
 
 	};
@@ -50,12 +50,18 @@ var APP = APP || {};
 
 		popup: function(e) {
 			$('.popup').show();
-			$('.darken').show();
+			this.cancel(true);
 		},
 
 		hidePopup: function(e) {
 			$('.popup').hide();
-			$('.darken').hide();
+			$('.info').removeClass('show');
+			$('.cancel').hide();
+		},
+
+		cancel: function(d) {
+			$('.cancel').show();
+			if(d) { $('.cancel').addClass('darken') };
 		},
 
 		submitGoal: function(e) {
@@ -86,6 +92,10 @@ var APP = APP || {};
 		getCurrent: function(e) {
 			var currentWidth = (current / goal) * 100;
 			$('figure.progress .current').width(currentWidth + "%");
+			$('.progress-percentage').css({
+				left: currentWidth + "%",
+				"margin-left": "-" + $('.progress-percentage').width() + "px"
+			});
 		}
 
 	}

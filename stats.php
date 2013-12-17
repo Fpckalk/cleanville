@@ -1,15 +1,15 @@
 <?php include_once('inc/header.php') ?>
 <?php 
 	// Set variables to be used by Javascript
-	$current = $user->current('general', $user->id());
-	$goal = $user->goal('general');
+	$current = $goal->current('general');
+	$g_goal = $goal->final_goal('general');
 ?>
 <script>
 	var current = "<?php echo $current ?>",
-		goal = "<?php echo $goal ?>";
+		goal = "<?php echo $g_goal ?>";
 </script>
 
-	<div class="darken"></div>
+	<div class="darken cancel"></div>
 
 	<div role="main">
 		
@@ -57,7 +57,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $user->goal('general'); ?></span>
+						<span>Save &euro;<?php echo $g_goal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>
@@ -85,7 +85,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $user->goal('general'); ?></span>
+						<span>Save &euro;<?php echo $g_goal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>
@@ -126,7 +126,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $user->goal('general'); ?></span>
+						<span>Save &euro;<?php echo $g_goal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>
@@ -167,7 +167,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $user->goal('general'); ?></span>
+						<span>Save &euro;<?php echo $g_goal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>
@@ -208,7 +208,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $user->goal('general'); ?></span>
+						<span>Save &euro;<?php echo $g_goal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>

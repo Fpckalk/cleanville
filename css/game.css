@@ -8,9 +8,7 @@ article#schoondorp {
 .element {
 	position: absolute;
 }
-.element img {
-	
-}
+
 
 /* Circle */
 .element .circle {
@@ -29,7 +27,7 @@ article#schoondorp {
 		background-color: #ffffff;
 		border-radius: 11px;
 		box-shadow: 0 0 3px rgba(0,0,0,.3),
-					inset 0 -2px 1px -1px rgba(0,0,0,.20);;
+					inset 0 -2px 1px -1px rgba(0,0,0,.20);
 	}
 
 .element.energy {
@@ -65,16 +63,97 @@ article#schoondorp {
 .info {
 	display: none;
 	z-index: 50;
-	position: absolute;
-	top: 0;
+	position: fixed;
+	top: 50%;
+	left: 30%;
 	width: 430px;
 }
+	.info.window header {
+		overflow: hidden;
+	}
+		.info.window header > div {
+			float: right;
+		}
+		.info.window header .level-1 span:nth-child(1) { color: #dd6920; font-size: 1.3em; }
+		.info.window header .level-2 span:nth-child(2) { color: #dd6920; font-size: 1.3em; }
+		.info.window header .level-3 span:nth-child(3) { color: #dd6920; font-size: 1.3em; }
+	.info.window.small {
+		margin-top: -27%;
+	}
+	.info.window h1 {
+		float: left;
+	}
+	.info.window .level > div:first-child {
+		float: left;
+	}
+	.info.window .level > div.reward {
+		float: right;
+	}
+		.info.window .level > div.reward h2 {
+			margin-bottom: 0;
+		}
+		.info.window .level > div.reward span {
+			margin-bottom: .6em;
+			display: block;
+		}
+		.info.window .level > div.reward img {
+			width: 73px;
+			height: 63px;
+			border-radius: 5px;
+			border: 2px solid #df6824;
+		}
+	.info .how {
+		clear: both;
+		text-align: center;
+		line-height: 1.8em;
+	}
+		.info .how h2 {
+			display: inline;
+		}
+		.info .how i {
+			margin-left: 10px;
+		}
 	.info .how p {
 		display: none;
+		text-align: left;
+		line-height: 1.6em;
 	}
 	.info.show {
 		display: block;
 	}
+
+.info .numbers {
+	margin: 0 auto;
+	clear: both;
+}
+	.info .numbers > figure {
+		text-align: center;
+		display: inline-block;
+		margin-top: 25px;
+	}
+	.info .numbers .total span:nth-child(1) {
+		margin-bottom: 5px;
+		display: block;
+	}
+	.info .numbers .total span:nth-child(2) {
+		height: 60px;
+		width: 60px;
+		border-radius: 50%;
+		background-color: #959595;
+		color: #ffffff;
+		display: block;
+		line-height: 60px;
+		text-align: center;
+		font-size: 1.5em;
+	}
+
+.info > .level {
+	padding: 25px 0;
+	border-top: 1px solid #8b8b8b;
+	border-bottom: 1px solid #8b8b8b;
+	overflow: auto;
+	margin: 25px 0;
+}
 
 /* Overview Elements */
 .profile {
@@ -183,17 +262,22 @@ article .sidebar {
 		user-select: none;
 	}
 	article .sidebar .content figure.progress .current,
-	article .sidebar .content figure.progress {
-		height: 25px;
+	article .sidebar .content figure.progress,
+	.info figure.progress .current,
+	.info figure.progress {
+		height: 30px;
 	}
 		article .sidebar .content ul {
-			margin-bottom: 15px;
+			margin-bottom: 35px;
 		}
 			article .sidebar .content ul li {
 				display: block;
 				margin-top: 15px;
 				line-height: 60px;
 			}
+				article .sidebar .content ul li span {
+					color: #adadad;
+				}
 			article .sidebar .content ul li img {
 				height: 60px;
 			}
@@ -204,7 +288,6 @@ article .sidebar {
 
 	article .sidebar #pullout {
 		float: left;
-		padding: 0 12px;
 		margin-right: 30px;
 		border-right: 1px solid #b1b1b1;
 		height: 100%;
@@ -214,6 +297,7 @@ article .sidebar {
 			display: table-cell;
 			vertical-align: middle;
 			transition: .2s;
+			padding: 0 12px;
 		}
 
 /* Background */

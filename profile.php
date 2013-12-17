@@ -12,6 +12,10 @@
 							<td><?php echo $user->q('name'); ?></td>
 						</tr>
 						<tr>
+							<td><i class="fa fa-users fa-2x"></i>Members</td>
+							<td><?php echo $user->q('members'); ?></td>
+						</tr>
+						<tr>
 							<td><i class="fa fa-home"></i>Located since</td>
 							<td><?php echo $user->q('created'); ?></td>
 						</tr>
@@ -32,8 +36,9 @@
 			<div class="window">
 				<img class="avatar" src="img/uploads/<?php echo strtolower($user->q('name')); ?>.jpg" alt="">
 				<form action="#/profile">
-					<label for="family">Family</label><input type="text" value="Schoon">
-					<label for="mail">E-mail</label><input type="text" value="schoon@schoondorp.nl">
+					<label for="family">Family</label><input type="text" value="<?php echo $user->q('name'); ?>">
+					<label for="members">Members</label><input type="number" value="<?php echo $user->q('members'); ?>">
+					<label for="mail">E-mail</label><input type="text" value="<?php echo $user->q('mail'); ?>">
 					<label for="phone">Telephone</label><input type="text" value="+31612443433">
 					
 					<button class="grey">Cancel</button>
