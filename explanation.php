@@ -2,20 +2,20 @@
 	
 	<div role="main">
 		
-		<article>
-			<div class="window">
-				<iframe src="//player.vimeo.com/video/82140942?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, voluptatem, optio, assumenda facere esse distinctio officia tempore corrupti commodi reprehenderit dolorum dicta quidem earum sint sapiente iusto enim culpa cumque.</p>
-				
-				<h2>FAQ</h2>
-				<h3>How do I play Schoondorp?</h3>
+		<article id="explanation">
+			<div class="window small">
+				<iframe src="//player.vimeo.com/video/82140942?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</div>
+			<div class="window small">				
+				<h1>Questions &amp; Answers</h1>
+				<h2>How do I play Schoondorp?</h2>
 				<p>You can play Schoondorp by clicking on the Schoondorp button in the dashboard.</p>
 
-				<h3>How can I change my goal?</h3>
+				<h2>How can I change my goal?</h2>
 				<p>You can change your goal by clicking on the edit button in Data Usage.</p>
 
-				<h3>How can I earn more water, energy etc.?</h3>
-				<p>By saving up your water or creating energy etc. in your own home you can earn more rewards in game.</p>
+				<h2>How can I earn more water, energy etc.?</h2>
+				<p>By saving up your water or creating energy in your own home you can earn more rewards in game.</p>
 			</div>
 		</article>
 

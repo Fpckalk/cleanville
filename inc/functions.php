@@ -62,6 +62,25 @@
 	}
 
 	/**
+	* Family
+	*/
+	class Family
+	{
+		
+		function family()
+		{
+			$result = mysql_query("SELECT * FROM families");
+			$rows = array();
+
+			while (($row = mysql_fetch_array($result, MYSQL_ASSOC))) {
+				$rows[$row['ID']] = $row;
+			}
+
+			return $rows;
+		}
+	}
+
+	/**
 	* Messages
 	*/
 	class Message

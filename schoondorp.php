@@ -288,42 +288,28 @@
 
 				<div class="bg"></div>
 
-				<div class="element profile">
-					<img src="img/profile.png" />
-					<div class="window small">
-						<div class="profile-info">
-							<h1>Some Family</h1>
-							<i class="mail fa fa-envelope"></i>
-							<i class="toggle-progress fa fa-chevron-down"></i>
-							<div class="progress">
-								<ul>
-									<li>Water</li>
-									<li>Energy</li>
-									<li>Food</li>
-									<li>Trash</li>
-								</ul>
+				<div id="profiles">
+					<?php foreach ($fam->family() as $family) : ?>
+						<div class="element profile">
+							<img src="img/uploads/<?php echo strtolower($user->q('name', $family['ID'])); ?>.jpg" />
+							<div class="window small">
+								<div class="profile-info">
+									<h1>Family <?php echo $family['name']; ?></h1>
+									<span><?php echo $family['members']; echo ($family['members'] == 1) ? " member" : " members"; ?></span>
+									<i class="mail fa fa-envelope"></i>
+									<i class="toggle-progress fa fa-chevron-down"></i>
+									<div class="progress">
+										<ul>
+											<li>Water</li>
+											<li>Energy</li>
+											<li>Food</li>
+											<li>Trash</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-
-				<div class="element profile">
-					<img src="img/profile.png" />
-					<div class="window small">
-						<div class="profile-info">
-							<h1>That other one</h1>
-							<i class="mail fa fa-envelope"></i>
-							<i class="toggle-progress fa fa-chevron-down"></i>
-							<div class="progress">
-								<ul>
-									<li>Water</li>
-									<li>Energy</li>
-									<li>Food</li>
-									<li>Trash</li>
-								</ul>
-							</div>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 
 			</div>

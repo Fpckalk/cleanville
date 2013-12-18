@@ -1,7 +1,7 @@
 /* Playing Field */
 article#schoondorp {
 	overflow: hidden;
-	height: 93%;
+	height: 92%;
 	display: block;
 }
 /* Local Elements */
@@ -160,12 +160,23 @@ article#schoondorp {
 	top: 5%;
 	left: 40%;
 }
+	#profiles {
+		width: 100%;
+		height: 100%;
+	}
+		.profile:nth-child(1) { top: 3%; left: 2%; }
+		.profile:nth-child(2) { top: 28%; left: 37%; }
+		.profile:nth-child(3) { top: 10%; left: 60%; }
+		.profile:nth-child(4) { top: 61%; left: 54%;}
+		.profile:nth-child(5) { top: 50%; left: 7%;}
+
 	.profile .window {
 		float: none;
 		position: absolute;
 		top: 0;
-		left: 80%;
+		left: 65%;
 		width: 100%;
+		z-index: 1;
 	}
 	.profile img {
 		width: 100px;
