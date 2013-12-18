@@ -1,12 +1,12 @@
 <?php include_once('inc/header.php') ?>
 <?php 
 	// Set variables to be used by Javascript
-	$current = $goal->current('general');
-	$g_goal = $goal->final_goal('general');
+	$current = $goal->current('summary');
+	$endgoal = $goal->final_goal('summary');
 ?>
 <script>
 	var current = "<?php echo $current ?>",
-		goal = "<?php echo $g_goal ?>";
+		goal = "<?php echo $endgoal ?>";
 </script>
 
 	<div class="darken cancel"></div>
@@ -57,10 +57,16 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $g_goal; ?></span>
+						<span>Save &euro;<?php echo $endgoal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
-						<figure class="progress">
-							<div class="current"></div>
+						<figure class="full-progress-bar">
+							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class="progress">
+								<div class="current"></div>
+							</figure>
+							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
 					</div>
 				</div>
@@ -85,10 +91,16 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $g_goal; ?></span>
+						<span>Save &euro;<?php echo $endgoal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
-						<figure class="progress">
-							<div class="current"></div>
+						<figure class="full-progress-bar">
+							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class="progress">
+								<div class="current"></div>
+							</figure>
+							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
 					</div>
 					<div class="popup">
@@ -126,10 +138,16 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $g_goal; ?></span>
+						<span>Save &euro;<?php echo $endgoal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
-						<figure class="progress">
-							<div class="current"></div>
+						<figure class="full-progress-bar">
+							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class="progress">
+								<div class="current"></div>
+							</figure>
+							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
 					</div>
 					<div class="popup">
@@ -167,10 +185,16 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $g_goal; ?></span>
+						<span>Save &euro;<?php echo $endgoal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
-						<figure class="progress">
-							<div class="current"></div>
+						<figure class="full-progress-bar">
+							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class="progress">
+								<div class="current"></div>
+							</figure>
+							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
 					</div>
 					<div class="popup">
@@ -208,7 +232,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $g_goal; ?></span>
+						<span>Save &euro;<?php echo $endgoal; ?></span>
 						<i class="fa fa-edit edit-goal"></i>
 						<figure class="progress">
 							<div class="current"></div>

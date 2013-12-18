@@ -106,6 +106,18 @@ var APP = APP || {};
 
 	APP.mail = {
 
+		setRecipient: function(e) {
+			var self = e.target,
+				name = "";
+
+			name = $(self).prevAll('h1').text();
+			name = name.split(" ");
+			name = name[1];
+
+			$('.popup #mailuser input[name="recipient"]').val(name);
+
+		},
+
 		sendMail: function(e) {
 			e.preventDefault();
 

@@ -140,7 +140,7 @@ i.out {
 /*=== HEADER ===*/
 body > header {
 	display: inline-block;
-	padding: 15px 25px;
+	padding: 20px 25px;
 	width: 100%;
 	position: relative;
 	background-color: #eeeeee;
@@ -311,9 +311,22 @@ article[data-route="profile"] tr td:first-child {
 	padding-right: 35px;
 	color: #555555;
 }
-article[data-route="profile"] tr td:first-child i {
+article[data-route="profile"] tr td:first-child i,
+article[data-route="edit"] tr td:first-child i {
 	font-size: 1.5em;
 	margin-right: 10px;
+}
+
+article[data-route="edit"] form tr td {
+	vertical-align: middle;
+	padding: 10px 0;
+}
+article[data-route="edit"] form tr td:first-child {
+	padding-right: 35px;
+}
+article[data-route="edit"] button.grey {
+	float: left;
+	margin-right: 20px;
 }
 
 /*=== MISC ===*/

@@ -34,6 +34,7 @@ var GAME = GAME || {};
 			body.on('click', function() { GAME.sprite.hideInfo(event) });
 			tp.on('click', function() { GAME.profile.showProgress(event) });
 			mail.on('click', function() { APP.layout.popup(event) });
+			mail.on('click', function() { APP.mail.setRecipient(event) });
 			mailSubmit.on('submit', function() { APP.mail.sendMail(event) });
 			infoToggle.on('click', function() { GAME.sprite.how(event) });
 

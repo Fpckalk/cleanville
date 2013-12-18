@@ -118,7 +118,8 @@
 						</div>
 						<div class="how">
 							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
+							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
+Reached 100%? You’ll get a reward!</p>
 						</div>
 					</div>
 
@@ -167,7 +168,8 @@
 						</div>
 						<div class="how">
 							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
+							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
+Reached 100%? You’ll get a reward!</p>
 						</div>
 					</div>
 
@@ -216,7 +218,8 @@
 						</div>
 						<div class="how">
 							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
+							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
+Reached 100%? You’ll get a reward!</p>
 						</div>
 					</div>
 
@@ -265,7 +268,8 @@
 						</div>
 						<div class="how">
 							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, architecto, aperiam, doloribus, perferendis culpa nostrum tempore placeat distinctio odio quibusdam quaerat ducimus atque numquam iusto aut laudantium excepturi sequi dignissimos.</p>
+							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
+Reached 100%? You’ll get a reward!</p>
 						</div>
 					</div>
 
@@ -279,7 +283,7 @@
 					<h2>Write a message</h2>
 					<i class="fa fa-2x fa-times"></i>
 					<form id="mailuser">
-						<input type="hidden" name="recipient" value="<?php echo "Monaghan"; ?>">
+						<input type="hidden" name="recipient" value="">
 						<input type="text" class="subject" name="subject" placeholder="Subject">
 						<textarea name="message" class="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
 						<button>Send</button>
