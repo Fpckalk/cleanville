@@ -67,7 +67,6 @@
 	*/
 	class Data
 	{
-		
 		function values($el)
 		{
 			$values = array(
@@ -84,7 +83,7 @@
 	/**
 	* Goal
 	*/
-	class Goal extends Data
+	class Goal
 	{
 
 		// Just a number stored in the database
@@ -171,6 +170,7 @@
 
 		function get_level($el)
 		{
+
 			$value = $this->values($el);
 			$breakpoints = array(100, 200, 300);
 			$i = 0;
