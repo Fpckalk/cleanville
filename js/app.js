@@ -20,12 +20,16 @@ var APP = APP || {};
 			var	editGoal = $('.edit-goal'),
 				goalForm = $('.popup #goalform'),
 				popupCross = $('.popup .fa-times'),
-				cancel = $('.cancel');
+				cancel = $('.cancel'),
+				mail = $('#menu i'),
+				mailForm = $('#mail');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
 			popupCross.on('click', function() { APP.layout.hidePopup(); });
 			cancel.on('click', function() { APP.layout.hidePopup(); });
+			mail.on('click', function() { APP.layout.popup(event); });
+			mailForm.on('submit', function() { APP.mail.sendMail(event); });
 		}
 
 	};
@@ -96,6 +100,32 @@ var APP = APP || {};
 				left: currentWidth + "%",
 				"margin-left": "-" + $('.progress-percentage').width() + "px"
 			});
+		}
+
+	}
+
+	APP.mail = {
+
+		sendMail: function(e) {
+			e.preventDefault();
+
+			var self = e.target,
+				to = $(self).find('input[name="recipient"]')[0],
+				subj = $(self).find('.subject')[0],
+				msg = $(self).find('.message')[0];
+
+			$.post(
+				'./inc/actions/mail.php', {
+					to: $(to).val(),
+					subject: $(subj).val(),
+					message: $(msg).val()
+				})
+				.done(function() {
+					console.log('done');
+					APP.layout.hidePopup();
+				});
+
+			return false;
 		}
 
 	}

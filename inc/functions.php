@@ -50,9 +50,8 @@
 			return $_SESSION['familyID'];
 		}
 
-		function q($target)
-		{
-			$id = $this->id();
+		function q($target, $id)
+		{	
 			$result = mysql_query("SELECT $target FROM families WHERE ID = '$id'");
 			$data = mysql_fetch_array($result);
 
@@ -60,6 +59,29 @@
 		}
 
 
+	}
+
+	/**
+	* Messages
+	*/
+	class Message
+	{
+
+		function message()
+		{
+			$user = new User();
+			$id = $user->id();
+			$result = mysql_query("SELECT * FROM messages WHERE to_fam = '$id'");
+
+			$rows = array();
+
+			while(($row = mysql_fetch_array($result, MYSQL_ASSOC))) {
+			    $rows[$row['ID']] = $row;
+			}
+
+			return $rows;
+		}
+		
 	}
 
 	/**
@@ -140,6 +162,7 @@
 				'index' => 'Dashboard',
 				'' => 'Dashboard',
 				'login' => 'Schoondorp',
+				'messages' => 'Messages',
 				'profile' => 'Profile',
 				'register' => 'Register',
 				'schoondorp' => 'Schoondorp',

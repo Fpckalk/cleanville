@@ -4,7 +4,7 @@
 		
 		<article>
 			<div class="window">
-				<video src=""></video>
+				<iframe src="//player.vimeo.com/video/82140942?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, voluptatem, optio, assumenda facere esse distinctio officia tempore corrupti commodi reprehenderit dolorum dicta quidem earum sint sapiente iusto enim culpa cumque.</p>
 				
 				<h2>FAQ</h2>

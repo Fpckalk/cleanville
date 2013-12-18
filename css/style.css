@@ -207,7 +207,7 @@ form input, textarea {
 		width: 100%;
 	}
 	form input:first-child {
-		margin: 0;
+		margin-top: 0;
 	}
 	form input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		color: 888888;
@@ -419,4 +419,33 @@ figure.progress .current {
 	border-radius: 5px;
 	background: url('../img/progress.jpg') 0 0 repeat-x;
 	background-size: cover;
+}
+
+/*=== MESSAGES ===*/
+#menu {	
+	background-color: #de6923;
+	padding: 10px 30px;
+	overflow: auto;
+}
+	#menu i {
+		color: #ffffff;
+		float: right;
+	}
+
+.window.message:first-of-type {
+	margin-top: 0;
+}
+
+.window.message {
+	margin: 20px auto 0;
+	width: 70%;
+}
+
+.message .avatar {
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+.message time {
+	float: right;
 }

@@ -3,6 +3,7 @@
 	include_once("inc/functions.php");
 
 	$user = new User();
+	$msg = new Message();
 	$data = new Data();
 	$goal = new Goal();
 	$page = new Page();

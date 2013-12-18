@@ -1,91 +1,41 @@
 <?php include_once('inc/header.php') ?>
 
 <div id="menu">
-	<img src="img/game/icons/mail.png" alt="">
+	<i class="fa fa-envelope fa-2x"></i>
 </div>
 
+<div class="cancel"></div>
+
 <div role="main">
-	
 
+	<article id="messages">
+		<?php foreach ($msg->message() as $message) : ?>
+			<div class="window message">
+				<section class="message">
+					
+					<img class="avatar" src="img/uploads/<?php echo strtolower($user->q('name', $message['from_fam'])); ?>.jpg" alt="" />
+					
+					<time datetime="<?php echo $message['sent']; ?>"><?php echo $message['sent']; ?></time>
+					<h1>Family <?php echo $user->q('name', $message['from_fam']); ?></h1>
+					<span><?php echo $message['title']; ?></span>
+					
+					<p><?php echo $message['message']; ?></p>
+				</section>
+			</div>
+		<?php endforeach; ?>
 
-	<article class="messages">
-		<div class="window">
-			<section id="bericht1">
-				
-				<!--  <img class="avatar" src="img/uploads/<?php echo strtolower($user->q('name')); ?>.jpg" alt=""> -->
-				
-				
-				<img src="img/profiel.jpg"/>
-				
-				
-				<div id="date"> <?php
-				// Print the array from getdate()
-				print_r(getdate());
-				echo "<br><br>";
-
-				// Return date/time info of a timestamp; then format the output
-				$mydate=getdate(date("U"));
-				echo "$mydate[month] $mydate[mday], $mydate[year]";
-				?> </div>
-				
-				<h1 data-bind="title"></h1>
-				<h1 data-bind="naam"></h1>
-				
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare, risus sed convallis luctus, nulla erat venenatis est, eu pulvinar est magna sit amet turpis. Suspendisse dictum adipiscing libero, non commodo est pellentesque ac. Phasellus accumsan est ac sem molestie pellentesque. Pellentesque a imperdiet eros, nec volutpat dui. Donec nisi mi, dictum vel scelerisque aliquet, tempor a tellus. </p>
-			</section>
+		<div class="popup">
+			<h2>Write a message</h2>
+			<i class="fa fa-2x fa-times"></i>
+			<form id="mail">
+				<input type="text" name="recipient" placeholder="To">
+				<input type="text" class="subject" name="subject" placeholder="Subject">
+				<textarea name="message" class="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
+				<button>Send</button>
+			</form>
 		</div>
-		
-		<div class="window">
-			<section id="bericht2">
-				
-				<!--  <img class="avatar" src="img/uploads/<?php echo strtolower($user->q('name')); ?>.jpg" alt=""> -->
-				
-				<img src="img/profiel.jpg"  />
-				
-				<div id="date"> <?php
-				// Print the array from getdate()
-				print_r(getdate());
-				echo "<br><br>";
 
-				// Return date/time info of a timestamp; then format the output
-				$mydate=getdate(date("U"));
-				echo "$mydate[month] $mydate[mday], $mydate[year]";
-				?> </div>
-				
-				<h1 data-bind="naam"></h1>
-				<h1 data-bind="title"></h1>
-				
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare, risus sed convallis luctus, nulla erat venenatis est, eu pulvinar est magna sit amet turpis. </p>
-			</section>
-		</div>
-		
-		<div class="window">
-			<section id="bericht3">
-				
-				<!--  <img class="avatar" src="img/uploads/<?php echo strtolower($user->q('name')); ?>.jpg" alt=""> -->
-				
-				<img src="img/profiel.jpg"/>
-				
-				<div id="date"> <?php
-				// Print the array from getdate()
-				print_r(getdate());
-				echo "<br><br>";
-
-				// Return date/time info of a timestamp; then format the output
-				$mydate=getdate(date("U"));
-				echo "$mydate[month] $mydate[mday], $mydate[year]";
-				?> </div>
-				
-				<h1 data-bind="naam"></h1>
-				<h1 data-bind="title"></h1>
-				
-				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ornare, risus sed convallis luctus, nulla erat venenatis est, eu pulvinar est magna sit amet turpis. </p>
-			</section>
-		</div>
-		
-		
-	</div>
-</article>
+	</article>
 
 </div>
 

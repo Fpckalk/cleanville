@@ -34,7 +34,7 @@ var GAME = GAME || {};
 			body.on('click', function() { GAME.sprite.hideInfo(event) });
 			tp.on('click', function() { GAME.profile.showProgress(event) });
 			mail.on('click', function() { APP.layout.popup(event) });
-			mailSubmit.on('submit', function() { GAME.profile.mailUser(event) });
+			mailSubmit.on('submit', function() { APP.mail.sendMail(event) });
 			infoToggle.on('click', function() { GAME.sprite.how(event) });
 
 
@@ -145,26 +145,6 @@ var GAME = GAME || {};
 			var p = $(e.target).next('.progress');
 			$(e.target).toggleClass('out');
 			$(p).toggle();
-		},
-
-		mailUser: function(e) {
-			e.preventDefault();
-
-			var self = e.target,
-				subj = $(self).find('.subject')[0],
-				msg = $(self).find('.message')[0];
-
-			$.post(
-				'./inc/actions/mail.php', {
-					subject: $(subj).val(),
-					message: $(msg).val()
-				})
-				.done(function() {
-					console.log('done');
-					APP.layout.hidePopup();
-				});
-
-			return false;
 		}
 
 	}
