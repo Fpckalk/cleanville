@@ -3,6 +3,7 @@
 	// Set variables to be used by Javascript
 	$current = $goal->current('summary');
 	$endgoal = $goal->final_goal('summary');
+	$endgoal = $endgoal['milestone'];
 ?>
 <script>
 	var current = "<?php echo $current ?>",
@@ -15,7 +16,7 @@
 		
 		<div class="popup">
 			<h2>Change your goal</h2>
-			<i class="fa fa-times"></i>
+			<i class="fa fa-times fa-2x"></i>
 			<form id="goalform">
 				<label>Save:</label>
 				<input class="goal" type="range" min="0" max="100" step="1">
@@ -57,8 +58,9 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $endgoal; ?></span>
-						<i class="fa fa-edit edit-goal"></i>
+						<?php $summary = $goal->final_goal('summary'); ?>
+						<h1>Your goal: <span>Save &euro;<?php echo $summary['milestone']; ?></span></h1>						
+						<i class="fa fa-edit edit-goal fa-2x"></i>
 						<figure class="full-progress-bar">
 							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
 							<span>0%</span>
@@ -66,12 +68,14 @@
 							<figure class="progress">
 								<div class="current"></div>
 							</figure>
-							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
+						<span><?php echo $summary['start_date'] ?></span>
+						<span><?php echo $summary['end_date'] ?></span>
 					</div>
 				</div>
 				
 				<div class="window small w2">
+					<h1>Your savings</h1>
 					<figure class="graph">
 						
 					</figure>
@@ -91,8 +95,9 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $endgoal; ?></span>
-						<i class="fa fa-edit edit-goal"></i>
+						<?php $water = $goal->final_goal('water'); ?>
+						<h1>Your goal: <span>Save <?php echo $water['milestone']; ?> liters</span></h1>		
+						<i class="fa fa-edit edit-goal fa-2x"></i>
 						<figure class="full-progress-bar">
 							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
 							<span>0%</span>
@@ -100,8 +105,9 @@
 							<figure class="progress">
 								<div class="current"></div>
 							</figure>
-							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
+						<span><?php echo $water['start_date'] ?></span>
+						<span><?php echo $water['end_date'] ?></span>
 					</div>
 					<div class="popup">
 						<h2>Change your goal</h2>
@@ -119,6 +125,7 @@
 				</div>
 				
 				<div class="window small w2">
+					<h1>Your water usage progress</h1>
 					<figure class="graph">
 						
 					</figure>
@@ -138,8 +145,9 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $endgoal; ?></span>
-						<i class="fa fa-edit edit-goal"></i>
+						<?php $energy = $goal->final_goal('energy'); ?>
+						<h1>Your goal: <span>Save <?php echo $energy['milestone']; ?>kWh</span></h1>
+						<i class="fa fa-edit edit-goal fa-2x"></i>
 						<figure class="full-progress-bar">
 							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
 							<span>0%</span>
@@ -147,8 +155,9 @@
 							<figure class="progress">
 								<div class="current"></div>
 							</figure>
-							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
+						<span><?php echo $energy['start_date'] ?></span>
+						<span><?php echo $energy['end_date'] ?></span>
 					</div>
 					<div class="popup">
 						<h2>Change your goal</h2>
@@ -166,6 +175,7 @@
 				</div>
 				
 				<div class="window small w2">
+					<h1>Your energy usage progress</h1>
 					<figure class="graph">
 						
 					</figure>
@@ -185,8 +195,9 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $endgoal; ?></span>
-						<i class="fa fa-edit edit-goal"></i>
+						<?php $food = $goal->final_goal('food'); ?>
+						<h1>Your goal: <span>Produce <?php echo $food['milestone']; ?> pieces</span></h1>		
+						<i class="fa fa-edit edit-goal fa-2x"></i>
 						<figure class="full-progress-bar">
 							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
 							<span>0%</span>
@@ -194,8 +205,9 @@
 							<figure class="progress">
 								<div class="current"></div>
 							</figure>
-							<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
 						</figure>
+						<span><?php echo $food['start_date'] ?></span>
+						<span><?php echo $food['end_date'] ?></span>
 					</div>
 					<div class="popup">
 						<h2>Change your goal</h2>
@@ -213,6 +225,7 @@
 				</div>
 				
 				<div class="window small w2">
+					<h1>Your water usage progress</h1>
 					<figure class="graph">
 						
 					</figure>
@@ -232,11 +245,19 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<span>Save &euro;<?php echo $endgoal; ?></span>
-						<i class="fa fa-edit edit-goal"></i>
-						<figure class="progress">
-							<div class="current"></div>
+						<?php $trash = $goal->final_goal('trash'); ?>
+						<h1>Your goal: <span>Save <?php echo $trash['milestone']; ?>kg</span></h1>		
+						<i class="fa fa-edit edit-goal fa-2x"></i>
+						<figure class="full-progress-bar">
+							<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class="progress">
+								<div class="current"></div>
+							</figure>
 						</figure>
+						<span><?php echo $trash['start_date'] ?></span>
+						<span><?php echo $trash['end_date'] ?></span>
 					</div>
 					<div class="popup">
 						<h2>Change your goal</h2>
@@ -254,6 +275,7 @@
 				</div>
 				
 				<div class="window small w2">
+					<h1>Your waste usage progress</h1>
 					<figure class="graph">
 						
 					</figure>

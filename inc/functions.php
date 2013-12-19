@@ -140,10 +140,16 @@
 
 		function final_goal($type)
 		{
-			$result = mysql_query("SELECT milestone FROM milestones WHERE families_ID = {$_SESSION['familyID']} AND type = '$type'");
-			$data = mysql_fetch_array($result);
+			$result = mysql_query("SELECT * FROM milestones WHERE families_ID = {$_SESSION['familyID']} AND type = '$type'");
+			$rows = array();
 
-			return $data['milestone'];
+			while (($row = mysql_fetch_array($result, MYSQL_ASSOC))) {
+				$rows[$row['ID']] = $row;
+			}
+
+			$rows = end($rows);
+
+			return $rows;
 		}
 
 		function percentage($current, $goal) {

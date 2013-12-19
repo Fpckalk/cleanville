@@ -11,6 +11,7 @@ var GAME = GAME || {};
 	GAME.controller = {
 
 		init: function() {
+			// Not needed anymore. Sprites are loaded with PHP
 			// GAME.sprite.init();
 			this.enable();
 		},
@@ -26,8 +27,8 @@ var GAME = GAME || {};
 				mailSubmit = $('#mailuser'),
 				infoToggle = $('.info .how i');
 
-			Hammer(field[0]).on('swipeup', function() { GAME.village.overviewVillages(event); });
-			Hammer(field[0]).on('swipedown', function() { GAME.village.localVillage(event); });
+			Hammer(field[0]).on('pinchin', function() { GAME.village.overviewVillages(event); });
+			Hammer(field[0]).on('pinchout', function() { GAME.village.localVillage(event); });
 
 			elTap.on('click', function() { GAME.sprite.showInfo(event) });
 			sidebar.on('click', function() { GAME.village.sidebar(event) });
@@ -38,9 +39,11 @@ var GAME = GAME || {};
 			mailSubmit.on('submit', function() { APP.mail.sendMail(event) });
 			infoToggle.on('click', function() { GAME.sprite.how(event) });
 
+			setTimeout("GAME.village.help()", 4000);
+
 
 			// Metabolic Chars
-			setTimeout( "GAME.sprite.metabolic()", 8000 );
+			setTimeout( "GAME.sprite.metabolic()", 14000 );
 			$('#chars img').on('click', function(event) {
 				var self = event.target;
 				$(self).height(40);
@@ -166,11 +169,14 @@ var GAME = GAME || {};
 		},
 
 		localVillage: function(e) {
-			console.log(e);
 			e.preventDefault();
 			$('#game #local').show();
 			$('#game #overview').hide();
 			GAME.sprite.hideInfo();
+		},
+
+		help: function() {
+			$('.game #local > span').addClass('in');
 		}
 
 	};

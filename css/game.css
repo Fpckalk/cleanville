@@ -9,7 +9,6 @@ article#schoondorp {
 	position: absolute;
 }
 
-
 /* Circle */
 .element .circle {
 	top: 39%;
@@ -68,15 +67,12 @@ article#schoondorp {
 	left: 30%;
 	width: 430px;
 }
-	.info.window header {
-		overflow: hidden;
+	.info.window header > div {
+		float: right;
 	}
-		.info.window header > div {
-			float: right;
-		}
-		.info.window header .level-1 span:nth-child(1) { color: #dd6920; font-size: 1.3em; }
-		.info.window header .level-2 span:nth-child(2) { color: #dd6920; font-size: 1.3em; }
-		.info.window header .level-3 span:nth-child(3) { color: #dd6920; font-size: 1.3em; }
+	.info.window header .level-1 span:nth-child(1) { color: #dd6920; font-size: 1.3em; }
+	.info.window header .level-2 span:nth-child(2) { color: #dd6920; font-size: 1.3em; }
+	.info.window header .level-3 span:nth-child(3) { color: #dd6920; font-size: 1.3em; }
 	.info.window.small {
 		margin-top: -27%;
 	}
@@ -329,6 +325,22 @@ article .sidebar {
 	height: 100%;
 	position: absolute;
 }
+.game #local > span {
+	position: absolute;
+	padding: 15px;
+	z-index: 2;
+	bottom: 0;
+	left: 20px;
+	color: #da6822;
+	display: block;
+	background-color: #f0f0f0;
+	border-radius: 5px 5px 0 0;
+	box-shadow: 0 0 3px rgba(0,0,0,.6);
+	transition: .6s;
+}
+	.game #local > span.in {
+		bottom: -50px;
+	}
 
 .game #overview {
 	display: none;

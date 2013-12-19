@@ -4,6 +4,7 @@
 	// Set variables to be used by Javascript
 	$current = $goal->current('summary');
 	$endgoal = $goal->final_goal('summary');
+	$endgoal = $endgoal['milestone'];
 ?>
 <script>
 	var current = "<?php echo $current ?>",
@@ -48,7 +49,8 @@
 					<figure class="progress">
 						<div class="current"></div>
 					</figure>
-					<span>Save <?php echo $goal->final_goal('summary'); ?> euros</span>
+					<?php $summary = $goal->final_goal('summary'); ?>
+					<span>Save <?php echo $summary['milestone']; ?> euros</span>
 				</figure>
 				<figure class="full-progress-bar">
 					<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
@@ -57,15 +59,19 @@
 					<figure class="progress">
 						<div class="current"></div>
 					</figure>
-					<span>Save <?php echo $goal->final_goal('water'); ?> liters of water</span>
+					<?php $water = $goal->final_goal('water'); ?>
+					<span>Save <?php echo $water['milestone']; ?> liters</span>
 				</figure>
 			</div>
 		</aside>
-
+		
+		<!-- The Game -->
 		<div id="game" class="game local">
 
 			<div id="local" class="visible">
 				<div class="bg"></div>
+
+				<span>Zoom out to see your neighbours</span>
 
 				<!-- The Metabolic Crew -->
 				<div id="chars">
@@ -283,7 +289,7 @@ Reached 100%? You’ll get a reward!</p>
 					<h2>Write a message</h2>
 					<i class="fa fa-2x fa-times"></i>
 					<form id="mailuser">
-						<input type="hidden" name="recipient" value="">
+						<input type="text" name="recipient" value="">
 						<input type="text" class="subject" name="subject" placeholder="Subject">
 						<textarea name="message" class="message" cols="30" rows="10" placeholder="Type your message here..."></textarea>
 						<button>Send</button>

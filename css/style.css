@@ -59,21 +59,21 @@ nav[role="aside"] {
 		padding: 30px 0 20px;
 		text-align: center;
 		display: block;
-		border: 2px solid #9b4e20;
+		border: 1px solid #9b4e20;
 		border-top: none;
 		background: url('../img/side-bg.jpg') 0 0 no-repeat #e5842b;
 		color: #ffffff;
 		box-shadow: inset 0 2px 1px -1px rgba(255,255,255,.20);
 	}
 		nav[role="aside"] li:first-of-type a {
-			border-top: 2px solid #9b4e20;
+			border-top: 1px solid #9b4e20;
 		}
 		nav[role="aside"] li a.active {
 			background: url('../img/side-active-bg.jpg') 0 0 no-repeat;
 		}
 		nav[role="aside"] li a.active::after {
 			content: " ";
-			right: -14px;
+			right: -15px;
 			top: 50%;
 			margin-top: -19px;
 			position: absolute;
@@ -96,9 +96,9 @@ nav[role="aside"] {
 	overflow: auto;
 	margin: 0 auto;
 	background-color: #eeeeee;
-	box-shadow: 0 5px 10px rgba(0,0,0,.35),
+	box-shadow: 0 2px 5px rgba(0,0,0,.2),
 				inset 0 -2px 1px -1px rgba(0,0,0,.20);
-	border-radius: 5px;
+	border-radius: 3px;
 }
 	.window + .window {
 		margin-top: 25px;
@@ -120,11 +120,23 @@ nav[role="aside"] {
 		/* A bit odd. Margin disappears on page change. Float right should do the trick */
 	}
 	.window.w2 {
-		width: 62.667%;
+		width: 63.667%;
 	}
 	.window.w3 {
 		width: 100%;
 	}
+
+/* GRAPH */
+.graph rect {
+	fill: #f7941d;
+}
+.graph .domain {
+	fill: none;
+	stroke: #b1b1b1;
+}
+.graph text {
+	fill: #b1b1b1;
+}
 
 /* ICONS */
 .fa {
@@ -266,6 +278,17 @@ article[data-route=usage] section figure {
 		display: block;
 	}
 
+.goal h1 {
+	float: left;
+}
+.goal h1 span {
+	color: #878787;
+	font-weight: normal;
+}
+.goal .edit-goal {
+	float: right;
+}
+
 .popup {
 	display: none;
 	position: absolute;
@@ -393,6 +416,7 @@ article.login form input {
 figure.full-progress-bar {
 	padding-top: 10px;
 	position: relative;
+	clear: both;
 }
 figure.full-progress-bar + figure.full-progress-bar {
 	margin-top: 10px;
@@ -419,6 +443,10 @@ figure.full-progress-bar span {
 	figure.full-progress-bar span:nth-child(3) {
 		float: right;
 	}
+figure.full-progress-bar ~ span { margin-top: 5px; }
+figure.full-progress-bar + span { float: left; }
+figure.full-progress-bar + span + span { float: right; }
+
 figure.progress {
 	width: 100%;
 	height: 40px;

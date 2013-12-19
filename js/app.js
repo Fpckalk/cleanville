@@ -133,7 +133,6 @@ var APP = APP || {};
 					message: $(msg).val()
 				})
 				.done(function() {
-					console.log('done');
 					APP.layout.hidePopup();
 				});
 
@@ -156,7 +155,7 @@ var APP = APP || {};
 
 			var margin = {top: 20, right: 20, bottom: 30, left: 40},
 				width = 400 - margin.left - margin.right,
-				height = 300 - margin.top - margin.bottom;
+				height = 240 - margin.top - margin.bottom;
 			
 			var svg = d3.select("article[data-route=" + route + "] .graph")
 				.append("svg")
@@ -166,7 +165,7 @@ var APP = APP || {};
 				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 			var yScale = d3.scale.linear()
-				.domain([0, 10])
+				.domain([0, 20])
 				.range([height, 0]);
 
 			var xScale = d3.scale.linear()
@@ -175,6 +174,7 @@ var APP = APP || {};
 
 			var yAxis = d3.svg.axis()
 				.scale(yScale)
+				.ticks(5)
 				.orient("left");
 
 			var xAxis = d3.svg.axis()
@@ -194,7 +194,7 @@ var APP = APP || {};
 				.data(data)
 				.enter()
 				.append("rect")
-				.attr("width", 10)
+				.attr("width", 20)
 				.attr("height", function(d) {
 					return d * 10;
 				})
@@ -202,7 +202,7 @@ var APP = APP || {};
 					return height - (d * 10);
 				})
 				.attr("x", function(d) {
-					return xScale(d);
+					return xScale(d) - 10;
 				});
 
 		}
