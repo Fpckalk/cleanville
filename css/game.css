@@ -125,13 +125,16 @@ article#schoondorp {
 	.info .numbers > figure {
 		text-align: center;
 		display: inline-block;
-		margin-top: 25px;
+		margin: 25px 25px 0 0;
 	}
-	.info .numbers .total span:nth-child(1) {
+		.info .numbers > figure:last-child {
+			margin-right: 0;
+		}
+	.info .numbers > figure span:nth-child(1) {
 		margin-bottom: 5px;
 		display: block;
 	}
-	.info .numbers .total span:nth-child(2) {
+	.info .numbers > figure span:nth-child(2) {
 		height: 60px;
 		width: 60px;
 		border-radius: 50%;

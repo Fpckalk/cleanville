@@ -9,7 +9,7 @@
 						<li>
 							<a href="schoondorp.php">
 								<img src="img/icons/schoondorp.png" alt="">
-								<span>Play Schoondorp</span>
+								<span>View Schoondorp</span>
 							</a>
 						</li>
 						<li>

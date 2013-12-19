@@ -47,7 +47,9 @@
 
 		function id()
 		{
-			return $_SESSION['familyID'];
+			if (isset($_SESSION['familyID'])) {
+				return $_SESSION['familyID'];
+			}
 		}
 
 		function q($target, $id)
@@ -90,7 +92,7 @@
 		{
 			$user = new User();
 			$id = $user->id();
-			$result = mysql_query("SELECT * FROM messages WHERE to_fam = '$id'");
+			$result = mysql_query("SELECT * FROM messages WHERE to_fam = '$id' ORDER BY sent DESC");
 
 			$rows = array();
 

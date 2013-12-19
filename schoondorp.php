@@ -71,7 +71,7 @@
 			<div id="local" class="visible">
 				<div class="bg"></div>
 
-				<span>Zoom out to see your neighbours</span>
+				<span class="help">Zoom out to see your neighbours</span>
 
 				<!-- The Metabolic Crew -->
 				<div id="chars">
@@ -98,9 +98,21 @@
 							</div>
 						</header>
 						<div class="numbers">
-							<figure class="total">
+							<figure>
 								<span>Total</span>
 								<span><?php echo $data->values('energy'); ?></span>
+							</figure>
+							<figure>
+								<span>In</span>
+								<span>+8</span>
+							</figure>
+							<figure>
+								<span>Out</span>
+								<span>-6</span>
+							</figure>
+							<figure>
+								<span>Growth</span>
+								<span>+5%</span>
 							</figure>
 						</div>
 						<div class="level">
@@ -148,9 +160,21 @@ Reached 100%? You’ll get a reward!</p>
 							</div>
 						</header>
 						<div class="numbers">
-							<figure class="total">
+							<figure>
 								<span>Total</span>
 								<span><?php echo $data->values('water'); ?></span>
+							</figure>
+							<figure>
+								<span>In</span>
+								<span>+8</span>
+							</figure>
+							<figure>
+								<span>Out</span>
+								<span>-6</span>
+							</figure>
+							<figure>
+								<span>Growth</span>
+								<span>+5%</span>
 							</figure>
 						</div>
 						<div class="level">
@@ -189,7 +213,7 @@ Reached 100%? You’ll get a reward!</p>
 
 					<div class="info window small">
 						<header>
-							<h1>Trash</h1>
+							<h1>Waste</h1>
 							<div class="level level-<?php echo $game->get_level('trash'); ?>">
 								Level
 								<span>1</span>
@@ -198,14 +222,28 @@ Reached 100%? You’ll get a reward!</p>
 							</div>
 						</header>
 						<div class="numbers">
-							<figure class="total">
+							<div class="numbers">
+							<figure>
 								<span>Total</span>
 								<span><?php echo $data->values('trash'); ?></span>
 							</figure>
+							<figure>
+								<span>In</span>
+								<span>+8</span>
+							</figure>
+							<figure>
+								<span>Out</span>
+								<span>-6</span>
+							</figure>
+							<figure>
+								<span>Growth</span>
+								<span>+5%</span>
+							</figure>
+						</div>
 						</div>
 						<div class="level">
 							<div>
-								<h2>Your trash progress</h2>
+								<h2>Your waste progress</h2>
 
 								<figure class="full-progress-bar">
 									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
@@ -248,9 +286,21 @@ Reached 100%? You’ll get a reward!</p>
 							</div>
 						</header>
 						<div class="numbers">
-							<figure class="total">
+							<figure>
 								<span>Total</span>
 								<span><?php echo $data->values('food'); ?></span>
+							</figure>
+							<figure>
+								<span>In</span>
+								<span>+8</span>
+							</figure>
+							<figure>
+								<span>Out</span>
+								<span>-6</span>
+							</figure>
+							<figure>
+								<span>Growth</span>
+								<span>+5%</span>
 							</figure>
 						</div>
 						<div class="level">

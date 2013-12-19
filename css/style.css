@@ -28,6 +28,7 @@ button {
 	color: #ffffff;
 	font-weight: bold;
 	margin: 0 auto;
+	padding: 0 25px;
 	display: block;
 }
 	button.grey {
@@ -84,12 +85,23 @@ nav[role="aside"] {
 		}
 		nav[role="aside"] li a span {
 			text-shadow: 0 1px 1px rgba(0,0,0,.40);
+			display: block;
+			margin-top: 5px;
 		}
 		nav[role="aside"] li a img {
-			width: 41px;
-			height: 48px;
+			width: 40px;
 			display: block;
 			margin: 0 auto;
+		}
+
+		/* Nav logout button */
+		nav[role="aside"] li .logout {
+			margin-top: 20px;
+			border-top: 1px solid #9b4e20;
+			padding: 15px 0;
+		}
+		nav[role="aside"] li .logout span {
+			margin-top: 0;
 		}
 .window {
 	padding: 40px 50px;
@@ -116,6 +128,7 @@ nav[role="aside"] {
 		}
 	.window.w1 {
 		width: 33.333%;
+		max-height: 375px;
 		float: right;
 		/* A bit odd. Margin disappears on page change. Float right should do the trick */
 	}
@@ -125,6 +138,12 @@ nav[role="aside"] {
 	.window.w3 {
 		width: 100%;
 	}
+
+/* Placeholder image */
+.ph {
+	width: 100%;
+	margin-top: 10px;
+}
 
 /* GRAPH */
 .graph rect {
@@ -287,6 +306,7 @@ article[data-route=usage] section figure {
 }
 .goal .edit-goal {
 	float: right;
+	font-weight: bold;
 }
 
 .popup {
@@ -307,6 +327,26 @@ article[data-route=usage] section figure {
 		position: absolute;
 		top: 10px;
 		right: 10px;
+	}
+
+.tip {
+	position: fixed;
+	width: 390px;
+	margin-left: -195px;
+	top: 91%;
+	left: 50%;
+	bottom: 0;
+	background-color: #f0f0f0;
+	border-radius: 3px 3px 0 0;
+	box-shadow: 0 0 5px rgba(0,0,0,.2);
+	padding: 15px;
+	transition: .2s;
+}
+	.tip.out {
+		top: 75%;
+	}
+	.tip i {
+		float: right;
 	}
 
 /*=== PROFILE ===*/
@@ -513,3 +553,85 @@ figure.progress .current {
 #explanation h2 + p {
 	margin: .1em 0 1.5em;
 }
+
+/*=== SENSORS ===*/
+#sensors .window {
+	text-align: center;
+}
+#sensors h1, #sensors p {
+	text-align: left;
+}
+
+.table-wrapper {
+	background-color: #e4e5e9;
+	border-radius: 3px;
+	border: 1px solid #c6c7cb;
+	padding: 20px 30px;
+	margin-top: 25px;
+	display: inline-block;
+}
+	.table-wrapper + button {
+		width: auto;
+		margin: 30px inherit;
+	}
+	.table-wrapper + button + span {
+		color: #7ac775;
+		font-weight: bold;
+		display: none;
+	}
+		.table-wrapper + button + span i {
+			color: #7ac775;
+			font-weight: normal;
+		}
+.table-wrapper td, .table-wrapper th {
+	padding: 7px 10px 0;
+	height: 45px;
+	vertical-align: middle;
+	text-align: left;
+	text-shadow: 0 1px 1px #ffffff;
+	border-bottom: 1px solid #b7b8bc;
+	width: 245px;
+}
+.table-wrapper th:nth-child(2), .table-wrapper td:nth-child(2) {
+	border-left: 1px solid #b7b8bc;
+	border-right: 1px solid #b7b8bc;
+}
+.table-wrapper th {
+	color: #e26b19;
+}
+
+/* Here we go... */
+.sensor {
+	float: right;
+	margin-top: -3px;
+	border-radius: 3px;
+	border: 1px solid #b0b0b2;
+	color: #ffffff;
+	width: 41px;
+	height: 23px;
+	position: relative;
+	transition: .2s;
+}
+.sensor::after, sensor.off::after {
+	padding: 4px 5px;
+	border-radius: 3px;
+	position: absolute;
+	font-size: .8em;
+	top: -1px;
+}
+.sensor::after {
+	content: "on";
+	right: -1px;
+	left: 11px;
+	background-color: #f7941d;
+	border: 1px solid #c66d19;
+}
+.sensor.off::after {
+	content: "off";
+	left: -1px;
+	right: 8px;
+	background-color: #c9c9c9;
+	border: 1px solid #9a9a9a;
+}
+
+

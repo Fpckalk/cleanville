@@ -4,11 +4,25 @@
 	
 		<nav role="aside">
 			<ul>
-				<li><a data-nav="general" href="#/general">General</a></li>
-				<li><a data-nav="notifications" href="#/notifications">Notifications</a></li>
-				<li><a data-nav="linkedmedia" href="#/linkedmedia">Linked Media</a></li>
-				<li><a data-nav="contact" href="#/contact">Contact</a></li>
-				<li><a href="./login.php?logout=1">Logout</a></li>
+				<li><a data-nav="general" href="#/general">
+					<img src="img/icons/setting-general.png" alt="">
+					<span>General</span>
+				</a></li>
+				<li><a data-nav="notifications" href="#/notifications">
+					<img src="img/icons/setting-notifications.png" alt="">
+					<span>Notifications</span>
+				</a></li>
+				<li><a data-nav="linkedmedia" href="#/linkedmedia">
+					<img src="img/icons/setting-linked.png" alt="">
+					<span>Linked Media</span>
+				</a></li>
+				<li><a data-nav="contact" href="#/contact">
+					<img src="img/icons/setting-contact.png" alt="">
+					<span>Contact</span>
+				</a></li>
+				<li><a class="logout" href="./login.php?logout=1">
+					<span>Logout</span>
+				</a></li>
 			</ul>
 		</nav>
 

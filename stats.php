@@ -82,7 +82,7 @@
 				</div>
 				
 				<div class="window small w1">
-					<aside class="tip">
+					<aside>
 						<h1>Tip</h1>
 						<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
 						<button>See more tips</button>
@@ -109,19 +109,6 @@
 						<span><?php echo $water['start_date'] ?></span>
 						<span><?php echo $water['end_date'] ?></span>
 					</div>
-					<div class="popup">
-						<h2>Change your goal</h2>
-						<i class="fa fa-times"></i>
-						<form>
-							<label>Save:</label>
-							<input class="goal" type="numeric" placeholder="50">
-							<label>Start goal at</label>
-							<input class="starting-date" type="date">
-							<label>End goal at</label>
-							<input class="ending-date" type="date">
-							<button>Set new goal</button>
-						</form>
-					</div>
 				</div>
 				
 				<div class="window small w2">
@@ -132,13 +119,18 @@
 				</div>
 				
 				<div class="window small w1">
-					<aside class="tip">
-						<h1>Tip</h1>
-						<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
-						<button>See more tips</button>
+					<aside>
+						<h1>Water usage</h1>
+						<span>This week</span>
+						<img class="ph" src="img/placeholder/water.png" alt="">
 					</aside>
 				</div>
 			</section>
+			<aside class="tip">
+				<i class="fa fa-chevron-up fa-2x"></i>
+				<h1>Tip</h1>
+				<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
+			</aside>
 		</article>
 
 		<article data-route="energy">
@@ -159,19 +151,6 @@
 						<span><?php echo $energy['start_date'] ?></span>
 						<span><?php echo $energy['end_date'] ?></span>
 					</div>
-					<div class="popup">
-						<h2>Change your goal</h2>
-						<i class="fa fa-times"></i>
-						<form>
-							<label>Save:</label>
-							<input class="goal" type="numeric" placeholder="50">
-							<label>Start goal at</label>
-							<input class="starting-date" type="date">
-							<label>End goal at</label>
-							<input class="ending-date" type="date">
-							<button>Set new goal</button>
-						</form>
-					</div>
 				</div>
 				
 				<div class="window small w2">
@@ -182,13 +161,18 @@
 				</div>
 				
 				<div class="window small w1">
-					<aside class="tip">
-						<h1>Tip</h1>
-						<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
-						<button>See more tips</button>
+					<aside>
+						<h1>Generated energy</h1>
+						<span>This week</span>
+						<img class="ph" src="img/placeholder/energy.png" alt="">
 					</aside>
 				</div>
 			</section>
+			<aside class="tip">
+				<i class="fa fa-chevron-up fa-2x"></i>
+				<h1>Tip</h1>
+				<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
+			</aside>
 		</article>
 
 		<article data-route="food">
@@ -209,36 +193,28 @@
 						<span><?php echo $food['start_date'] ?></span>
 						<span><?php echo $food['end_date'] ?></span>
 					</div>
-					<div class="popup">
-						<h2>Change your goal</h2>
-						<i class="fa fa-times"></i>
-						<form>
-							<label>Save:</label>
-							<input class="goal" type="numeric" placeholder="50">
-							<label>Start goal at</label>
-							<input class="starting-date" type="date">
-							<label>End goal at</label>
-							<input class="ending-date" type="date">
-							<button>Set new goal</button>
-						</form>
-					</div>
 				</div>
 				
 				<div class="window small w2">
-					<h1>Your water usage progress</h1>
+					<h1>Your food progress</h1>
 					<figure class="graph">
 						
 					</figure>
 				</div>
 				
 				<div class="window small w1">
-					<aside class="tip">
-						<h1>Tip</h1>
-						<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
-						<button>See more tips</button>
+					<aside>
+						<h1>Produced food</h1>
+						<span>This week</span>
+						<img class="ph" src="img/placeholder/energy.png" alt="">
 					</aside>
 				</div>
 			</section>
+			<aside class="tip">
+				<i class="fa fa-chevron-up fa-2x"></i>
+				<h1>Tip</h1>
+				<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
+			</aside>
 		</article>
 
 		<article data-route="waste">
@@ -259,19 +235,6 @@
 						<span><?php echo $trash['start_date'] ?></span>
 						<span><?php echo $trash['end_date'] ?></span>
 					</div>
-					<div class="popup">
-						<h2>Change your goal</h2>
-						<i class="fa fa-times"></i>
-						<form>
-							<label>Save:</label>
-							<input class="goal" type="numeric" placeholder="50">
-							<label>Start goal at</label>
-							<input class="starting-date" type="date">
-							<label>End goal at</label>
-							<input class="ending-date" type="date">
-							<button>Set new goal</button>
-						</form>
-					</div>
 				</div>
 				
 				<div class="window small w2">
@@ -282,13 +245,18 @@
 				</div>
 				
 				<div class="window small w1">
-					<aside class="tip">
-						<h1>Tip</h1>
-						<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
-						<button>See more tips</button>
+					<aside>
+						<h1>Waste count</h1>
+						<span>This week</span>
+						<img class="ph" src="img/placeholder/energy.png" alt="">
 					</aside>
 				</div>
 			</section>
+			<aside class="tip">
+				<i class="fa fa-chevron-up fa-2x"></i>
+				<h1>Tip</h1>
+				<p>Turn the water heater temperature to the middle setting at around 120° in order to keep the unit from wasting electricity. By wrapping the hot water piping with insulation, you’ll make you system efficient. Just these simple steps can save you 10% on heating costs.</p>
+			</aside>
 		</article>
 
 	</div>

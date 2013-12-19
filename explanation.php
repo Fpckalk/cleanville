@@ -16,6 +16,8 @@
 
 				<h2>How can I earn more water, energy etc.?</h2>
 				<p>By saving up your water or creating energy in your own home you can earn more rewards in game.</p>
+
+				<p>Haven't found an answer? <a href="settings.php#/contact">Contact us!</a></p>
 			</div>
 		</article>
 

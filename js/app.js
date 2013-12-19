@@ -22,14 +22,20 @@ var APP = APP || {};
 				popupCross = $('.popup .fa-times'),
 				cancel = $('.cancel'),
 				mail = $('#menu i'),
-				mailForm = $('#mail');
+				mailForm = $('#mail'),
+				toggleTip = $('.tip i'),
+				sensor = $('.sensor'),
+				sensorCheck = $('#sensors button');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
-			popupCross.on('click', function() { APP.layout.hidePopup(); });
-			cancel.on('click', function() { APP.layout.hidePopup(); });
-			mail.on('click', function() { APP.layout.popup(event); });
-			mailForm.on('submit', function() { APP.mail.sendMail(event); });
+			popupCross.on('click', function() { APP.layout.hidePopup() });
+			cancel.on('click', function() { APP.layout.hidePopup() })
+			mail.on('click', function() { APP.layout.popup(event) });
+			mailForm.on('submit', function() { APP.mail.sendMail(event) });
+			toggleTip.on('click', function() { APP.layout.tip(event) });
+			sensor.on('click', function() { APP.layout.toggleSensor(event) });
+			sensorCheck.on('click', function() { APP.layout.checkSensor(event) });
 		}
 
 	};
@@ -66,6 +72,24 @@ var APP = APP || {};
 		cancel: function(d) {
 			$('.cancel').show();
 			if(d) { $('.cancel').addClass('darken') };
+		},
+
+		tip: function(e) {
+			var self = e.target,
+				tip = self.parentElement;
+				
+			$(self).toggleClass('out');
+			$(tip).toggleClass('out');
+		},
+
+		toggleSensor: function(e) {
+			var self = e.target;
+			$(self).toggleClass('off');
+		},
+
+		checkSensor: function(e) {
+			var self = e.target;
+			$(self).next('span').show();
 		},
 
 		submitGoal: function(e) {

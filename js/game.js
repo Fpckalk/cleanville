@@ -25,7 +25,8 @@ var GAME = GAME || {};
 				tp = $('.toggle-progress'),
 				mail = $('.mail'),
 				mailSubmit = $('#mailuser'),
-				infoToggle = $('.info .how i');
+				infoToggle = $('.info .how i'),
+				help = $('.help');
 
 			Hammer(field[0]).on('pinchin', function() { GAME.village.overviewVillages(event); });
 			Hammer(field[0]).on('pinchout', function() { GAME.village.localVillage(event); });
@@ -38,9 +39,7 @@ var GAME = GAME || {};
 			mail.on('click', function() { APP.mail.setRecipient(event) });
 			mailSubmit.on('submit', function() { APP.mail.sendMail(event) });
 			infoToggle.on('click', function() { GAME.sprite.how(event) });
-
-			setTimeout("GAME.village.help()", 4000);
-
+			help.on('click', function() { GAME.village.help() });
 
 			// Metabolic Chars
 			setTimeout( "GAME.sprite.metabolic()", 14000 );
