@@ -16,14 +16,20 @@
 		
 		<div class="popup">
 			<h2>Change your goal</h2>
+			<p>This is the average goalsetting, you can change it to your needs.</p>
 			<i class="fa fa-times fa-2x"></i>
 			<form id="goalform">
 				<label>Save:</label>
-				<input class="goal" type="range" min="0" max="100" step="1">
+				<figure>
+					<span>&euro; 5</span>
+					<span>&euro; 100</span>
+					<span class="goalvalue">&euro; 15</span>
+					<input class="goal" type="range" min="0" max="100" step="1" value="15">
+				</figure>
 				<label>Start goal at</label>
-				<input class="starting-date" type="date">
+				<input class="starting-date" type="date" value="<?php echo date('Y-m-d'); ?>">
 				<label>End goal at</label>
-				<input class="ending-date" type="date">
+				<input class="ending-date" type="date" value="<?php echo date('Y-m-d', strtotime('+1 month')); ?>">
 				<button>Set new goal</button>
 			</form>
 		</div>

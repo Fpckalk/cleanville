@@ -264,7 +264,7 @@ form input[type='range']::-webkit-slider-thumb {
 
 form button {
 	width: 200px;
-	margin: 20px auto 20px;
+	margin: 20px auto 0;
 }
 form a {
 	display: block;
@@ -308,6 +308,16 @@ article[data-route=usage] section figure {
 	float: right;
 	font-weight: bold;
 }
+#goalform figure {
+	margin: 30px 0;
+	position: relative;
+}
+#goalform figure span:nth-child(1) { float: left; }
+#goalform figure span:nth-child(2) { float: right; }
+#goalform .goalvalue {
+	margin-top: -20px;
+}
+
 
 .popup {
 	display: none;
@@ -465,7 +475,7 @@ figure.full-progress-bar span {
 	display: block;
 	font-size: .8em;
 }
-	figure.full-progress-bar span.progress-percentage {
+	figure.full-progress-bar span.progress-percentage, .goalvalue {
 		position: absolute;
 		color: #ffffff;
 		padding: 0 10px;

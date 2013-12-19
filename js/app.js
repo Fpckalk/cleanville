@@ -25,7 +25,8 @@ var APP = APP || {};
 				mailForm = $('#mail'),
 				toggleTip = $('.tip i'),
 				sensor = $('.sensor'),
-				sensorCheck = $('#sensors button');
+				sensorCheck = $('#sensors button'),
+				goalSlider = $('#goalform .goal');
 
 			editGoal.on('click', function() { APP.layout.popup(event) });
 			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
@@ -36,6 +37,7 @@ var APP = APP || {};
 			toggleTip.on('click', function() { APP.layout.tip(event) });
 			sensor.on('click', function() { APP.layout.toggleSensor(event) });
 			sensorCheck.on('click', function() { APP.layout.checkSensor(event) });
+			goalSlider.on('change', function() { APP.layout.showGoal(event) });
 		}
 
 	};
@@ -92,6 +94,16 @@ var APP = APP || {};
 			$(self).next('span').show();
 		},
 
+		showGoal: function(e) {
+			var val = e.target.value;
+
+			$('.goalvalue').html('&euro; ' + val);
+			$('.goalvalue').css({
+				left: val + '%',
+				'margin-left': '-' + $('.goalvalue').width()
+			});
+		},
+
 		submitGoal: function(e) {
 			e.preventDefault();
 
@@ -119,7 +131,7 @@ var APP = APP || {};
 
 		getCurrent: function(e) {
 			var currentWidth = (current / goal) * 100;
-			$('figure.progress .current').width(currentWidth + "%");
+			$('figure.progress .current').css('width', currentWidth + "%");
 			$('.progress-percentage').css({
 				left: currentWidth + "%",
 				"margin-left": "-" + $('.progress-percentage').width() + "px"
