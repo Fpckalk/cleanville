@@ -14,8 +14,11 @@ h2 {
 	color: #de6923;
 }
 h3 {
-	font-size: 1.6em;
-	margin: 0;
+	font-size: 0.875em;
+	font-weight: bold;
+	margin: 3em 0 1em;
+	color: #de6923;
+	clear: both;
 }
 
 p {

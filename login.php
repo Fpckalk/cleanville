@@ -6,8 +6,8 @@
 			<div class="window">
 				<section role="login">
 					<form id="login" action="./index.php" method="POST">
-						<input type="email" placeholder="Gebruikersnaam" name="user" id="user">
-						<input type="password" placeholder="Wachtwoord" name="pass" id="pass">
+						<input type="email" placeholder="E-mail" name="user" id="user">
+						<input type="password" placeholder="Password" name="pass" id="pass">
 						<a href="forgot.php">Forgot your password?</a>
 						<button>Log in</button>
 					</form>

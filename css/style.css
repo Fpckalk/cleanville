@@ -3,6 +3,24 @@ body {
 	background: url('../img/bg.jpg');
 	background-size: cover;
 }
+#deactivate {
+	color: #888888;
+	font-weight: normal;
+	text-decoration: underline;
+	float: right;
+	font-size: 0.875em;
+}
+select {
+	padding: 10px 30px 10px 15px;
+	-webkit-appearance: none;
+	background: url('../img/icons/dd.gif') no-repeat 115px #bfbfbf;
+	color: #ffffff;
+	text-shadow: 0 1px 2px #444;
+	font-size: 0.875em;
+	font-weight: bold;
+	border: 1px solid #8f8f8f;
+	border-radius: 3px;
+}
 div[role="main"] {
 	padding: 55px 30px;
 }
@@ -271,6 +289,7 @@ form a {
 	color: #b1b1b1;
 	font-size: 0.875em;
 	margin: 10px 0;
+	text-align: center;
 }
 form ~ a {
 	display: block;
@@ -317,7 +336,10 @@ article[data-route=usage] section figure {
 #goalform .goalvalue {
 	margin-top: -20px;
 }
-
+#goalform label:nth-of-type(3) {
+	margin-top: 20px;
+	display: block;
+}
 
 .popup {
 	display: none;
@@ -454,6 +476,10 @@ article.login {
 	width: 40%;
 }
 
+article.login form + a {
+	margin-top: 20px;
+}
+
 article.login form input {
 	
 }
@@ -572,7 +598,7 @@ figure.progress .current {
 	text-align: left;
 }
 
-.table-wrapper {
+#sensors .table-wrapper {
 	background-color: #e4e5e9;
 	border-radius: 3px;
 	border: 1px solid #c6c7cb;
@@ -580,20 +606,20 @@ figure.progress .current {
 	margin-top: 25px;
 	display: inline-block;
 }
-	.table-wrapper + button {
+	#sensors .table-wrapper + button {
 		width: auto;
 		margin: 30px inherit;
 	}
-	.table-wrapper + button + span {
+	#sensors .table-wrapper + button + span {
 		color: #7ac775;
 		font-weight: bold;
 		display: none;
 	}
-		.table-wrapper + button + span i {
+		#sensors .table-wrapper + button + span i {
 			color: #7ac775;
 			font-weight: normal;
 		}
-.table-wrapper td, .table-wrapper th {
+#sensors .table-wrapper td, #sensors .table-wrapper th {
 	padding: 7px 10px 0;
 	height: 45px;
 	vertical-align: middle;
@@ -602,11 +628,11 @@ figure.progress .current {
 	border-bottom: 1px solid #b7b8bc;
 	width: 245px;
 }
-.table-wrapper th:nth-child(2), .table-wrapper td:nth-child(2) {
+#sensors .table-wrapper th:nth-child(2), #sensors .table-wrapper td:nth-child(2) {
 	border-left: 1px solid #b7b8bc;
 	border-right: 1px solid #b7b8bc;
 }
-.table-wrapper th {
+#sensors .table-wrapper th {
 	color: #e26b19;
 }
 
@@ -645,3 +671,46 @@ figure.progress .current {
 }
 
 
+/*=== SETTINGS ===*/
+#settings input[type="checkbox"] {
+	clear: both;
+	display: block;
+	float: left;
+}
+#settings input[type="checkbox"] + label {
+	float: left;
+}
+#settings input[type="checkbox"] + label + h3 {
+	margin-top: 0;
+	padding-top: 2em;
+}
+#settings .window li {
+	list-style-type: disc;
+	font-size: 0.875em;
+	margin-left: 1em;
+	line-height: 1.6em;
+}
+#settings .window ul + button {
+	width: auto;
+	margin: 20px 0 0 0;
+	background-color: #4566ab;
+	color: #ffffff;
+	line-height: 45px;
+	padding: 0 10px;
+	box-shadow: inset 1px 1px 1px rgba(255,255,255,.2);
+	border: 1px solid #2e487b;
+}
+#settings .window ul + button > span {
+	font-size: 1.2em;
+}
+#settings .window ul + button i {
+	vertical-align: middle;
+	margin: -2px 10px 0 0;
+}
+#settings .window ul + button i.fa-facebook {
+	color: #4566ab;
+	font-size: 1.2em;
+}
+#settings .window ul + button i.fa-square {
+	color: #ffffff;
+}

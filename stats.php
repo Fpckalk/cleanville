@@ -16,7 +16,7 @@
 		
 		<div class="popup">
 			<h2>Change your goal</h2>
-			<p>This is the average goalsetting, you can change it to your needs.</p>
+			<p>This is the average goalsetting, you can change it if you want.</p>
 			<i class="fa fa-times fa-2x"></i>
 			<form id="goalform">
 				<label>Save:</label>
