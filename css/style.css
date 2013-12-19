@@ -13,7 +13,7 @@ body {
 select {
 	padding: 10px 30px 10px 15px;
 	-webkit-appearance: none;
-	background: url('../img/icons/dd.gif') no-repeat 115px #bfbfbf;
+	background: url('../img/icons/dd.gif') no-repeat 100px #bfbfbf;
 	color: #ffffff;
 	text-shadow: 0 1px 2px #444;
 	font-size: 0.875em;
@@ -259,6 +259,7 @@ form input, textarea {
 	}
 	form input:first-child {
 		margin-top: 0;
+		margin-left: 0;
 	}
 	form input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 		color: 888888;
