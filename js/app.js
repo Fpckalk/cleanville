@@ -200,7 +200,7 @@ var APP = APP || {};
 
 			var w = 400,
 				h = 240,
-				p = 20,
+				p = 25,
 				y = d3.scale.linear().domain([0, 50]).range([h, 0]),
 				x = d3.time.scale().domain([minDate, maxDate]).range([0, w]);
 
@@ -212,34 +212,39 @@ var APP = APP || {};
 				.append("svg:g")
 				.attr("transform", "translate(" + p + "," + p + ")");
 
-			var rules = vis.selectAll("g.rule")
+			var xrules = vis.selectAll("g.rule")
 				.data(x.ticks(5))
 				.enter().append("svg:g")
 				.attr("class", "rule");
 
-			rules.append("svg:line")
+			var yrules = vis.selectAll("g.yrule")
+				.data(y.ticks(5))
+				.enter().append("svg:g")
+				.attr("class", "yrule");
+
+			yrules.append("svg:line")
 				.attr("x1", x)
 				.attr("x2", x)
 				.attr("y1", 0)
 				.attr("y2", h - 1);
 
-			rules.append("svg:line")
+			xrules.append("svg:line")
 				.attr("class", function(d) { return d ? null : "axis"; })
 				.attr("y1", y)
 				.attr("y2", y)
 				.attr("x1", 0)
 				.attr("x2", w + 1);
 
-			rules.append("svg:text")
+			xrules.append("svg:text")
 				.attr("x", x)
 				.attr("y", h + 3)
 				.attr("dy", ".71em")
 				.attr("text-anchor", "middle")
 				.text(x.tickFormat(10));
 
-			rules.append("svg:text")
+			yrules.append("svg:text")
 				.attr("y", y)
-				.attr("x", -3)
+				.attr("x", -7)
 				.attr("dy", ".35em")
 				.attr("text-anchor", "end")
 				.text(y.tickFormat(10));
@@ -248,7 +253,7 @@ var APP = APP || {};
 				.attr("class", "line")
 				.attr("d", d3.svg.line()
 					.x(function(d) { return x(getDate(d)) })
-					.y(function(d) { return y(d.value) })
+					.y(function(d) { return y(d.usage) })
 				);
 
 			vis.selectAll("circle.line")
@@ -256,7 +261,7 @@ var APP = APP || {};
 				.enter().append("svg:circle")
 				.attr("class", "line")
 				.attr("cx", function(d) { return x(getDate(d)) })
-				.attr("cy", function(d) { return y(d.value); })
+				.attr("cy", function(d) { return y(d.usage); })
 				.attr("r", 6);
 
 		}
@@ -385,14 +390,14 @@ var APP = APP || {};
 
     	general: function() {
     		var data = [
-    			{ "date":"12\/13\/13", "value":12 },
-    			{ "date":"12\/14\/13", "value":24 },
-    			{ "date":"12\/15\/13", "value":18 },
-    			{ "date":"12\/16\/13", "value":24 },
-    			{ "date":"12\/17\/13", "value":28 },
-    			{ "date":"12\/18\/13", "value":34 },
-    			{ "date":"12\/19\/13", "value":30 },
-    			{ "date":"12\/20\/13", "value":44 }
+    			{ "date":"12\/13\/13", "usage":12 },
+    			{ "date":"12\/14\/13", "usage":24 },
+    			{ "date":"12\/15\/13", "usage":18 },
+    			{ "date":"12\/16\/13", "usage":24 },
+    			{ "date":"12\/17\/13", "usage":28 },
+    			{ "date":"12\/18\/13", "usage":34 },
+    			{ "date":"12\/19\/13", "usage":30 },
+    			{ "date":"12\/20\/13", "usage":44 }
     			];
 
     		APP.router.change();
@@ -402,14 +407,14 @@ var APP = APP || {};
 
     	water: function() {
     		var data = [
-    			{ "date":"12\/13\/13", "value":12 },
-    			{ "date":"12\/14\/13", "value":24 },
-    			{ "date":"12\/15\/13", "value":18 },
-    			{ "date":"12\/16\/13", "value":24 },
-    			{ "date":"12\/17\/13", "value":28 },
-    			{ "date":"12\/18\/13", "value":34 },
-    			{ "date":"12\/19\/13", "value":30 },
-    			{ "date":"12\/20\/13", "value":44 }
+    			{ "date":"12\/13\/13", "usage":12 },
+    			{ "date":"12\/14\/13", "usage":24 },
+    			{ "date":"12\/15\/13", "usage":18 },
+    			{ "date":"12\/16\/13", "usage":24 },
+    			{ "date":"12\/17\/13", "usage":28 },
+    			{ "date":"12\/18\/13", "usage":34 },
+    			{ "date":"12\/19\/13", "usage":30 },
+    			{ "date":"12\/20\/13", "usage":44 }
     			];
 
     		APP.router.change();
@@ -419,14 +424,14 @@ var APP = APP || {};
 
     	energy: function() {
     		var data = [
-    			{ "date":"12\/13\/13", "value":12 },
-    			{ "date":"12\/14\/13", "value":24 },
-    			{ "date":"12\/15\/13", "value":18 },
-    			{ "date":"12\/16\/13", "value":24 },
-    			{ "date":"12\/17\/13", "value":28 },
-    			{ "date":"12\/18\/13", "value":34 },
-    			{ "date":"12\/19\/13", "value":30 },
-    			{ "date":"12\/20\/13", "value":44 }
+    			{ "date":"12\/13\/13", "usage":12 },
+    			{ "date":"12\/14\/13", "usage":24 },
+    			{ "date":"12\/15\/13", "usage":18 },
+    			{ "date":"12\/16\/13", "usage":24 },
+    			{ "date":"12\/17\/13", "usage":28 },
+    			{ "date":"12\/18\/13", "usage":34 },
+    			{ "date":"12\/19\/13", "usage":30 },
+    			{ "date":"12\/20\/13", "usage":44 }
     			];
 
     		APP.router.change();
@@ -436,14 +441,14 @@ var APP = APP || {};
 
     	food: function() {
     		var data = [
-    			{ "date":"12\/13\/13", "value":12 },
-    			{ "date":"12\/14\/13", "value":24 },
-    			{ "date":"12\/15\/13", "value":18 },
-    			{ "date":"12\/16\/13", "value":24 },
-    			{ "date":"12\/17\/13", "value":28 },
-    			{ "date":"12\/18\/13", "value":34 },
-    			{ "date":"12\/19\/13", "value":30 },
-    			{ "date":"12\/20\/13", "value":44 }
+    			{ "date":"12\/13\/13", "usage":12 },
+    			{ "date":"12\/14\/13", "usage":24 },
+    			{ "date":"12\/15\/13", "usage":18 },
+    			{ "date":"12\/16\/13", "usage":24 },
+    			{ "date":"12\/17\/13", "usage":28 },
+    			{ "date":"12\/18\/13", "usage":34 },
+    			{ "date":"12\/19\/13", "usage":30 },
+    			{ "date":"12\/20\/13", "usage":44 }
     			];
 
     		APP.router.change();
@@ -453,14 +458,14 @@ var APP = APP || {};
 
     	waste: function() {
     		var data = [
-    			{ "date":"12\/13\/13", "value":12 },
-    			{ "date":"12\/14\/13", "value":24 },
-    			{ "date":"12\/15\/13", "value":18 },
-    			{ "date":"12\/16\/13", "value":24 },
-    			{ "date":"12\/17\/13", "value":28 },
-    			{ "date":"12\/18\/13", "value":34 },
-    			{ "date":"12\/19\/13", "value":30 },
-    			{ "date":"12\/20\/13", "value":44 }
+    			{ "date":"12\/13\/13", "usage":12 },
+    			{ "date":"12\/14\/13", "usage":24 },
+    			{ "date":"12\/15\/13", "usage":18 },
+    			{ "date":"12\/16\/13", "usage":24 },
+    			{ "date":"12\/17\/13", "usage":28 },
+    			{ "date":"12\/18\/13", "usage":34 },
+    			{ "date":"12\/19\/13", "usage":30 },
+    			{ "date":"12\/20\/13", "usage":44 }
     			];
 
     		APP.router.change();

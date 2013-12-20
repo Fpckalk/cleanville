@@ -31,7 +31,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="magazine.php">
 								<img src="img/icons/magazine.png" alt="">
 								<span>Magazine</span>
 							</a>

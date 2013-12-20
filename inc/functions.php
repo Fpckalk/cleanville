@@ -195,7 +195,8 @@
 				'schoondorp' => 'Schoondorp',
 				'sensors' => 'Sensors',
 				'settings' => 'Settings',
-				'stats' => 'Data Usage'
+				'stats' => 'Data Usage',
+				'magazine' => 'Magazine'
 				);
 
 			return $titles[$page];

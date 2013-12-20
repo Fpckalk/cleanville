@@ -723,3 +723,7 @@ figure.progress .current {
 #settings .window ul + button i.fa-square {
 	color: #ffffff;
 }
+
+#magazine > img {
+	width: 100%;
+}
