@@ -82,6 +82,7 @@
 				
 				<div class="window small w2">
 					<h1>Your savings</h1>
+					<span>In &euro;</span>
 					<figure class="graph">
 						
 					</figure>
@@ -119,6 +120,7 @@
 				
 				<div class="window small w2">
 					<h1>Your water usage progress</h1>
+					<span>In liters</span>
 					<figure class="graph">
 						
 					</figure>
@@ -161,6 +163,7 @@
 				
 				<div class="window small w2">
 					<h1>Your energy usage progress</h1>
+					<span>In kWh</span>
 					<figure class="graph">
 						
 					</figure>
@@ -203,6 +206,7 @@
 				
 				<div class="window small w2">
 					<h1>Your food progress</h1>
+					<span>In quantity</span>
 					<figure class="graph">
 						
 					</figure>
@@ -245,6 +249,7 @@
 				
 				<div class="window small w2">
 					<h1>Your waste usage progress</h1>
+					<span>In kg</span>
 					<figure class="graph">
 						
 					</figure>
