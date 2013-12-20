@@ -17,7 +17,7 @@ article#schoondorp {
 	height: 50px;
 	position: absolute;
 	border-radius: 25px;
-	padding: 6px;
+	padding: 7px;
 	border: 8px solid rgba(255,255,255,.6);
 }
 	.circle div {
@@ -197,8 +197,18 @@ article#schoondorp {
 		right: 5px;
 	}
 
-	.profile-info .progress {
+	.profile-info .progress-window {
 		display: none;
+	}
+	
+	.profile-info .progress-window .full-progress-bar {
+		padding-top: 0;
+	}
+	.profile-info .progress-window .progress {
+		margin-top: 5px;
+	}
+	.profile-info .progress-window .progress, .profile-info .progress-window .current {
+		height: 25px;
 	}
 
 /*=== GAME ===*/
@@ -259,7 +269,7 @@ article .sidebar {
 		right: 0;
 	}
 	article .sidebar .content {
-		overflow: auto;
+		overflow: visible;
 		width: 215px;
 		height: 100%;
 		float: left;

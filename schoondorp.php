@@ -358,13 +358,27 @@ Reached 100%? You’ll get a reward!</p>
 									<span><?php echo $family['members']; echo ($family['members'] == 1) ? " member" : " members"; ?></span>
 									<i class="mail fa fa-envelope"></i>
 									<i class="toggle-progress fa fa-chevron-down"></i>
-									<div class="progress">
-										<ul>
-											<li>Water</li>
-											<li>Energy</li>
-											<li>Food</li>
-											<li>Trash</li>
-										</ul>
+									<div class="progress-window">
+										<figure class="full-progress-bar">
+											<figure class="progress">
+												<div class="current"></div>
+											</figure>
+										</figure>
+										<figure class="full-progress-bar">
+											<figure class="progress">
+												<div class="current"></div>
+											</figure>
+										</figure>
+										<figure class="full-progress-bar">
+											<figure class="progress">
+												<div class="current"></div>
+											</figure>
+										</figure>
+										<figure class="full-progress-bar">
+											<figure class="progress">
+												<div class="current"></div>
+											</figure>
+										</figure>
 									</div>
 								</div>
 							</div>

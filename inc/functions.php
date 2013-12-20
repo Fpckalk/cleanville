@@ -191,7 +191,7 @@
 				'login' => 'Schoondorp',
 				'messages' => 'Messages',
 				'profile' => 'Profile',
-				'register' => 'Register',
+				'register' => 'Create an account',
 				'schoondorp' => 'Schoondorp',
 				'sensors' => 'Sensors',
 				'settings' => 'Settings',

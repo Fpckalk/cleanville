@@ -39,7 +39,7 @@ var GAME = GAME || {};
 			mail.on('click', function() { APP.mail.setRecipient(event) });
 			mailSubmit.on('submit', function() { APP.mail.sendMail(event) });
 			infoToggle.on('click', function() { GAME.sprite.how(event) });
-			help.on('click', function() { GAME.village.help() });
+			help.on('click', function() { GAME.village.overviewVillages() });
 
 			// Metabolic Chars
 			setTimeout( "GAME.sprite.metabolic()", 14000 );
@@ -145,7 +145,7 @@ var GAME = GAME || {};
 	GAME.profile = {
 
 		showProgress: function(e) {
-			var p = $(e.target).next('.progress');
+			var p = $(e.target).next('.progress-window');
 			$(e.target).toggleClass('out');
 			$(p).toggle();
 		}

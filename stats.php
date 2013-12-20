@@ -227,7 +227,7 @@
 			<section>
 				<div class="window small w3">
 					<div class="goal">
-						<?php $trash = $goal->final_goal('trash'); ?>
+						<?php $trash = $goal->final_goal('waste'); ?>
 						<h1>Your goal: <span>Save <?php echo $trash['milestone']; ?>kg</span></h1>		
 						<i class="fa fa-edit edit-goal fa-2x"></i>
 						<figure class="full-progress-bar">

@@ -189,57 +189,75 @@ var APP = APP || {};
 
 			var route = window.location.hash.slice(2);
 
-			var margin = {top: 20, right: 20, bottom: 30, left: 40},
-				width = 400 - margin.left - margin.right,
-				height = 240 - margin.top - margin.bottom;
-			
-			var svg = d3.select("article[data-route=" + route + "] .graph")
-				.append("svg")
-				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
-				.append("g")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			// helper function
+		   function getDate(d) {
+		       return new Date(d.date);
+		   }
+		   
+			// get max and min dates - this assumes data is sorted
+			var minDate = getDate(data[0]),
+				maxDate = getDate(data[data.length-1]);
 
-			var yScale = d3.scale.linear()
-				.domain([0, 20])
-				.range([height, 0]);
+			var w = 400,
+				h = 240,
+				p = 20,
+				y = d3.scale.linear().domain([0, 50]).range([h, 0]),
+				x = d3.time.scale().domain([minDate, maxDate]).range([0, w]);
 
-			var xScale = d3.scale.linear()
-				.domain([0, 10])
-				.range([0, width]);
+			var vis = d3.select("article[data-route=" + route + "] .graph")
+				.data([data])
+				.append("svg:svg")
+				.attr("width", w + p * 2)
+				.attr("height", h + p * 2)
+				.append("svg:g")
+				.attr("transform", "translate(" + p + "," + p + ")");
 
-			var yAxis = d3.svg.axis()
-				.scale(yScale)
-				.ticks(5)
-				.orient("left");
+			var rules = vis.selectAll("g.rule")
+				.data(x.ticks(5))
+				.enter().append("svg:g")
+				.attr("class", "rule");
 
-			var xAxis = d3.svg.axis()
-				.scale(xScale)
-				.orient("bottom");
+			rules.append("svg:line")
+				.attr("x1", x)
+				.attr("x2", x)
+				.attr("y1", 0)
+				.attr("y2", h - 1);
 
-			svg.append("g")
-				.attr("class", "y axis")
-				.call(yAxis);
+			rules.append("svg:line")
+				.attr("class", function(d) { return d ? null : "axis"; })
+				.attr("y1", y)
+				.attr("y2", y)
+				.attr("x1", 0)
+				.attr("x2", w + 1);
 
-			svg.append("g")
-				.attr("class", "x axis")
-				.attr("transform", "translate(0," + height + ")")
-				.call(xAxis);
+			rules.append("svg:text")
+				.attr("x", x)
+				.attr("y", h + 3)
+				.attr("dy", ".71em")
+				.attr("text-anchor", "middle")
+				.text(x.tickFormat(10));
 
-			svg.selectAll("rect")
+			rules.append("svg:text")
+				.attr("y", y)
+				.attr("x", -3)
+				.attr("dy", ".35em")
+				.attr("text-anchor", "end")
+				.text(y.tickFormat(10));
+
+			vis.append("svg:path")
+				.attr("class", "line")
+				.attr("d", d3.svg.line()
+					.x(function(d) { return x(getDate(d)) })
+					.y(function(d) { return y(d.value) })
+				);
+
+			vis.selectAll("circle.line")
 				.data(data)
-				.enter()
-				.append("rect")
-				.attr("width", 20)
-				.attr("height", function(d) {
-					return d * 10;
-				})
-				.attr("y", function(d) {
-					return height - (d * 10);
-				})
-				.attr("x", function(d) {
-					return xScale(d) - 10;
-				});
+				.enter().append("svg:circle")
+				.attr("class", "line")
+				.attr("cx", function(d) { return x(getDate(d)) })
+				.attr("cy", function(d) { return y(d.value); })
+				.attr("r", 6);
 
 		}
 
@@ -366,35 +384,85 @@ var APP = APP || {};
     APP.stats = {
 
     	general: function() {
-    		var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    		var data = [
+    			{ "date":"12\/13\/13", "value":12 },
+    			{ "date":"12\/14\/13", "value":24 },
+    			{ "date":"12\/15\/13", "value":18 },
+    			{ "date":"12\/16\/13", "value":24 },
+    			{ "date":"12\/17\/13", "value":28 },
+    			{ "date":"12\/18\/13", "value":34 },
+    			{ "date":"12\/19\/13", "value":30 },
+    			{ "date":"12\/20\/13", "value":44 }
+    			];
+
     		APP.router.change();
     		APP.dataviz.draw(data);
     		APP.layout.getCurrent();
     	},
 
     	water: function() {
-    		var data = [5, 7, 2, 4, 4, 5, 8, 9, 10, 6];
+    		var data = [
+    			{ "date":"12\/13\/13", "value":12 },
+    			{ "date":"12\/14\/13", "value":24 },
+    			{ "date":"12\/15\/13", "value":18 },
+    			{ "date":"12\/16\/13", "value":24 },
+    			{ "date":"12\/17\/13", "value":28 },
+    			{ "date":"12\/18\/13", "value":34 },
+    			{ "date":"12\/19\/13", "value":30 },
+    			{ "date":"12\/20\/13", "value":44 }
+    			];
+
     		APP.router.change();
     		APP.dataviz.draw(data);
     		APP.layout.getCurrent();
     	},
 
     	energy: function() {
-    		var data = [2, 9, 6, 7, 4, 1, 8, 10, 9, 3];
+    		var data = [
+    			{ "date":"12\/13\/13", "value":12 },
+    			{ "date":"12\/14\/13", "value":24 },
+    			{ "date":"12\/15\/13", "value":18 },
+    			{ "date":"12\/16\/13", "value":24 },
+    			{ "date":"12\/17\/13", "value":28 },
+    			{ "date":"12\/18\/13", "value":34 },
+    			{ "date":"12\/19\/13", "value":30 },
+    			{ "date":"12\/20\/13", "value":44 }
+    			];
+
     		APP.router.change();
     		APP.dataviz.draw(data);
     		APP.layout.getCurrent();
     	},
 
     	food: function() {
-    		var data = [4, 4, 6, 8, 8, 7, 5, 2, 3, 2];
+    		var data = [
+    			{ "date":"12\/13\/13", "value":12 },
+    			{ "date":"12\/14\/13", "value":24 },
+    			{ "date":"12\/15\/13", "value":18 },
+    			{ "date":"12\/16\/13", "value":24 },
+    			{ "date":"12\/17\/13", "value":28 },
+    			{ "date":"12\/18\/13", "value":34 },
+    			{ "date":"12\/19\/13", "value":30 },
+    			{ "date":"12\/20\/13", "value":44 }
+    			];
+
     		APP.router.change();
     		APP.dataviz.draw(data);
     		APP.layout.getCurrent();
     	},
 
     	waste: function() {
-    		var data = [9, 8, 7, 6, 5, 6, 6, 7, 7, 6];
+    		var data = [
+    			{ "date":"12\/13\/13", "value":12 },
+    			{ "date":"12\/14\/13", "value":24 },
+    			{ "date":"12\/15\/13", "value":18 },
+    			{ "date":"12\/16\/13", "value":24 },
+    			{ "date":"12\/17\/13", "value":28 },
+    			{ "date":"12\/18\/13", "value":34 },
+    			{ "date":"12\/19\/13", "value":30 },
+    			{ "date":"12\/20\/13", "value":44 }
+    			];
+
     		APP.router.change();
     		APP.dataviz.draw(data);
     		APP.layout.getCurrent();
