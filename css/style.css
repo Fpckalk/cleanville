@@ -335,6 +335,7 @@ article[data-route=usage] section figure {
 .goal .edit-goal {
 	float: right;
 	font-weight: bold;
+	width: auto;
 }
 #goalform figure {
 	margin: 30px 0;
@@ -368,6 +369,24 @@ article[data-route=usage] section figure {
 		position: absolute;
 		top: 10px;
 		right: 10px;
+	}
+
+
+/* Tips */
+.window.w1 ul{
+	display: none;
+}
+.window.w1 ul li {
+
+}
+.window.w1 ul li p {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 200px; /* A bit weird, but it freaks out when it takes 100% */
+}
+	.window.w1 ul li p.show {
+		white-space: normal;
 	}
 
 .tip {
@@ -522,10 +541,10 @@ figure.full-progress-bar span {
 		border: 1px solid #874d1d;
 		border-radius: 3px;
 	}
-	figure.full-progress-bar span:nth-child(2) {
+	figure.full-progress-bar span:not(.progress-percentage) {
 		float: left;
 	}
-	figure.full-progress-bar span:nth-child(3) {
+	figure.full-progress-bar span:not(.progress-percentage) + span {
 		float: right;
 	}
 figure.full-progress-bar ~ span { margin-top: 5px; }

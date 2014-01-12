@@ -17,27 +17,18 @@ var APP = APP || {};
 		},
 
 		enable: function() {
-			var	editGoal = $('.edit-goal'),
-				goalForm = $('.popup #goalform'),
-				popupCross = $('.popup .fa-times'),
-				cancel = $('.cancel'),
-				mail = $('#menu i'),
-				mailForm = $('#mail'),
-				toggleTip = $('.tip i'),
-				sensor = $('.sensor'),
-				sensorCheck = $('#sensors button'),
-				goalSlider = $('#goalform .goal');
-
-			editGoal.on('click', function() { APP.layout.popup(event) });
-			goalForm.on('submit', function() { APP.layout.submitGoal(event) });
-			popupCross.on('click', function() { APP.layout.hidePopup() });
-			cancel.on('click', function() { APP.layout.hidePopup() })
-			mail.on('click', function() { APP.layout.popup(event) });
-			mailForm.on('submit', function() { APP.mail.sendMail(event) });
-			toggleTip.on('click', function() { APP.layout.tip(event) });
-			sensor.on('click', function() { APP.layout.toggleSensor(event) });
-			sensorCheck.on('click', function() { APP.layout.checkSensor(event) });
-			goalSlider.on('change', function() { APP.layout.showGoal(event) });
+			$('.edit-goal').on('click', function() { APP.layout.popup(event) });
+			$('.popup #goalform').on('submit', function() { APP.layout.submitGoal(event) });
+			$('.popup .fa-times').on('click', function() { APP.layout.hidePopup() });
+			$('.cancel').on('click', function() { APP.layout.hidePopup() })
+			$('#menu i').on('click', function() { APP.layout.popup(event) });
+			$('#mail').on('submit', function() { APP.mail.sendMail(event) });
+			$('.tip i').on('click', function() { APP.layout.tip(event) });
+			$('.sensor').on('click', function() { APP.layout.toggleSensor(event) });
+			$('#sensors button').on('click', function() { APP.layout.checkSensor(event) });
+			$('#goalform .goal').on('change', function() { APP.layout.showGoal(event) });
+			$('.window.w1 button').on('click', function() { APP.layout.showTips(event) });
+			$('.window.w1 li p').on('click', function() { APP.layout.fullTip(event) });
 		}
 
 	};
@@ -58,6 +49,15 @@ var APP = APP || {};
 			// document.ontouchmove = function(e) {return false};
 			// $('article').ontouch = function(e) {e.stopPropagation()};
 			$('.sidebar .content').ontouchmove = function(e) {e.stopPropagation()};
+		},
+
+		showTips: function(e) {
+			$('.window.w1 ul').css('display', 'block');
+			$('.window.w1 p:first').hide();
+		},
+
+		fullTip: function(e) {
+			$(e.target).toggleClass('show');
 		},
 
 		popup: function(e) {
@@ -129,7 +129,8 @@ var APP = APP || {};
 			return false;			
 		},
 
-		getCurrent: function(e) {
+		getCurrent: function(type) {
+			var goal = eval(type);
 			var currentWidth = (current / goal) * 100;
 			$('figure.progress .current').css('width', currentWidth + "%");
 			$('.progress-percentage').css({
@@ -402,7 +403,7 @@ var APP = APP || {};
 
     		APP.router.change();
     		APP.dataviz.draw(data);
-    		APP.layout.getCurrent();
+    		APP.layout.getCurrent('summary');
     	},
 
     	water: function() {
@@ -419,7 +420,7 @@ var APP = APP || {};
 
     		APP.router.change();
     		APP.dataviz.draw(data);
-    		APP.layout.getCurrent();
+    		APP.layout.getCurrent('water');
     	},
 
     	energy: function() {
@@ -436,7 +437,7 @@ var APP = APP || {};
 
     		APP.router.change();
     		APP.dataviz.draw(data);
-    		APP.layout.getCurrent();
+    		APP.layout.getCurrent('energy');
     	},
 
     	food: function() {
@@ -453,7 +454,7 @@ var APP = APP || {};
 
     		APP.router.change();
     		APP.dataviz.draw(data);
-    		APP.layout.getCurrent();
+    		APP.layout.getCurrent('food');
     	},
 
     	waste: function() {
@@ -470,7 +471,7 @@ var APP = APP || {};
 
     		APP.router.change();
     		APP.dataviz.draw(data);
-    		APP.layout.getCurrent();
+    		APP.layout.getCurrent('waste');
     	}
 
     };

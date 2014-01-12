@@ -3,12 +3,23 @@
 <?php 
 	// Set variables to be used by Javascript
 	$current = $goal->current('summary');
-	$endgoal = $goal->final_goal('summary');
-	$endgoal = $endgoal['milestone'];
+
+	$elements = array('summary', 'water', 'energy', 'food', 'waste');
+	$goals = array();
+
+	foreach ($elements as $element) {
+		$final_goal = $goal->final_goal($element);
+		array_push($goals, $final_goal);
+	}
+
 ?>
 <script>
 	var current = "<?php echo $current ?>",
-		goal = "<?php echo $endgoal ?>";
+		summary = "<?php echo $goals[0]['milestone'] ?>",
+		water = "<?php echo $goals[1]['milestone'] ?>",
+		energy = "<?php echo $goals[2]['milestone'] ?>",
+		food = "<?php echo $goals[3]['milestone'] ?>",
+		waste = "<?php echo $goals[4]['milestone'] ?>";
 </script>
 
 	<article id="schoondorp">
@@ -42,26 +53,8 @@
 
 				<h1>Goals</h1>
 				<p>These goals are currently running</p>
-				<figure class="full-progress-bar">
-					<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-					<span>0%</span>
-					<span>100%</span>
-					<figure class="progress">
-						<div class="current"></div>
-					</figure>
-					<?php $summary = $goal->final_goal('summary'); ?>
-					<span>Save <?php echo $summary['milestone']; ?> euros</span>
-				</figure>
-				<figure class="full-progress-bar">
-					<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-					<span>0%</span>
-					<span>100%</span>
-					<figure class="progress">
-						<div class="current"></div>
-					</figure>
-					<?php $water = $goal->final_goal('water'); ?>
-					<span>Save <?php echo $water['milestone']; ?> liters</span>
-				</figure>
+				<?php echo $goal->min_goal_progress('water', $current, $goals[0]['milestone']); ?>				
+				<?php echo $goal->min_goal_progress('energy', $current, $goals[0]['milestone']); ?>
 			</div>
 		</aside>
 		
@@ -118,15 +111,7 @@
 						<div class="level">
 							<div>
 								<h2>Your house progress</h2>
-
-								<figure class="full-progress-bar">
-									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-									<span>0%</span>
-									<span>100%</span>
-									<figure class="progress">
-										<div class="current"></div>
-									</figure>
-								</figure>
+								<?php echo $game->get_progress('energy', false) ?>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
@@ -180,15 +165,7 @@ Reached 100%? You’ll get a reward!</p>
 						<div class="level">
 							<div>
 								<h2>Your river progress</h2>
-
-								<figure class="full-progress-bar">
-									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-									<span>0%</span>
-									<span>100%</span>
-									<figure class="progress">
-										<div class="current"></div>
-									</figure>
-								</figure>
+								<?php echo $game->get_progress('water', false) ?>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
@@ -204,6 +181,62 @@ Reached 100%? You’ll get a reward!</p>
 					</div>
 
 				</div>
+
+
+				<div class="element food">
+					<img src="img/game/food-<?php echo $game->get_level('food'); ?>.png" alt="">
+					<div class="circle">
+						<div></div>
+					</div>
+
+					<div class="info window small">
+						<header>
+							<h1>Food usage</h1>
+							<div class="level level-<?php echo $game->get_level('food'); ?>">
+								Level
+								<span>1</span>
+								<span>2</span>
+								<span>3</span>
+							</div>
+						</header>
+						<div class="numbers">
+							<figure>
+								<span>Total</span>
+								<span><?php echo $data->values('food'); ?></span>
+							</figure>
+							<figure>
+								<span>In</span>
+								<span>+8</span>
+							</figure>
+							<figure>
+								<span>Out</span>
+								<span>-6</span>
+							</figure>
+							<figure>
+								<span>Growth</span>
+								<span>+5%</span>
+							</figure>
+						</div>
+						<div class="level">
+							<div>
+								<h2>Your food progress</h2>
+								<?php echo $game->get_progress('food', false) ?>
+							</div>
+							<div class="reward">
+								<h2>Your reward</h2>
+								<span>Level <?php echo $game->get_next_level('food'); ?></span>
+								<img src="img/game/lvl-icons/food-<?php echo $game->get_next_level('food'); ?>.jpg" alt="">
+							</div>
+						</div>
+						<div class="how">
+							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
+							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
+Reached 100%? You’ll get a reward!</p>
+						</div>
+					</div>
+
+				</div>
+
 
 				<div class="element trash">
 					<img src="img/game/trash-<?php echo $game->get_level('trash'); ?>.png" alt="">
@@ -244,15 +277,7 @@ Reached 100%? You’ll get a reward!</p>
 						<div class="level">
 							<div>
 								<h2>Your waste progress</h2>
-
-								<figure class="full-progress-bar">
-									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-									<span>0%</span>
-									<span>100%</span>
-									<figure class="progress">
-										<div class="current"></div>
-									</figure>
-								</figure>
+								<?php echo $game->get_progress('trash', false) ?>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
@@ -269,67 +294,7 @@ Reached 100%? You’ll get a reward!</p>
 
 				</div>
 
-				<div class="element food">
-					<img src="img/game/food-<?php echo $game->get_level('food'); ?>.png" alt="">
-					<div class="circle">
-						<div></div>
-					</div>
-
-					<div class="info window small">
-						<header>
-							<h1>Food usage</h1>
-							<div class="level level-<?php echo $game->get_level('food'); ?>">
-								Level
-								<span>1</span>
-								<span>2</span>
-								<span>3</span>
-							</div>
-						</header>
-						<div class="numbers">
-							<figure>
-								<span>Total</span>
-								<span><?php echo $data->values('food'); ?></span>
-							</figure>
-							<figure>
-								<span>In</span>
-								<span>+8</span>
-							</figure>
-							<figure>
-								<span>Out</span>
-								<span>-6</span>
-							</figure>
-							<figure>
-								<span>Growth</span>
-								<span>+5%</span>
-							</figure>
-						</div>
-						<div class="level">
-							<div>
-								<h2>Your food progress</h2>
-
-								<figure class="full-progress-bar">
-									<span class="progress-percentage"><?php echo $goal->percentage($current, $endgoal); ?></span>
-									<span>0%</span>
-									<span>100%</span>
-									<figure class="progress">
-										<div class="current"></div>
-									</figure>
-								</figure>
-							</div>
-							<div class="reward">
-								<h2>Your reward</h2>
-								<span>Level <?php echo $game->get_next_level('food'); ?></span>
-								<img src="img/game/lvl-icons/food-<?php echo $game->get_next_level('food'); ?>.jpg" alt="">
-							</div>
-						</div>
-						<div class="how">
-							<h2>How it works</h2><i class="fa fa-chevron-down fa-2x"></i>
-							<p>Here you can see your water usage progress. The data is coming from your sensors and will be updated every day. When you saved water your river will grow with 5%. When there is more water out than in, your river level shrinks in size. When in and out are equal, your river stays the same.
-Reached 100%? You’ll get a reward!</p>
-						</div>
-					</div>
-
-				</div>
+				
 
 			</div>
 
@@ -359,27 +324,42 @@ Reached 100%? You’ll get a reward!</p>
 									<i class="mail fa fa-envelope"></i>
 									<i class="toggle-progress fa fa-chevron-down"></i>
 									<div class="progress-window">
-										<figure class="full-progress-bar">
-											<figure class="progress">
-												<div class="current"></div>
-											</figure>
-										</figure>
-										<figure class="full-progress-bar">
-											<figure class="progress">
-												<div class="current"></div>
-											</figure>
-										</figure>
-										<figure class="full-progress-bar">
-											<figure class="progress">
-												<div class="current"></div>
-											</figure>
-										</figure>
-										<figure class="full-progress-bar">
-											<figure class="progress">
-												<div class="current"></div>
-											</figure>
-										</figure>
+
+										<span>Level</span>
+										
+										<img src="img/game/icons/water.png" alt="">
+										<?php echo $game->get_progress('water', true); ?>
+										<div class="level level-<?php echo $game->get_level('water'); ?>">
+											<span>1</span>
+											<span>2</span>
+											<span>3</span>
+										</div>
+										
+										<img src="img/game/icons/energy.png" alt="">
+										<?php echo $game->get_progress('energy', true); ?>
+										<div class="level level-<?php echo $game->get_level('energy'); ?>">
+											<span>1</span>
+											<span>2</span>
+											<span>3</span>
+										</div>
+										
+										<img src="img/game/icons/food.png" alt="">
+										<?php echo $game->get_progress('food', true); ?>
+										<div class="level level-<?php echo $game->get_level('food'); ?>">
+											<span>1</span>
+											<span>2</span>
+											<span>3</span>
+										</div>
+										
+										<img src="img/game/icons/waste.png" alt="">
+										<?php echo $game->get_progress('trash', true); ?>
+										<div class="level level-<?php echo $game->get_level('trash'); ?>">
+											<span>1</span>
+											<span>2</span>
+											<span>3</span>
+										</div>
 									</div>
+
 								</div>
 							</div>
 						</div>

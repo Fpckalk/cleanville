@@ -159,6 +159,63 @@
 			$percent = ceil($percent) . "%";
 			return $percent;
 		}
+
+		// The big one. This delivers a full fledged goal progress
+		function goal_progress($type, $current, $goal)
+		{
+			if($this->final_goal($type)) {
+
+				$typegoal = $this->final_goal($type);
+
+				if ($current >= $typegoal['milestone']) {
+					echo "<h1>Your goal: <span>Save &euro;" . $typegoal['milestone'] . "</span></h1>";
+					echo "<i class='fa fa-edit edit-goal fa-2x'></i>";
+					echo "Congratulations! You earned a christmas tree!";
+					echo "<button class='edit-goal'>Set new goal</button>";
+				} else {
+					echo "<h1>Your goal: <span>Save &euro;" . $typegoal['milestone'] . "</span></h1>";
+					echo "<i class='fa fa-edit edit-goal fa-2x'></i>";
+					echo "<figure class='full-progress-bar'>
+							<span class='progress-percentage'> " . $this->percentage($current, $typegoal['milestone']) . "</span>
+							<span>0%</span>
+							<span>100%</span>
+							<figure class='progress'>
+								<div class='current'></div>
+							</figure>
+						</figure>";
+				}
+			} else {
+				echo "<h1>Your goal: <span>You haven't set a goal yet</span></h1>";
+				echo "<button class='edit-goal'>Set new goal</button>";
+				echo "<figure class='full-progress-bar'>
+						<span>0%</span>
+						<span>100%</span>
+						<figure class='progress'></figure>
+					</figure>";
+			}
+		}
+
+		// The minified goal progress. For small use cases
+		function min_goal_progress($type, $current, $goal)
+		{
+			if($this->final_goal($type)) {
+
+				$typegoal = $this->final_goal($type);
+
+				if ($current <= $typegoal['milestone']) {
+					echo "<figure class='full-progress-bar'>
+						<span class='progress-percentage'>" . $this->percentage($current, $typegoal['milestone']) . "</span>
+						<span>0%</span>
+						<span>100%</span>
+						<figure class='progress'>
+							<div class='current'></div>
+						</figure>
+						<span>Save " . $typegoal['milestone'] . "euros</span>
+					</figure>";
+				}
+
+			}
+		}
 		
 	}
 
@@ -219,17 +276,18 @@
 	class Game extends Data
 	{
 
+		private $breakpoints = array(100, 200, 300);
+
 		function get_level($el)
 		{
 
 			$value = $this->values($el);
-			$breakpoints = array(100, 200, 300);
 			$i = 0;
 
-			foreach ($breakpoints as $bp) {
-				if($value > $bp && $value < $breakpoints[2] ) {
+			foreach ($this->breakpoints as $bp) {
+				if($value > $bp && $value < $this->breakpoints[2] ) {
 					$i++;
-				} else if($value > $breakpoints[2]) {
+				} else if($value > $this->breakpoints[2]) {
 					return 3;
 				} else {
 					return $i + 1;
@@ -244,6 +302,31 @@
 				return $cur;
 			} else {
 				return $cur;
+			}
+		}
+
+		function get_progress($el, $min)
+		{
+			$goal = new Goal();
+			$data = new Data();
+
+			$current = $data->values($el);
+
+			if(!$min) {
+				echo "<figure class='full-progress-bar'>
+					<span class='progress-percentage'>" . $goal->percentage($current, $this->breakpoints[2]) . "</span>
+					<span>0%</span>
+					<span>100%</span>
+					<figure class='progress'>
+						<div class='current'></div>
+					</figure>
+				</figure>";
+			} else {
+				echo "<figure class='full-progress-bar'>
+					<figure class='progress'>
+						<div class='current'></div>
+					</figure>
+				</figure>";
 			}
 		}
 		
