@@ -43,11 +43,11 @@ article#schoondorp {
 		width: 100%;
 	}
 
-.element.trash {
+.element.waste {
 	top: 363px;
 	left: 309px;
 }
-	.element.trash > img {
+	.element.waste > img {
 		width: 168px;
 	}
 
@@ -70,9 +70,12 @@ article#schoondorp {
 	.info.window header > div {
 		float: right;
 	}
-	.info.window header .level-1 span:nth-child(1) { color: #dd6920; font-size: 1.3em; }
-	.info.window header .level-2 span:nth-child(2) { color: #dd6920; font-size: 1.3em; }
-	.info.window header .level-3 span:nth-child(3) { color: #dd6920; font-size: 1.3em; }
+	.level-1 span:nth-child(1),
+	.level-2 span:nth-child(2),
+	.level-3 span:nth-child(3) {
+		color: #dd6920;
+		font-size: 1.3em;
+	}
 	.info.window.small {
 		margin-top: -27%;
 	}
@@ -150,8 +153,10 @@ article#schoondorp {
 	padding: 25px 0;
 	border-top: 1px solid #8b8b8b;
 	border-bottom: 1px solid #8b8b8b;
-	overflow: auto;
+	overflow: visible;
+	float: left;
 	margin: 25px 0;
+	width: 100%;
 }
 
 /* Overview Elements */

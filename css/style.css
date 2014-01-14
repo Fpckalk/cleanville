@@ -454,9 +454,11 @@ article[data-route="edit"] button.grey {
 
 /*=== MISC ===*/
 /* Dashboard Menu */
+article.dashboard { text-align: center; }
 article.dashboard .window {
 	max-width: 95%;
 	padding: 15px;
+	display: inline-block;
 }
 article.dashboard .window nav li {
 	display: block;
@@ -468,6 +470,9 @@ article.dashboard .window nav li {
 	}
 	article.dashboard .window nav li:nth-child(4) {
 		margin-bottom: 15px;
+	}
+	article.dashboard .window nav li:nth-child(5) {
+		clear: both;
 	}
 	article.dashboard .window nav li img {
 		display: block;
@@ -664,6 +669,36 @@ figure.progress .current {
 	color: #e26b19;
 }
 
+#sensors .change-temp {
+	display: inline-block;
+	float: left;
+	margin-top: 20px;
+}
+#sensors .change-temp > span {
+	line-height: 26px;
+	float: left;
+}
+#sensors .change-temp > span:first-child {
+	margin-right: 15px;
+	color: #e26b19;
+}
+#sensors .change-temp button {
+	width: 26px;
+	height: 26px;
+	border-radius: 13px;
+	padding: 0;
+	border: 0;
+	box-shadow: none;
+	display: block;
+	font-size: 1.4em;
+	float: left;
+	margin: 0 5px;
+}
+#sensors .change-temp button span {
+	margin: -3px 0 0 -1px;
+	display: block;
+}
+
 /* Here we go... */
 .sensor {
 	float: right;
@@ -682,6 +717,7 @@ figure.progress .current {
 	position: absolute;
 	font-size: .8em;
 	top: -1px;
+	box-shadow: inset 0 2px 1px -1px rgba(255,255,255,.4);
 }
 .sensor::after {
 	content: "on";
@@ -689,6 +725,7 @@ figure.progress .current {
 	left: 11px;
 	background-color: #f7941d;
 	border: 1px solid #c66d19;
+	text-shadow: 0 1px 1px #555555;
 }
 .sensor.off::after {
 	content: "off";

@@ -112,14 +112,16 @@
 	{
 		function values($el)
 		{
+
 			$values = array(
 				'energy' => 110,
 				'water' => 67,
 				'food' => 140,
-				'trash' => 20
+				'waste' => 20
 				);
 
-			return $values[$el];
+			return (array_key_exists($el, $values)) ? $values[$el] : false;
+			
 		}
 	}
 
@@ -161,11 +163,11 @@
 		}
 
 		// The big one. This delivers a full fledged goal progress
-		function goal_progress($type, $current, $goal)
+		function goal_progress($el, $current, $goal)
 		{
-			if($this->final_goal($type)) {
+			if($this->final_goal($el)) {
 
-				$typegoal = $this->final_goal($type);
+				$typegoal = $this->final_goal($el);
 
 				if ($current >= $typegoal['milestone']) {
 					echo "<h1>Your goal: <span>Save &euro;" . $typegoal['milestone'] . "</span></h1>";
@@ -175,7 +177,7 @@
 				} else {
 					echo "<h1>Your goal: <span>Save &euro;" . $typegoal['milestone'] . "</span></h1>";
 					echo "<i class='fa fa-edit edit-goal fa-2x'></i>";
-					echo "<figure class='full-progress-bar'>
+					echo "<figure class='full-progress-bar $el'>
 							<span class='progress-percentage'> " . $this->percentage($current, $typegoal['milestone']) . "</span>
 							<span>0%</span>
 							<span>100%</span>
@@ -187,7 +189,7 @@
 			} else {
 				echo "<h1>Your goal: <span>You haven't set a goal yet</span></h1>";
 				echo "<button class='edit-goal'>Set new goal</button>";
-				echo "<figure class='full-progress-bar'>
+				echo "<figure class='full-progress-bar $el'>
 						<span>0%</span>
 						<span>100%</span>
 						<figure class='progress'></figure>
@@ -196,21 +198,21 @@
 		}
 
 		// The minified goal progress. For small use cases
-		function min_goal_progress($type, $current, $goal)
+		function min_goal_progress($el, $current, $goal)
 		{
-			if($this->final_goal($type)) {
+			if($this->final_goal($el)) {
 
-				$typegoal = $this->final_goal($type);
+				$typegoal = $this->final_goal($el);
 
 				if ($current <= $typegoal['milestone']) {
-					echo "<figure class='full-progress-bar'>
+					echo "<figure class='full-progress-bar $el'>
 						<span class='progress-percentage'>" . $this->percentage($current, $typegoal['milestone']) . "</span>
 						<span>0%</span>
 						<span>100%</span>
 						<figure class='progress'>
 							<div class='current'></div>
 						</figure>
-						<span>Save " . $typegoal['milestone'] . "euros</span>
+						<span>Save " . $typegoal['milestone'] . " euros</span>
 					</figure>";
 				}
 
@@ -313,7 +315,7 @@
 			$current = $data->values($el);
 
 			if(!$min) {
-				echo "<figure class='full-progress-bar'>
+				echo "<figure class='full-progress-bar $el'>
 					<span class='progress-percentage'>" . $goal->percentage($current, $this->breakpoints[2]) . "</span>
 					<span>0%</span>
 					<span>100%</span>
@@ -322,7 +324,7 @@
 					</figure>
 				</figure>";
 			} else {
-				echo "<figure class='full-progress-bar'>
+				echo "<figure class='full-progress-bar $el'>
 					<figure class='progress'>
 						<div class='current'></div>
 					</figure>

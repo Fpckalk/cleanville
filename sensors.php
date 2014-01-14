@@ -125,6 +125,15 @@
 							</tr>
 						</tbody>
 					</table>
+
+					<!-- Change temperature -->
+					<div class="change-temp">
+						<span>Temperature</span>
+						<!-- The text inside the minus button is a tad odd, need the span there -->
+						<button type="button" class="tempdown"><span>-</span></button>
+						<span class="temperature">18</span><span>&deg;C</span>
+						<button type="button" class="tempup">+</button>
+					</div>
 				</section>
 
 				<button>Check your sensors</button>

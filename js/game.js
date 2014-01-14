@@ -11,9 +11,8 @@ var GAME = GAME || {};
 	GAME.controller = {
 
 		init: function() {
-			// Not needed anymore. Sprites are loaded with PHP
-			// GAME.sprite.init();
 			this.enable();
+			GAME.village.localVillage();
 		},
 
 		enable: function() {
@@ -65,13 +64,6 @@ var GAME = GAME || {};
 
 	GAME.sprite = {
 
-		init: function() {
-			this.houseLevel();
-			this.riverLevel();
-			this.foodLevel();
-			this.trashLevel();
-		},
-
 		showInfo: function(e) {
 			var self = ($(e.target).hasClass('circle')) ? e.target : $(e.target).parent('.circle'),
 				info = $(self).next('.info');
@@ -106,38 +98,6 @@ var GAME = GAME || {};
 					$('.' + item + ' img').attr('src', './img/game/' + item + '-' + level + '.png');
 				}
 			})
-		},
-
-		houseLevel: function() {
-			var levels = [0, 100, 200],
-				current = 136,
-				item = 'energy';
-
-			this.checkLevel(levels, current, item);
-		},
-
-		riverLevel: function() {
-			var levels = [0, 100, 200],
-				current = 60,
-				item = 'river';
-
-			this.checkLevel(levels, current, item);
-		},
-
-		foodLevel: function() {
-			var levels = [0, 100, 200],
-				current = 240,
-				item = 'food';
-
-			this.checkLevel(levels, current, item);
-		},
-
-		trashLevel: function() {
-			var levels = [0, 100, 200],
-				current = 20,
-				item = 'trash';
-
-			this.checkLevel(levels, current, item);
 		}
 
 	};
@@ -165,17 +125,40 @@ var GAME = GAME || {};
 			$('#game #local').hide();
 			$('#game #overview').show();
 			GAME.sprite.hideInfo();
+			GAME.progress.getProgress('water');
+			GAME.progress.getProgress('energy');
+			GAME.progress.getProgress('food');
+			GAME.progress.getProgress('waste');
 		},
 
 		localVillage: function(e) {
-			e.preventDefault();
+			if(e) { e.preventDefault() };
 			$('#game #local').show();
 			$('#game #overview').hide();
 			GAME.sprite.hideInfo();
+			GAME.progress.getProgress('water');
+			GAME.progress.getProgress('energy');
+			GAME.progress.getProgress('food');
+			GAME.progress.getProgress('waste');
 		},
 
 		help: function() {
 			$('.game #local > span').addClass('in');
+		}
+
+	};
+
+	GAME.progress = {
+
+		getProgress: function(type) {
+			var progression = eval('progress_' + type);
+
+			var currentWidth = (progression / 300) * 100;
+			$('.full-progress-bar.' + type + ' figure.progress .current').css('width', currentWidth + "%");
+			$('.full-progress-bar.' + type + ' .progress-percentage').css({
+				left: currentWidth + "%",
+				"margin-left": "-" + $('.full-progress-bar.' + type + ' .progress-percentage').width() + "px"
+			});
 		}
 
 	};

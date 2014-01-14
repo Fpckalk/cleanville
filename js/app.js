@@ -1,7 +1,3 @@
-// Not using Backbone yet.
-// Will convert it later on if needed.
-
-
 var APP = APP || {};
 
 'use strict';
@@ -29,6 +25,8 @@ var APP = APP || {};
 			$('#goalform .goal').on('change', function() { APP.layout.showGoal(event) });
 			$('.window.w1 button').on('click', function() { APP.layout.showTips(event) });
 			$('.window.w1 li p').on('click', function() { APP.layout.fullTip(event) });
+			$('.change-temp .tempup').on('click', function() { APP.layout.tempUp(event); });
+			$('.change-temp .tempdown').on('click', function() { APP.layout.tempDown(event); });
 		}
 
 	};
@@ -49,6 +47,18 @@ var APP = APP || {};
 			// document.ontouchmove = function(e) {return false};
 			// $('article').ontouch = function(e) {e.stopPropagation()};
 			$('.sidebar .content').ontouchmove = function(e) {e.stopPropagation()};
+		},
+
+		tempUp: function(e) {
+			var curTemp = parseInt($('span.temperature').text());
+			if(curTemp < 26) { curTemp++; }
+			$('span.temperature').text(curTemp);
+		},
+
+		tempDown: function(e) {
+			var curTemp = parseInt($('span.temperature').text());
+			if(curTemp > 12) { curTemp--; }
+			$('span.temperature').text(curTemp);
 		},
 
 		showTips: function(e) {
@@ -132,14 +142,14 @@ var APP = APP || {};
 		getCurrent: function(type) {
 			var goal = eval(type);
 			var currentWidth = (current / goal) * 100;
-			$('figure.progress .current').css('width', currentWidth + "%");
-			$('.progress-percentage').css({
+			$('.full-progress-bar figure.progress .current').css('width', currentWidth + "%");
+			$('.full-progress-bar .progress-percentage').css({
 				left: currentWidth + "%",
-				"margin-left": "-" + $('.progress-percentage').width() + "px"
+				"margin-left": "-" + $('.full-progress-bar .progress-percentage').width() + "px"
 			});
 		}
 
-	}
+	};
 
 	APP.mail = {
 
@@ -176,7 +186,7 @@ var APP = APP || {};
 			return false;
 		}
 
-	}
+	};
 
 	APP.dataviz = {
 
@@ -267,7 +277,7 @@ var APP = APP || {};
 
 		}
 
-	}
+	};
 
 
 	APP.router = {
@@ -486,7 +496,7 @@ var APP = APP || {};
     		APP.router.change();
     	}
 
-    }
+    };
 
     $(document).ready(function() {
     	APP.controller.init();

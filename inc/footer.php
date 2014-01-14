@@ -5,10 +5,10 @@
 	<script src="lib/routie.min.js"></script>
 
 	<!-- Main application -->
+	<script src="js/app.js"></script>
 	<?php if($current_page == 'schoondorp.php') { ?>
 		<script src="js/game.js"></script>
 	<?php } ?>
-	<script src="js/app.js"></script>
 
 </body>
 </html>

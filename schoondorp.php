@@ -6,10 +6,14 @@
 
 	$elements = array('summary', 'water', 'energy', 'food', 'waste');
 	$goals = array();
+	$progress = array();
 
 	foreach ($elements as $element) {
 		$final_goal = $goal->final_goal($element);
+		$progression = $data->values($element);
+
 		array_push($goals, $final_goal);
+		array_push($progress, $progression);
 	}
 
 ?>
@@ -20,6 +24,11 @@
 		energy = "<?php echo $goals[2]['milestone'] ?>",
 		food = "<?php echo $goals[3]['milestone'] ?>",
 		waste = "<?php echo $goals[4]['milestone'] ?>";
+
+	var progress_water = "<?php echo $progress[1] ?>",
+		progress_energy = "<?php echo $progress[2] ?>",
+		progress_food = "<?php echo $progress[3] ?>",
+		progress_waste = "<?php echo $progress[4] ?>";
 </script>
 
 	<article id="schoondorp">
@@ -47,7 +56,7 @@
 					</li>
 					<li class="waste">
 						<img src="img/game/icons/waste.png" alt="">
-						<span><?php echo $data->values('trash'); ?></span><span>kg</span>
+						<span><?php echo $data->values('waste'); ?></span><span>kg</span>
 					</li>
 				</ul>
 
@@ -238,8 +247,8 @@ Reached 100%? You’ll get a reward!</p>
 				</div>
 
 
-				<div class="element trash">
-					<img src="img/game/trash-<?php echo $game->get_level('trash'); ?>.png" alt="">
+				<div class="element waste">
+					<img src="img/game/waste-<?php echo $game->get_level('waste'); ?>.png" alt="">
 					<div class="circle">
 						<div></div>
 					</div>
@@ -247,7 +256,7 @@ Reached 100%? You’ll get a reward!</p>
 					<div class="info window small">
 						<header>
 							<h1>Waste</h1>
-							<div class="level level-<?php echo $game->get_level('trash'); ?>">
+							<div class="level level-<?php echo $game->get_level('waste'); ?>">
 								Level
 								<span>1</span>
 								<span>2</span>
@@ -258,7 +267,7 @@ Reached 100%? You’ll get a reward!</p>
 							<div class="numbers">
 							<figure>
 								<span>Total</span>
-								<span><?php echo $data->values('trash'); ?></span>
+								<span><?php echo $data->values('waste'); ?></span>
 							</figure>
 							<figure>
 								<span>In</span>
@@ -277,12 +286,12 @@ Reached 100%? You’ll get a reward!</p>
 						<div class="level">
 							<div>
 								<h2>Your waste progress</h2>
-								<?php echo $game->get_progress('trash', false) ?>
+								<?php echo $game->get_progress('waste', false) ?>
 							</div>
 							<div class="reward">
 								<h2>Your reward</h2>
-								<span>Level <?php echo $game->get_next_level('trash'); ?></span>
-								<img src="img/game/lvl-icons/trash-<?php echo $game->get_next_level('trash'); ?>.jpg" alt="">
+								<span>Level <?php echo $game->get_next_level('waste'); ?></span>
+								<img src="img/game/lvl-icons/waste-<?php echo $game->get_next_level('waste'); ?>.jpg" alt="">
 							</div>
 						</div>
 						<div class="how">
@@ -352,8 +361,8 @@ Reached 100%? You’ll get a reward!</p>
 										</div>
 										
 										<img src="img/game/icons/waste.png" alt="">
-										<?php echo $game->get_progress('trash', true); ?>
-										<div class="level level-<?php echo $game->get_level('trash'); ?>">
+										<?php echo $game->get_progress('waste', true); ?>
+										<div class="level level-<?php echo $game->get_level('waste'); ?>">
 											<span>1</span>
 											<span>2</span>
 											<span>3</span>
